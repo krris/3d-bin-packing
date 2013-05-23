@@ -41,22 +41,23 @@ int test_main(int argc, char* argv[])
     cuboids.push_back(cuboid_2);      
     cuboids.push_back(cuboid_3);      
 
-    string filename(boost::archive::tmpdir());
-    filename += "/visualization/cuboids.xml";
+   // string filename(boost::archive::tmpdir());
+    string filename = "/home/krris/workspace/3dBinPacking/visualization/cuboids.xml";
     saveXml(cuboids, filename.c_str());
 
 
     // Test Node
-    Node node;
-    BOOST_CHECK (node.isLeaf() == true);
+    PNode node(new Node);
+  //  BOOST_CHECK (node.isLeaf() == true);
 
-    node.rc = Rectangle(0,0,200,200);
-    node.insert(cuboid_1);
+    node->rc = Rectangle(0,0,200,200);
+    node->insert(cuboid_1);
+
 
 
     
     
     
-
+    cout << "works!"<<endl;
     return 0;
 }

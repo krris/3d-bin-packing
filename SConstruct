@@ -8,8 +8,8 @@ env.Append( ENV = {'PATH' : os.environ['PATH'] })
 if(platform.system() == "Linux"):
    
 
-   env.Append( CPPFLAGS = '-Wall -pedantic -pthread -O3 -std=c++0x -g' )
-   env.Append( LINKFLAGS = '-Wall -pthread' )
+   env.Append( CPPFLAGS = '-Wall -pedantic -std=c++0x -g' )
+   env.Append( LINKFLAGS = '-Wall' )
    env.Append( LIBS = ['boost_serialization'] )
 
 elif(platform.system() == "Windows"):

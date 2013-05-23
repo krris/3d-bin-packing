@@ -1,7 +1,6 @@
 #ifndef SHELF_ALGORITHM_HPP
 #define SHELF_ALGORITHM_HPP
 
-#include <boost/smart_ptr.hpp>
 #include "forward_declarations.hpp"
 #include "cuboid.hpp"
 
@@ -20,7 +19,7 @@ struct Rectangle{
     int depth;
 };
 
-struct Node{
+struct Node : public std::enable_shared_from_this<Node>{
     Node();
     PNode insert(const Cuboid& cuboid);
     bool isLeaf();

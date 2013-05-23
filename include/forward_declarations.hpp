@@ -1,12 +1,12 @@
 #ifndef FORWARD_DECLARATIONS_HPP
 #define FORWARD_DECLARATIONS_HPP
 
-#include <boost/smart_ptr.hpp>
+#include <memory>
 
 struct Node;
 class Cuboid;
 
-typedef boost::shared_ptr<Node> PNode;
-typedef boost::shared_ptr<Cuboid> PCuboid;
+typedef std::shared_ptr<Node> PNode;
+typedef std::shared_ptr<Cuboid> PCuboid;
 
 #endif

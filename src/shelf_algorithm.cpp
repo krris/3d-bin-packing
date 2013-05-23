@@ -42,11 +42,11 @@ PNode Node::insert(const Cuboid& cuboid_to_insert)
 
         // if we're just right, accept
         if (this->fits(cuboid_to_insert) == true)
-            return PNode(this);
+            return shared_from_this();
 
         // otherwise, split this node and create some kids
-        this->leftChild = boost::make_shared<Node>();
-        this->rightChild = boost::make_shared<Node>();
+        this->leftChild = std::make_shared<Node>();
+        this->rightChild = std::make_shared<Node>();
 
 
         // decide which way to split
