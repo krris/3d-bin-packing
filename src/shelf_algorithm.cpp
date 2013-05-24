@@ -45,7 +45,8 @@ Cuboid ShelfAlgorithm::insert(int width, int height, int depth, ShelfChoiceHeuri
 			{
 				int width_ = get<1>(fits);
 				int depth_ = get<2>(fits);
-				addToShelf(shelves[i], width_, height, depth_, newNode);
+				int height_ = get<3>(fits);
+				addToShelf(shelves[i], width_, height_, depth_, newNode);
 				return newNode;
 			}
 		}
@@ -71,7 +72,7 @@ Cuboid ShelfAlgorithm::insert(int width, int height, int depth, ShelfChoiceHeuri
 	return newNode;
 }
 
-tuple<bool, int, int> ShelfAlgorithm::fitsOnShelf(const Shelf& shelf, int width, int height, int depth,
+tuple<bool, int, int, int> ShelfAlgorithm::fitsOnShelf(const Shelf& shelf, int width, int height, int depth,
 		bool canResize) const
 {
 	//const int shelfHeight = canResize ? (binHeight - shelf.startY) : shelf.height;
@@ -88,19 +89,19 @@ tuple<bool, int, int> ShelfAlgorithm::fitsOnShelf(const Shelf& shelf, int width,
 	// Set cuboid's longest egde vertically
 	fits = shelf.guillotine.fits(middle, min, Guillotine2d::RectBestAreaFit);
 	if (fits)
-		return make_tuple(true, middle, min);
+		return make_tuple(true, middle, min, max);
 
 	// Set cuboid's second longest egde vertically
 	fits = shelf.guillotine.fits(min, max, Guillotine2d::RectBestAreaFit);
 	if (fits)
-		return make_tuple(true, min, max);
+		return make_tuple(true, min, max, middle);
 
 	// Set cuboid's smallest egde vertically
 	fits = shelf.guillotine.fits(middle, max, Guillotine2d::RectBestAreaFit);
 	if (fits)
-		return make_tuple(true, middle, max);
+		return make_tuple(true, middle, max, min);
 
-	return make_tuple(false, 0, 0);
+	return make_tuple(false, 0, 0, 0);
 }
 
 /*void ShelfAlgorithm::rotateToShelf(const Shelf& shelf, int width,

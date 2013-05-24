@@ -45,7 +45,7 @@ private:
 	 * @param canResize If true, shelf height may be increased to fit the object
 	 * @return true and 2 edges if fits, flase otherwise
 	 */
-	std::tuple<bool, int, int> fitsOnShelf(const Shelf& shelf, int width, int height, int depth, bool canResize) const;
+	std::tuple<bool, int, int, int> fitsOnShelf(const Shelf& shelf, int width, int height, int depth, bool canResize) const;
 
 	//void rotateToShelf(const Shelf& shelf, int width, int height) const;
 

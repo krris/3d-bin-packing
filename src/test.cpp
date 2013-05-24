@@ -37,6 +37,7 @@ int main(int argc, char* argv[])
     Cuboid cuboid_4(30, 30, 30);
     Cuboid cuboid_5(30, 30, 30);
     Cuboid cuboid_6(10, 10, 10);
+    Cuboid cuboid_7(100, 50, 50);
 
     vector<Cuboid> cuboids;
     cuboids.push_back(cuboid_1);
@@ -44,7 +45,8 @@ int main(int argc, char* argv[])
     cuboids.push_back(cuboid_3);
     cuboids.push_back(cuboid_4);
     cuboids.push_back(cuboid_5);
-//    cuboids.push_back(cuboid_6);
+    cuboids.push_back(cuboid_6);
+    cuboids.push_back(cuboid_7);
 
 
 //    Guillotine2d guillotine(200, 200);
@@ -75,9 +77,12 @@ int main(int argc, char* argv[])
     	Cuboid place = shelfAlg.insert(c.width, c.height, c.depth, ShelfAlgorithm::ShelfFirstFit);
     	if (place.isPlaced == true)
     	{
-    	    c.x = place.x + (0.5 * c.width);
-    	    c.z = place.z + (0.5 * c.depth);
-    	    c.y = place.y + 0.5 * c.height;
+    	    c.x = place.x + (0.5 * place.width);
+    	    c.z = place.z + (0.5 * place.depth);
+    	    c.y = place.y + 0.5 * place.height;
+    	    c.width = place.width;
+    	    c.height = place.height;
+    	    c.depth = place.depth;
     		foundPlaces.push_back(c);
         	cout << "Width: " << place.width << endl;
         	cout << "Height: " << place.height<< endl;
