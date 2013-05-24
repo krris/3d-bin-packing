@@ -42,7 +42,9 @@ PNode Node::insert(const Cuboid& cuboid_to_insert)
 
         // if we're just right, accept
         if (this->fits(cuboid_to_insert) == true)
+        {
             return shared_from_this();
+        }
 
         // otherwise, split this node and create some kids
         this->leftChild = std::make_shared<Node>();
@@ -86,7 +88,11 @@ PNode Node::insert(const Cuboid& cuboid_to_insert)
 bool Node::fits(const Cuboid& cuboid)
 {
     // check if fits in rectangle
-    return true;
+	if (rc.width >= cuboid.width)
+		return true;
+	if (rc.depth >= cuboid.depth)
+		return true;
+    return false;
 }
 
 
