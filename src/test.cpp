@@ -32,73 +32,45 @@ int main(int argc, char* argv[])
 
     // Test serialization
     Cuboid cuboid_1(100, 100, 100);
-    Cuboid cuboid_2(50, 50, 50);
-    Cuboid cuboid_3(30, 30, 30);
-
-    Guillotine2d guillotine(200, 200);
-    Rect cub1_rect = guillotine.insert(cuboid_1.width, cuboid_1.height, Guillotine2d::RectBestAreaFit, Guillotine2d::SplitLongerLeftoverAxis);
-    Rect cub2_rect = guillotine.insert(cuboid_2.width, cuboid_2.height, Guillotine2d::RectBestAreaFit, Guillotine2d::SplitLongerLeftoverAxis);
-    Rect cub3_rect = guillotine.insert(cuboid_3.width, cuboid_3.height, Guillotine2d::RectBestAreaFit, Guillotine2d::SplitLongerLeftoverAxis);
-
-    for (Rect rect : guillotine.GetUsedRectangles())
-    {
-    	cout << "Used rectangle:" << endl;
-    	cout << "Width: " << rect.width << endl;
-    	cout << "Height: " << rect.height << endl;
-    	cout << "x: " << rect.x << endl;
-    	cout << "y: " << rect.y << endl;
-    	cout << "-------------------------------------" << endl;
-    }
-
-    cuboid_1.x = cub1_rect.x + (0.5 * cub1_rect.width);
-    cuboid_1.z = cub1_rect.y + (0.5 * cub1_rect.height);
-    cuboid_1.y += 0.5 * cuboid_1.height;
-
-    cuboid_2.x = cub2_rect.x + (0.5 * cub2_rect.width);
-    cuboid_2.z = cub2_rect.y + (0.5 * cub2_rect.height);
-    cuboid_2.y += 0.5 * cuboid_2.height;
-
-    cuboid_3.x = cub3_rect.x + (0.5 * cub3_rect.width);
-    cuboid_3.z = cub3_rect.y + (0.5 * cub3_rect.height);
-    cuboid_3.y += 0.5 * cuboid_3.height;
+    Cuboid cuboid_2(50, 50, 500);
+    Cuboid cuboid_3(50, 50, 40);
+    Cuboid cuboid_4(30, 30, 30);
+    Cuboid cuboid_5(30, 30, 30);
+    Cuboid cuboid_6(10, 10, 10);
 
     vector<Cuboid> cuboids;
     cuboids.push_back(cuboid_1);
     cuboids.push_back(cuboid_2);
     cuboids.push_back(cuboid_3);
+    cuboids.push_back(cuboid_4);
+    cuboids.push_back(cuboid_5);
+    cuboids.push_back(cuboid_6);
 
-       // string filename(boost::archive::tmpdir());
+
+    Guillotine2d guillotine(200, 200);
+    vector<Cuboid> foundPlaces;
+    for (Cuboid c : cuboids)
+    {
+    	Rect place = guillotine.insert(c.width, c.depth, Guillotine2d::RectBestAreaFit, Guillotine2d::SplitLongerLeftoverAxis);
+    	if (place.isPlaced == true)
+    	{
+    	    c.x = place.x + (0.5 * place.width);
+    	    c.z = place.y + (0.5 * place.height);
+    	    c.y += 0.5 * c.height;
+    		foundPlaces.push_back(c);
+    	}
+    	else
+    	{
+    		cout << "Place not found!:" << endl;
+        	cout << "Width: " << c.width << endl;
+        	cout << "Height: " << c.depth<< endl;
+
+    	}
+    }
+    // string filename(boost::archive::tmpdir());
     string filename = "/home/krris/workspace/3dBinPacking/visualization/cuboids.xml";
-    saveXml(cuboids, filename.c_str());
+    saveXml(foundPlaces, filename.c_str());
 
- /*   vector<Cuboid> cuboids;
-//    cuboids.push_back(cuboid_1);
-//    cuboids.push_back(cuboid_2);
-//    cuboids.push_back(cuboid_3);
-
-   // string filename(boost::archive::tmpdir());
-//    string filename = "/home/krris/workspace/3dBinPacking/visualization/cuboids.xml";
-//    saveXml(cuboids, filename.c_str());
-
-
-    // Test Node
-    PNode node(new Node);
-  //  BOOST_CHECK (node.isLeaf() == true);
-
-    node->rc = Rectangle(0,0,200,200);
-    node->insert(cuboid_1);
-    node->insert(cuboid_2);
-    node->insert(cuboid_3);
-
-    node->cuboid->x = node->rc.left + 0.5 * node->cuboid->width;
-    node->cuboid->y = node->rc.top + 0.5 * node->cuboid->depth;
-    
-    cuboids.push_back(*(node->cuboid));
-
-    string filename = "/home/krris/workspace/3dBinPacking/visualization/cuboids.xml";
-    saveXml(cuboids, filename.c_str());
-    
-    */
 
     
     cout << "works!"<<endl;

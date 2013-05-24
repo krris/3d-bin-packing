@@ -44,8 +44,10 @@ Rect Guillotine2d::insert(int width, int height,
 	Rect newRect = findPositionForNewNode(width, height, rectChoice, &freeNodeIndex);
 
 	// Abort if we didn't have enough space in the bin
-	if (newRect.height == 0)
+	if (newRect.isPlaced == false)
 		return newRect;
+	//if (newRect.height == 0)
+	//	return newRect;
 
 	// Remove the space that was just consumed by the new rectangle.
 	splitFreeRectByHeuristic(freeRectangles[freeNodeIndex], newRect, splitMethod);
@@ -76,6 +78,7 @@ Rect Guillotine2d::findPositionForNewNode(int width, int height,
 		// If this is a perfect fit upright, choose it immediately.
 		if (width == freeRectangles[i].width && height == freeRectangles[i].height)
 		{
+			bestNode.isPlaced = true;
 			bestNode.x = freeRectangles[i].x;
 			bestNode.y = freeRectangles[i].y;
 			bestNode.width = width;
@@ -87,6 +90,7 @@ Rect Guillotine2d::findPositionForNewNode(int width, int height,
 		// If this is a perfect fit sideways, choose it.
 		else if (height == freeRectangles[i].width && width == freeRectangles[i].height)
 		{
+			bestNode.isPlaced = true;
 			bestNode.x = freeRectangles[i].x;
 			bestNode.y = freeRectangles[i].y;
 			bestNode.width = height;
@@ -102,6 +106,7 @@ Rect Guillotine2d::findPositionForNewNode(int width, int height,
 
 			if (score < bestScore)
 			{
+				bestNode.isPlaced = true;
 				bestNode.x = freeRectangles[i].x;
 				bestNode.y = freeRectangles[i].y;
 				bestNode.width = width;
@@ -117,6 +122,7 @@ Rect Guillotine2d::findPositionForNewNode(int width, int height,
 
 			if (score < bestScore)
 			{
+				bestNode.isPlaced = true;
 				bestNode.x = freeRectangles[i].x;
 				bestNode.y = freeRectangles[i].y;
 				bestNode.width = height;
