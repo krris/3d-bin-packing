@@ -13,6 +13,7 @@ struct Rect{
 	int height;
 	int x;
 	int y;
+	bool isPlaced = false;
 };
 
 struct RectSize{

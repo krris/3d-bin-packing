@@ -19,10 +19,10 @@ class Guillotine2d {
 public:
 	/* Set the initial bin size to (0, 0).
 	 * Calls init() to set a proper bin size. */
-	Guillotine2d();
+	Guillotine2d() : binWidth(0), binHeight(0) {}
 
 	/* Initialize a new bin */
-	Guillotine2d(int widht, int height);
+	Guillotine2d(int width, int height);
 
 	/* Initialize an empty bin. */
 	void init(int width, int height);
@@ -32,10 +32,6 @@ public:
 		{
 			RectBestAreaFit, // BAF
 			RectBestShortSideFit, // BSSF
-			RectBestLongSideFit, // BLSF
-			RectWorstAreaFit, // WAF
-			RectWorstShortSideFit, // WSSF
-			RectWorstLongSideFit // WLSF
 		};
 
 	enum GuillotineSplitHeuristic
@@ -85,12 +81,12 @@ private:
 	/* Splits the given L-shaped free rectangle into two new free rectangles
 	 * after placedRect has been placed into it. Determines the split axis by
 	 * using the given heuristic. */
-	void SplitFreeRectByHeuristic(const Rect &freeRect, const Rect &placedRect,
+	void splitFreeRectByHeuristic(const Rect &freeRect, const Rect &placedRect,
 								  GuillotineSplitHeuristic method);
 
 	/* Splits the given L-shaped free rectangle into two new free rectangles
 	 * along the given fixed split axis. */
-	void SplitFreeRectAlongAxis(const Rect &freeRect, const Rect &placedRect,
+	void splitFreeRectAlongAxis(const Rect &freeRect, const Rect &placedRect,
 								bool splitHorizontal);
 };
 

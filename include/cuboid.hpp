@@ -8,7 +8,7 @@
 #include "forward_declarations.hpp"
 #include "vertex.hpp"
 
-class Cuboid{
+class Cuboid {
 public:
     Cuboid(int w, int h, int d) :
         width(w), height(h), depth(d) {}
