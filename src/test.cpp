@@ -32,18 +32,18 @@ int main(int argc, char* argv[])
 
     // Test serialization
     Cuboid cuboid_1(100, 100, 100);
-    Cuboid cuboid_2(50, 50, 50);
+    Cuboid cuboid_2(100, 50, 50);
     Cuboid cuboid_3(50, 50, 50);
     Cuboid cuboid_4(30, 30, 30);
-//    Cuboid cuboid_5(30, 30, 30);
-//    Cuboid cuboid_6(10, 10, 10);
+    Cuboid cuboid_5(30, 30, 30);
+    Cuboid cuboid_6(10, 10, 10);
 
     vector<Cuboid> cuboids;
     cuboids.push_back(cuboid_1);
     cuboids.push_back(cuboid_2);
     cuboids.push_back(cuboid_3);
     cuboids.push_back(cuboid_4);
-//    cuboids.push_back(cuboid_5);
+    cuboids.push_back(cuboid_5);
 //    cuboids.push_back(cuboid_6);
 
 

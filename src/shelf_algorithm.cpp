@@ -154,7 +154,7 @@ void ShelfAlgorithm::startNewShelf(int startingHeight)
 	if (shelves.size() > 0)
 	{
 		assert(shelves.back().height != 0);
-		currentY =+ shelves.back().height;
+		currentY += shelves.back().height;
 		assert(currentY < binHeight);
 	}
 
