@@ -4,30 +4,27 @@
 #include "forward_declarations.hpp"
 #include "Rect.hpp"
 #include "cuboid.hpp"
+#include "Guillotine2d.hpp"
 
 
 class ShelfAlgorithm{
 public:
-	ShelfAlgorithm() : binWidth(0), binHeight(0), currentY(0), usedSurfaceArea(0) {}
-	ShelfAlgorithm(int width, int height);
+	ShelfAlgorithm() : binWidth(0), binHeight(0), binDepth(0), currentY(0), usedSurfaceArea(0) {}
+	ShelfAlgorithm(int width, int height, int depth);
 
-	void init(int width, int height);
+	void init(int width, int height, int depth);
 	enum ShelfChoiceHeuristic
 	{
-		ShelfNextFit, ///< -NF: We always put the new rectangle to the last open shelf.
-		ShelfFirstFit, ///< -FF: We test each rectangle against each shelf in turn and pack it to the first where it fits.
-		ShelfBestAreaFit, ///< -BAF: Choose the shelf with smallest remaining shelf area.
-		ShelfWorstAreaFit, ///< -WAF: Choose the shelf with the largest remaining shelf area.
-		ShelfBestHeightFit, ///< -BHF: Choose the smallest shelf (height-wise) where the rectangle fits.
-		ShelfBestWidthFit, ///< -BWF: Choose the shelf that has the least remaining horizontal shelf space available after packing.
-		ShelfWorstWidthFit,
+		ShelfNextFit, //NF: We always put the new rectangle to the last open shelf.
+		ShelfFirstFit, //FF: We test each rectangle against each shelf in turn and pack it to the first where it fits.
 	};
 
-	Rect insert(int width, int heigh, ShelfChoiceHeuristic method);
+	Cuboid insert(int width, int heigh, int depth, ShelfChoiceHeuristic method);
 
 private:
 	int binWidth;
 	int binHeight;
+	int binDepth;
 
 	/* Stores the starting y-coordinate of the latest(topmost) shelf. */
 	int currentY;
@@ -37,22 +34,22 @@ private:
 
 	struct Shelf
 	{
-		int currentX;
 		int startY;
 		int height;
-		std::vector<Rect> usedRectangles;
+		Guillotine2d guillotine;
 	};
 
 	std::vector<Shelf> shelves;
 
 	/**
 	 * @param canResize If true, shelf height may be increased to fit the object
+	 * @return true and 2 edges if fits, flase otherwise
 	 */
-	bool fitsOnShelf(const Shelf& shelf, int width, int height, bool canResize) const;
+	std::tuple<bool, int, int> fitsOnShelf(const Shelf& shelf, int width, int height, int depth, bool canResize) const;
 
-	void rotateToShelf(const Shelf& shelf, int width, int height) const;
+	//void rotateToShelf(const Shelf& shelf, int width, int height) const;
 
-	void addToShelf(Shelf& shelf, int width, int height, Rect& newNode);
+	void addToShelf(Shelf& shelf, int width, int height, int depth, Cuboid& newNode);
 
 	bool canStartNewShelf(int height) const;
 

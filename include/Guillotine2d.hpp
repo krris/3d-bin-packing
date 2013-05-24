@@ -50,6 +50,9 @@ public:
 	void insert(std::vector<RectSize> &rects, FreeRectChoiceHeuristic rectChoice,
 				GuillotineSplitHeuristic splitMethod);
 
+	bool fits(int width, int heigh, FreeRectChoiceHeuristic rectChoice) const;
+
+
 	std::vector<Rect>& GetFreeRectangles() { return freeRectangles; }
 
 	std::vector<Rect>& GetUsedRectangles() { return usedRectangles; }
@@ -70,7 +73,9 @@ private:
 	 */
 	Rect findPositionForNewNode(int width, int height,
 								FreeRectChoiceHeuristic rectChoice,
-								int *nodeIndex);
+								int *nodeIndex) const;
+
+
 
 	static int scoreByHeuristic(int width, int height, const Rect &freeRect,
 								FreeRectChoiceHeuristic rectChoice);

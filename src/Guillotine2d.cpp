@@ -65,8 +65,20 @@ void Guillotine2d::insert(std::vector<RectSize>& rects,
 {
 }
 
+bool Guillotine2d::fits(int width, int height,
+		FreeRectChoiceHeuristic rectChoice) const
+{
+	int nodeIndex;
+	Rect rect = findPositionForNewNode(width, height, rectChoice, &nodeIndex);
+	if (rect.isPlaced == true)
+		return true;
+	else
+		return false;
+}
+
+
 Rect Guillotine2d::findPositionForNewNode(int width, int height,
-		FreeRectChoiceHeuristic rectChoice, int* nodeIndex)
+		FreeRectChoiceHeuristic rectChoice, int* nodeIndex) const
 {
 	Rect bestNode;
 
@@ -210,6 +222,7 @@ void Guillotine2d::splitFreeRectByHeuristic(const Rect &freeRect, const Rect &pl
 	// Perform the actual split.
 	splitFreeRectAlongAxis(freeRect, placedRect, splitHorizontal);
 }
+
 
 void Guillotine2d::splitFreeRectAlongAxis(const Rect& freeRect,
 		const Rect& placedRect, bool splitHorizontal)

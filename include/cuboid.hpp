@@ -7,9 +7,11 @@
 
 #include "forward_declarations.hpp"
 #include "vertex.hpp"
+#include "Rect.hpp"
 
-class Cuboid {
+class Cuboid : public Rect{
 public:
+	Cuboid() {}
     Cuboid(int w, int h, int d) :
         width(w), height(h), depth(d) {}
 
@@ -24,9 +26,9 @@ public:
         ar & boost::serialization::make_nvp("z", z);
     }
 
-    const int width;
-    const int height;
-    const int depth;
+    int width;
+    int height;
+    int depth;
     int x = 0;
     int y = 0;
     int z = 0;

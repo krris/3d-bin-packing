@@ -32,19 +32,19 @@ int main(int argc, char* argv[])
 
     // Test serialization
     Cuboid cuboid_1(100, 100, 100);
-    Cuboid cuboid_2(50, 50, 100);
-    Cuboid cuboid_3(50, 50, 40);
+    Cuboid cuboid_2(50, 50, 50);
+    Cuboid cuboid_3(50, 50, 50);
     Cuboid cuboid_4(30, 30, 30);
-    Cuboid cuboid_5(30, 30, 30);
-    Cuboid cuboid_6(10, 10, 10);
+//    Cuboid cuboid_5(30, 30, 30);
+//    Cuboid cuboid_6(10, 10, 10);
 
     vector<Cuboid> cuboids;
     cuboids.push_back(cuboid_1);
     cuboids.push_back(cuboid_2);
     cuboids.push_back(cuboid_3);
     cuboids.push_back(cuboid_4);
-    cuboids.push_back(cuboid_5);
-    cuboids.push_back(cuboid_6);
+//    cuboids.push_back(cuboid_5);
+//    cuboids.push_back(cuboid_6);
 
 
 //    Guillotine2d guillotine(200, 200);
@@ -68,30 +68,32 @@ int main(int argc, char* argv[])
 //    	}
 //    }
 
-    ShelfAlgorithm shelfAlg(150, 500);
+    ShelfAlgorithm shelfAlg(100, 1000, 100);
     vector<Cuboid> foundPlaces;
     for (Cuboid c : cuboids)
     {
-    	Rect place = shelfAlg.insert(c.width, c.height, ShelfAlgorithm::ShelfBestAreaFit);
-//    	if (place.isPlaced == true)
-//    	{
+    	Cuboid place = shelfAlg.insert(c.width, c.height, c.depth, ShelfAlgorithm::ShelfFirstFit);
+    	if (place.isPlaced == true)
+    	{
     	    c.x = place.x + (0.5 * c.width);
-    	    c.z = (0.5 * c.depth);
+    	    c.z = place.z + (0.5 * c.depth);
     	    c.y = place.y + 0.5 * c.height;
     		foundPlaces.push_back(c);
         	cout << "Width: " << place.width << endl;
         	cout << "Height: " << place.height<< endl;
+        	cout << "Depth: " << place.depth<< endl;
         	cout << "x: " << place.x<< endl;
         	cout << "y: " << place.y<< endl;
+        	cout << "z: " << place.z<< endl;
         	cout << "----------------" << endl;
-//    	}
-//    	else
-//    	{
-//    		cout << "Place not found!:" << endl;
-//        	cout << "Width: " << c.width << endl;
-//        	cout << "Height: " << c.depth<< endl;
+    	}
+    	else
+    	{
+    		cout << "Place not found!:" << endl;
+        	cout << "Width: " << c.width << endl;
+        	cout << "Height: " << c.depth<< endl;
 
-//    	}
+    	}
     }
     // string filename(boost::archive::tmpdir());
     string filename = "/home/krris/workspace/3dBinPacking/visualization/cuboids.xml";
