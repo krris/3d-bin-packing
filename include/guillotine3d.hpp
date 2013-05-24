@@ -10,7 +10,6 @@
 
 #include <vector>
 
-#include "Cuboid.hpp"
 #include "cuboid.hpp"
 
 /**
@@ -30,7 +29,7 @@ public:
 
 	enum FreeCuboidChoiceHeuristic
 		{
-			CuboidtBestAreaFit, // BAF
+			CuboidBestAreaFit, // BAF
 			CuboidBestShortSideFit, // BSSF
 		};
 
@@ -44,10 +43,10 @@ public:
 		SplitLongerAxis // LAS
 	};
 
-	Cuboid insert(int width, int height, FreeCuboidChoiceHeuristic cuboidChoice,
+	Cuboid insert(int width, int height, int depth, FreeCuboidChoiceHeuristic cuboidChoice,
 				GuillotineSplitHeuristic splitMethod);
 
-	bool fits(int width, int heigh, FreeCuboidChoiceHeuristic cuboidChoice) const;
+	bool fits(int width, int heigh, int depth, FreeCuboidChoiceHeuristic cuboidChoice) const;
 
 
 	std::vector<Cuboid>& getFreeCuboids() { return freeCuboids; }
@@ -69,17 +68,17 @@ private:
 	 * Search through all free rectangles to find the best one to place
 	 * a new rectangle.
 	 */
-	Cuboid findPositionForNewNode(int width, int height,
+	Cuboid findPositionForNewNode(int width, int height, int depth,
 								FreeCuboidChoiceHeuristic cuboidChoice,
 								int *nodeIndex) const;
 
 
 
-	static int scoreByHeuristic(int width, int height, const Cuboid &freeCuboid,
+	static int scoreByHeuristic(int width, int height, int depth, const Cuboid &freeCuboid,
 								FreeCuboidChoiceHeuristic cuboidChoice);
 
-	static int scoreBestAreaFit(int width, int height, const Cuboid &freeCuboid);
-	static int scoreBestShortSideFit(int width, int height, const Cuboid &freeCuboid);
+	static int scoreBestAreaFit(int width, int height, int depth, const Cuboid &freeCuboid);
+	static int scoreBestShortSideFit(int width, int height, int depth, const Cuboid &freeCuboid);
 
 	/* Splits the given L-shaped free rectangle into two new free rectangles
 	 * after placedCuboid has been placed into it. Determines the split axis by

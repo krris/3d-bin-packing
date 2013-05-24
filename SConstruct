@@ -20,7 +20,8 @@ else:
    print platform.system() + " not supported"
 
 
-test_source = ['src/Guillotine2d.cpp', 'src/test.cpp', 'src/cuboid.cpp', 'src/vertex.cpp', 'src/shelf_algorithm.cpp']
+test_source = ['src/Guillotine2d.cpp', 'src/test.cpp', 'src/cuboid.cpp', 
+			   'src/vertex.cpp', 'src/shelf_algorithm.cpp', 'src/guillotine3d.cpp']
 env.Program('test', test_source)
 
 source = ['src/3dBinPacking.cpp', 'src/cuboid.cpp', 'src/vertex.cpp']
