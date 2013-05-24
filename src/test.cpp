@@ -25,6 +25,18 @@ void saveXml(const std::vector<Cuboid>& cuboids, const char* filename)
     }
 }
 
+int findMaxHeight(const vector<Cuboid>& cuboids)
+{
+	int max = 0;
+	for (Cuboid c : cuboids)
+	{
+		int height = c.y + 0.5 * c.height;
+		if (height > max)
+			max = height;
+	}
+	return max;
+}
+
 
 int main(int argc, char* argv[])
 {
@@ -37,7 +49,10 @@ int main(int argc, char* argv[])
     Cuboid cuboid_4(30, 30, 30);
     Cuboid cuboid_5(30, 30, 30);
     Cuboid cuboid_6(10, 10, 10);
-    Cuboid cuboid_7(100, 50, 50);
+    Cuboid cuboid_7(30, 30, 30);
+    Cuboid cuboid_8(30, 30, 30);
+    Cuboid cuboid_9(10, 10, 10);
+    Cuboid cuboid_10(10, 6, 5);
 
     vector<Cuboid> cuboids;
     cuboids.push_back(cuboid_1);
@@ -47,6 +62,9 @@ int main(int argc, char* argv[])
     cuboids.push_back(cuboid_5);
     cuboids.push_back(cuboid_6);
     cuboids.push_back(cuboid_7);
+    cuboids.push_back(cuboid_8);
+    cuboids.push_back(cuboid_9);
+    cuboids.push_back(cuboid_10);
 
 
 //    Guillotine2d guillotine(200, 200);
@@ -70,7 +88,7 @@ int main(int argc, char* argv[])
 //    	}
 //    }
 
-    ShelfAlgorithm shelfAlg(100, 1000, 100);
+    ShelfAlgorithm shelfAlg(150, 1000, 100);
     vector<Cuboid> foundPlaces;
     for (Cuboid c : cuboids)
     {
@@ -100,6 +118,9 @@ int main(int argc, char* argv[])
 
     	}
     }
+
+    cout << "Hight of a bin: " << findMaxHeight(foundPlaces) << endl;
+
     // string filename(boost::archive::tmpdir());
     string filename = "/home/krris/workspace/3dBinPacking/visualization/cuboids.xml";
     saveXml(foundPlaces, filename.c_str());
