@@ -80,36 +80,97 @@ Cuboid Guillotine3d::findPositionForNewNode(int width, int height, int depth,
 	{
 		// If this is a perfect fit upright, choose it immediately.
 		if (width == freeCuboids[i].width &&
-			height == freeCuboids[i].height
+			height == freeCuboids[i].height && depth == freeCuboids[i].depth
 			)
 		{
-			bestNode.isPlaced = true;
-			bestNode.x = freeCuboids[i].x;
-			bestNode.y = freeCuboids[i].y;
-			bestNode.z = freeCuboids[i].z;
-			bestNode.width = width;
-			bestNode.height = height;
-			bestNode.depth = depth;
-			bestScore = std::numeric_limits<int>::min();
-			*nodeIndex = i;
+			int score = scoreByHeuristic(width, height, depth, freeCuboids[i], cuboidChoice);
+
+			if (score < bestScore)
+			{
+				bestNode.isPlaced = true;
+				bestNode.x = freeCuboids[i].x;
+				bestNode.y = freeCuboids[i].y;
+				bestNode.z = freeCuboids[i].z;
+				bestNode.width = width;
+				bestNode.height = height;
+				bestNode.depth = depth;
+				//bestScore = std::numeric_limits<int>::min();
+				bestScore = score;
+				*nodeIndex = i;
+			}
 			break;
 		}
-		// If this is a perfect fit sideways, choose it.
-		else if (height == freeCuboids[i].width && width == freeCuboids[i].height)
-		{
-			bestNode.isPlaced = true;
-			bestNode.x = freeCuboids[i].x;
-			bestNode.y = freeCuboids[i].y;
-			bestNode.z = freeCuboids[i].z;
-			bestNode.width = height;
-			bestNode.height = width;
-			bestNode.depth = depth;
-			bestScore = std::numeric_limits<int>::min();
-			*nodeIndex = i;
-			break;
-		}
+//		else if (width == freeCuboids[i].width && depth == freeCuboids[i].height)
+//		{
+//			bestNode.isPlaced = true;
+//			bestNode.x = freeCuboids[i].x;
+//			bestNode.y = freeCuboids[i].y;
+//			bestNode.z = freeCuboids[i].z;
+//			bestNode.width = width;
+//			bestNode.height = depth;
+//			bestNode.depth = height;
+//			bestScore = std::numeric_limits<int>::min();
+//			*nodeIndex = i;
+//			break;
+//		}
+//		// D H W
+//		else if (depth == freeCuboids[i].width && height == freeCuboids[i].height)
+//		{
+//			bestNode.isPlaced = true;
+//			bestNode.x = freeCuboids[i].x;
+//			bestNode.y = freeCuboids[i].y;
+//			bestNode.z = freeCuboids[i].z;
+//			bestNode.width = depth;
+//			bestNode.height = height;
+//			bestNode.depth = width;
+//			bestScore = std::numeric_limits<int>::min();
+//			*nodeIndex = i;
+//			break;
+//		}
+//		// D W H
+//		else if (depth == freeCuboids[i].width && width == freeCuboids[i].height)
+//		{
+//			bestNode.isPlaced = true;
+//			bestNode.x = freeCuboids[i].x;
+//			bestNode.y = freeCuboids[i].y;
+//			bestNode.z = freeCuboids[i].z;
+//			bestNode.width = depth;
+//			bestNode.height = width;
+//			bestNode.depth = height;
+//			bestScore = std::numeric_limits<int>::min();
+//			*nodeIndex = i;
+//			break;
+//		}
+//		// H D W
+//		else if (height == freeCuboids[i].width && depth == freeCuboids[i].height)
+//		{
+//			bestNode.isPlaced = true;
+//			bestNode.x = freeCuboids[i].x;
+//			bestNode.y = freeCuboids[i].y;
+//			bestNode.z = freeCuboids[i].z;
+//			bestNode.width = height;
+//			bestNode.height = depth;
+//			bestNode.depth = width;
+//			bestScore = std::numeric_limits<int>::min();
+//			*nodeIndex = i;
+//			break;
+//		}
+//		// H W D
+//		else if (height == freeCuboids[i].width && width== freeCuboids[i].height)
+//		{
+//			bestNode.isPlaced = true;
+//			bestNode.x = freeCuboids[i].x;
+//			bestNode.y = freeCuboids[i].y;
+//			bestNode.z = freeCuboids[i].z;
+//			bestNode.width = height;
+//			bestNode.height = width;
+//			bestNode.depth = depth;
+//			bestScore = std::numeric_limits<int>::min();
+//			*nodeIndex = i;
+//			break;
+//		}
 		// Does the cuboidangle fit upright?
-		else if (width <= freeCuboids[i].width && height <= freeCuboids[i].height)
+		else if (width <= freeCuboids[i].width && height <= freeCuboids[i].height && depth <= freeCuboids[i].depth)
 		{
 			int score = scoreByHeuristic(width, height, depth, freeCuboids[i], cuboidChoice);
 
@@ -126,24 +187,24 @@ Cuboid Guillotine3d::findPositionForNewNode(int width, int height, int depth,
 				*nodeIndex = i;
 			}
 		}
-		// Does the cuboidangle fit sideways?
-		else if (height <= freeCuboids[i].width && width <= freeCuboids[i].height)
-		{
-			int score = scoreByHeuristic(height, width, depth, freeCuboids[i], cuboidChoice);
-
-			if (score < bestScore)
-			{
-				bestNode.isPlaced = true;
-				bestNode.x = freeCuboids[i].x;
-				bestNode.y = freeCuboids[i].y;
-				bestNode.z = freeCuboids[i].z;
-				bestNode.width = height;
-				bestNode.height = width;
-				bestNode.depth = depth;
-				bestScore = score;
-				*nodeIndex = i;
-			}
-		}
+//		// Does the cuboidangle fit sideways?
+//		else if (height <= freeCuboids[i].width && width <= freeCuboids[i].height)
+//		{
+//			int score = scoreByHeuristic(height, width, depth, freeCuboids[i], cuboidChoice);
+//
+//			if (score < bestScore)
+//			{
+//				bestNode.isPlaced = true;
+//				bestNode.x = freeCuboids[i].x;
+//				bestNode.y = freeCuboids[i].y;
+//				bestNode.z = freeCuboids[i].z;
+//				bestNode.width = height;
+//				bestNode.height = width;
+//				bestNode.depth = depth;
+//				bestScore = score;
+//				*nodeIndex = i;
+//			}
+//		}
 	}
 	return bestNode;
 }
@@ -155,6 +216,7 @@ int Guillotine3d::scoreByHeuristic(int width, int height, int depth,
 	{
 		case CuboidBestAreaFit: return scoreBestAreaFit(width, height, depth, freeCuboid);
 		case CuboidBestShortSideFit: return scoreBestShortSideFit(width, height, depth, freeCuboid);
+		case CuboidMinHeight: return scoreMinHeight(width, height, depth, freeCuboid);
 		default: assert(false); return std::numeric_limits<int>::max();
 	}
 }
@@ -224,6 +286,13 @@ void Guillotine3d::splitFreeCuboidByHeuristic(const Cuboid& freeCuboid,
 
 	// Perform the actual split.
 	splitFreeCuboidAlongAxis(freeCuboid, placedCuboid, splitHorizontal);
+}
+
+int Guillotine3d::scoreMinHeight(int width, int height, int depth,
+		const Cuboid& freeCuboid)
+{
+	int filledBinHeight = freeCuboid.y;
+	return filledBinHeight + height;
 }
 
 void Guillotine3d::splitFreeCuboidAlongAxis(const Cuboid& freeCuboid,

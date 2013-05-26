@@ -31,6 +31,7 @@ public:
 		{
 			CuboidBestAreaFit, // BAF
 			CuboidBestShortSideFit, // BSSF
+			CuboidMinHeight
 		};
 
 	enum GuillotineSplitHeuristic
@@ -79,6 +80,7 @@ private:
 
 	static int scoreBestAreaFit(int width, int height, int depth, const Cuboid &freeCuboid);
 	static int scoreBestShortSideFit(int width, int height, int depth, const Cuboid &freeCuboid);
+	static int scoreMinHeight(int width, int height, int depth, const Cuboid& freeCuboid);
 
 	/* Splits the given L-shaped free rectangle into two new free rectangles
 	 * after placedCuboid has been placed into it. Determines the split axis by

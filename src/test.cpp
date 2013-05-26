@@ -129,11 +129,11 @@ int main(int argc, char* argv[])
 //    saveXml(foundPlaces, filename.c_str());
 
 
-    Guillotine3d g3d(150, 1000, 100);
+    Guillotine3d g3d(100, 1000, 100);
     vector<Cuboid> foundPlaces;
     for (Cuboid c : cuboids)
     {
-    	Cuboid place = g3d.insert(c.width, c.height, c.depth, Guillotine3d::CuboidBestAreaFit, Guillotine3d::SplitLongerAxis);
+    	Cuboid place = g3d.insert(c.width, c.height, c.depth, Guillotine3d::CuboidMinHeight, Guillotine3d::SplitLongerAxis);
     	if (place.isPlaced == true)
     	{
     	    c.x = place.x + (0.5 * place.width);
