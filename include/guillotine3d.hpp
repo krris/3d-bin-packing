@@ -29,17 +29,14 @@ public:
 
 	enum FreeCuboidChoiceHeuristic
 		{
-			CuboidBestAreaFit, // BAF
-			CuboidBestShortSideFit, // BSSF
-			CuboidMinHeight
+			CuboidMinHeight,
+			GlobalMinHeight
 		};
 
 	enum GuillotineSplitHeuristic
 	{
 		SplitShorterLeftoverAxis, // SLAS
 		SplitLongerLeftoverAxis, // LLAS
-		SplitMinimizeArea, // MINAS, Try to make a single big rectangle at the expense of making the other small.
-		SplitMaximizeArea, // MAXAS, Try to make both remaining rectangles as even-sized as possible.
 		SplitShorterAxis, // SAS
 		SplitLongerAxis // LAS
 	};
@@ -47,12 +44,14 @@ public:
 	Cuboid insert(int width, int height, int depth, FreeCuboidChoiceHeuristic cuboidChoice,
 				GuillotineSplitHeuristic splitMethod);
 
-	bool fits(int width, int heigh, int depth, FreeCuboidChoiceHeuristic cuboidChoice) const;
-
+	Cuboid insertBestGlobal(std::vector<Cuboid> cuboids, Guillotine3d guilotine,
+				GuillotineSplitHeuristic splitMethod);
 
 	std::vector<Cuboid>& getFreeCuboids() { return freeCuboids; }
 
 	std::vector<Cuboid>& getUsedCuboids() { return usedCuboids; }
+
+	int getFilledBinHeight();
 
 private:
 	int binWidth;
@@ -73,13 +72,13 @@ private:
 								FreeCuboidChoiceHeuristic cuboidChoice,
 								int *nodeIndex) const;
 
+	std::vector<Cuboid> movePossibilities(Cuboid cuboid, GuillotineSplitHeuristic splitMethod);
+
 
 
 	static int scoreByHeuristic(int width, int height, int depth, const Cuboid &freeCuboid,
 								FreeCuboidChoiceHeuristic cuboidChoice);
 
-	static int scoreBestAreaFit(int width, int height, int depth, const Cuboid &freeCuboid);
-	static int scoreBestShortSideFit(int width, int height, int depth, const Cuboid &freeCuboid);
 	static int scoreMinHeight(int width, int height, int depth, const Cuboid& freeCuboid);
 
 	/* Splits the given L-shaped free rectangle into two new free rectangles

@@ -129,13 +129,48 @@ int main(int argc, char* argv[])
 //    saveXml(foundPlaces, filename.c_str());
 
 
+//    Guillotine3d g3d(100, 1000, 100);
+//    vector<Cuboid> foundPlaces;
+//    for (Cuboid c : cuboids)
+//    {
+//    	Cuboid place = g3d.insert(c.width, c.height, c.depth, Guillotine3d::CuboidMinHeight, Guillotine3d::SplitLongerAxis);
+//    	if (place.isPlaced == true)
+//    	{
+//    	    c.x = place.x + (0.5 * place.width);
+//    	    c.z = place.z + (0.5 * place.depth);
+//    	    c.y = place.y + 0.5 * place.height;
+//    	    c.width = place.width;
+//    	    c.height = place.height;
+//    	    c.depth = place.depth;
+//    		foundPlaces.push_back(c);
+//        	cout << "Width: " << place.width << endl;
+//        	cout << "Height: " << place.height<< endl;
+//        	cout << "Depth: " << place.depth<< endl;
+//        	cout << "x: " << place.x<< endl;
+//        	cout << "y: " << place.y<< endl;
+//        	cout << "z: " << place.z<< endl;
+//        	cout << "----------------" << endl;
+//    	}
+//    	else
+//    	{
+//    		cout << "Place not found!:" << endl;
+//        	cout << "Width: " << c.width << endl;
+//        	cout << "Height: " << c.depth<< endl;
+//
+//    	}
+//    }
+
     Guillotine3d g3d(100, 1000, 100);
     vector<Cuboid> foundPlaces;
-    for (Cuboid c : cuboids)
+    int size = cuboids.size();
+    for (int i = 0; i < size; ++i)
     {
-    	Cuboid place = g3d.insert(c.width, c.height, c.depth, Guillotine3d::CuboidMinHeight, Guillotine3d::SplitLongerAxis);
+    	Cuboid place = g3d.insertBestGlobal(cuboids, g3d, Guillotine3d::SplitLongerAxis);
+    	Cuboid c;
     	if (place.isPlaced == true)
     	{
+        	place = g3d.insert(place.width, place.height, place.depth,
+					Guillotine3d::CuboidMinHeight, Guillotine3d::SplitLongerAxis);
     	    c.x = place.x + (0.5 * place.width);
     	    c.z = place.z + (0.5 * place.depth);
     	    c.y = place.y + 0.5 * place.height;
@@ -150,6 +185,7 @@ int main(int argc, char* argv[])
         	cout << "y: " << place.y<< endl;
         	cout << "z: " << place.z<< endl;
         	cout << "----------------" << endl;
+
     	}
     	else
     	{
@@ -158,9 +194,27 @@ int main(int argc, char* argv[])
         	cout << "Height: " << c.depth<< endl;
 
     	}
+
+    	int index;
+    	for (unsigned j = 0; j < cuboids.size(); j++)
+    	{
+    		if (cuboids[j].width == place.width &&
+    			cuboids[j].height == place.height &&
+    			cuboids[j].depth == place.depth)
+    		{
+    			index = j;
+    			break;
+    		}
+    	}
+
+
+    	cuboids.erase(cuboids.begin() + index);
     }
 
-    cout << "Hight of a bin: " << findMaxHeight(foundPlaces) << endl;
+
+
+//    cout << "Hight of a bin: " << findMaxHeight(foundPlaces) << endl;
+    cout << "Hight of a bin: " << g3d.getFilledBinHeight() << endl;
 
     // string filename(boost::archive::tmpdir());
     string filename = "/home/krris/workspace/3dBinPacking/visualization/cuboids.xml";

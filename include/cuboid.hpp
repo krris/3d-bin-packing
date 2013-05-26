@@ -13,7 +13,9 @@ class Cuboid : public Rect{
 public:
 	Cuboid() {}
     Cuboid(int w, int h, int d) :
-        width(w), height(h), depth(d) {}
+        width(w), height(h), depth(d){
+
+    }
 
     template<class Archive>
     void serialize(Archive &ar, const unsigned int file_verision)
@@ -32,9 +34,11 @@ public:
     int x = 0;
     int y = 0;
     int z = 0;
+
+    int score = std::numeric_limits<int>::max();
+    int freeCuboidIndex = 0; // in which free cuboid will be placed
 private:
     std::vector<Vertex> vertices;
-
 
 };
 
