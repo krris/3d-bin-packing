@@ -27,7 +27,7 @@ void Guillotine3d::init(int width, int height, int depth)
 	n.z = 0;
 	n.width = width;
 	n.height = height;
-	n.depth = 0;
+	n.depth = depth;
 
 	freeCuboids.clear();
 	freeCuboids.push_back(n);
@@ -170,7 +170,8 @@ int Guillotine3d::scoreBestShortSideFit(int width, int height, int depth,
 {
 	int leftoverHoriz = std::abs(freeCuboid.width - width);
 	int leftoverVert = std::abs(freeCuboid.height - height);
-	int leftover = std::min(leftoverHoriz, leftoverVert);
+	int leftoverDepth = std::abs(freeCuboid.depth - depth);
+	int leftover = std::min({leftoverHoriz, leftoverVert, leftoverDepth});
 	return leftover;
 }
 
