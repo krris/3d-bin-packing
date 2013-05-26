@@ -304,12 +304,14 @@ void Guillotine3d::splitFreeCuboidAlongAxis(const Cuboid& freeCuboid,
 	bottom.y = freeCuboid.y;
 	bottom.z = freeCuboid.z + placedCuboid.depth;
 	bottom.depth= freeCuboid.depth- placedCuboid.depth;
+	bottom.height = placedCuboid.height;
 
 	Cuboid right;
 	right.x = freeCuboid.x + placedCuboid.width;
 	right.y = freeCuboid.y;
 	right.z = freeCuboid.z;
 	right.width = freeCuboid.width - placedCuboid.width;
+	right.height = placedCuboid.height;
 
 	Cuboid top;
 	top.x = freeCuboid.x;
