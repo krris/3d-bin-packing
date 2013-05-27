@@ -13,6 +13,8 @@ struct Rect{
 	int height;
 	int x;
 	int y;
+
+	/* If rectangle found a place in a bin. */
 	bool isPlaced = false;
 };
 

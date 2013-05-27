@@ -13,15 +13,11 @@
 #include "cuboid.hpp"
 
 /**
- * 3D Guillotine bin packing.
+ * 3D Guillotine bin packing - packing cuboids into a bin.
  */
 class Guillotine3d {
 public:
-	/* Set the initial bin size to (0, 0).
-	 * Calls init() to set a proper bin size. */
-	Guillotine3d() : binWidth(0), binHeight(std::numeric_limits<int>::max()), binDepth(0) {}
-
-	/* Initialize a new bin */
+	/* Initialize a new bin. Set the base area of cuboid. */
 	Guillotine3d(int width, int depth);
 
 	/* Initialize an empty bin. */
@@ -29,19 +25,24 @@ public:
 
 	enum FreeCuboidChoiceHeuristic
 		{
-			CuboidMinHeight,
-			GlobalMinHeight
+			CuboidMinHeight
 		};
 
 	enum GuillotineSplitHeuristic
 	{
-		SplitShorterLeftoverAxis, // SLAS
-		SplitLongerLeftoverAxis, // LLAS
-		SplitShorterAxis, // SAS
-		SplitLongerAxis // LAS
+		SplitShorterLeftoverAxis,
+		SplitLongerLeftoverAxis,
+		SplitShorterAxis,
+		SplitLongerAxis
 	};
 
-	Cuboid insert(int width, int height, int depth, FreeCuboidChoiceHeuristic cuboidChoice,
+	/**
+	 * Insert a cuboid with given sizes.
+	 * @return Cuboid which has  cooridantes, where will be placed in a bin.
+	 */
+//	Cuboid insert(int width, int height, int depth, FreeCuboidChoiceHeuristic cuboidChoice,
+//				GuillotineSplitHeuristic splitMethod);
+	Cuboid insert(Cuboid cuboid, FreeCuboidChoiceHeuristic cuboidChoice,
 				GuillotineSplitHeuristic splitMethod);
 
 	Cuboid insertBestGlobal(std::vector<Cuboid> cuboids, Guillotine3d guilotine,
@@ -68,18 +69,24 @@ private:
 	 * Search through all free rectangles to find the best one to place
 	 * a new rectangle.
 	 */
-	Cuboid findPositionForNewNode(int width, int height, int depth,
+	Cuboid findPositionForNewNode(Cuboid cuboid,
 								FreeCuboidChoiceHeuristic cuboidChoice,
 								int *nodeIndex) const;
+//	Cuboid findPositionForNewNode(int width, int height, int depth,
+//								FreeCuboidChoiceHeuristic cuboidChoice,
+//								int *nodeIndex) const;
 
 	std::vector<Cuboid> movePossibilities(Cuboid cuboid, GuillotineSplitHeuristic splitMethod);
 
 
 
-	static int scoreByHeuristic(int width, int height, int depth, const Cuboid &freeCuboid,
+	static int scoreByHeuristic(Cuboid cuboid, const Cuboid &freeCuboid,
 								FreeCuboidChoiceHeuristic cuboidChoice);
+//	static int scoreByHeuristic(int width, int height, int depth, const Cuboid &freeCuboid,
+//								FreeCuboidChoiceHeuristic cuboidChoice);
 
-	static int scoreMinHeight(int width, int height, int depth, const Cuboid& freeCuboid);
+	static int scoreMinHeight(Cuboid cuboid, const Cuboid& freeCuboid);
+//	static int scoreMinHeight(int width, int height, int depth, const Cuboid& freeCuboid);
 
 	/* Splits the given L-shaped free rectangle into two new free rectangles
 	 * after placedCuboid has been placed into it. Determines the split axis by

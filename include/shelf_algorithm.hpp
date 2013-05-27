@@ -2,9 +2,9 @@
 #define SHELF_ALGORITHM_HPP
 
 #include "forward_declarations.hpp"
-#include "Rect.hpp"
+#include "rect.hpp"
 #include "cuboid.hpp"
-#include "Guillotine2d.hpp"
+#include "guillotine2d.hpp"
 
 
 class ShelfAlgorithm{
@@ -15,8 +15,8 @@ public:
 	void init(int width, int height, int depth);
 	enum ShelfChoiceHeuristic
 	{
-		ShelfNextFit, //NF: We always put the new rectangle to the last open shelf.
-		ShelfFirstFit, //FF: We test each rectangle against each shelf in turn and pack it to the first where it fits.
+		ShelfNextFit, // We always put the new rectangle to the last open shelf.
+		ShelfFirstFit, // We test each rectangle against each shelf in turn and pack it to the first where it fits.
 	};
 
 	Cuboid insert(int width, int heigh, int depth, ShelfChoiceHeuristic method);
@@ -46,8 +46,6 @@ private:
 	 * @return true and 2 edges if fits, flase otherwise
 	 */
 	std::tuple<bool, int, int, int> fitsOnShelf(const Shelf& shelf, int width, int height, int depth, bool canResize) const;
-
-	//void rotateToShelf(const Shelf& shelf, int width, int height) const;
 
 	void addToShelf(Shelf& shelf, int width, int height, int depth, Cuboid& newNode);
 

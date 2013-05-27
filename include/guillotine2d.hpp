@@ -10,10 +10,10 @@
 
 #include <vector>
 
-#include "Rect.hpp"
+#include "rect.hpp"
 
 /**
- * 2D Guillotine bin packing.
+ * 2D Guillotine bin packing - algorithm for packing rectangles.
  */
 class Guillotine2d {
 public:
@@ -27,21 +27,18 @@ public:
 	/* Initialize an empty bin. */
 	void init(int width, int height);
 
-	//int freeRectChoiceHeuristic(int width, int height, const Rect& freeRect);
 	enum FreeRectChoiceHeuristic
 		{
-			RectBestAreaFit, // BAF
-			RectBestShortSideFit, // BSSF
+			RectBestAreaFit,
+			RectBestShortSideFit,
 		};
 
 	enum GuillotineSplitHeuristic
 	{
-		SplitShorterLeftoverAxis, // SLAS
-		SplitLongerLeftoverAxis, // LLAS
-		SplitMinimizeArea, // MINAS, Try to make a single big rectangle at the expense of making the other small.
-		SplitMaximizeArea, // MAXAS, Try to make both remaining rectangles as even-sized as possible.
-		SplitShorterAxis, // SAS
-		SplitLongerAxis // LAS
+		SplitShorterLeftoverAxis,
+		SplitLongerLeftoverAxis,
+		SplitShorterAxis,
+		SplitLongerAxis
 	};
 
 	Rect insert(int width, int height, FreeRectChoiceHeuristic rectChoice,
@@ -53,9 +50,9 @@ public:
 	bool fits(int width, int heigh, FreeRectChoiceHeuristic rectChoice) const;
 
 
-	std::vector<Rect>& GetFreeRectangles() { return freeRectangles; }
+	std::vector<Rect>& getFreeRectangles() { return freeRectangles; }
 
-	std::vector<Rect>& GetUsedRectangles() { return usedRectangles; }
+	std::vector<Rect>& getUsedRectangles() { return usedRectangles; }
 
 private:
 	int binWidth;
@@ -94,8 +91,6 @@ private:
 	void splitFreeRectAlongAxis(const Rect &freeRect, const Rect &placedRect,
 								bool splitHorizontal);
 };
-
-
 
 
 #endif /* GUILLOTINE2D_HPP_ */

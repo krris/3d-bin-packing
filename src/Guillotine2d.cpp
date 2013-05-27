@@ -9,7 +9,7 @@
 #include <cassert>
 #include <cmath>
 #include <limits>
-#include "../include/Guillotine2d.hpp"
+#include "../include/guillotine2d.hpp"
 
 
 Guillotine2d::Guillotine2d(int width, int height)
@@ -195,16 +195,6 @@ void Guillotine2d::splitFreeRectByHeuristic(const Rect &freeRect, const Rect &pl
 	case SplitLongerLeftoverAxis:
 		// Split along the longer leftover axis.
 		splitHorizontal = (w > h);
-		break;
-	case SplitMinimizeArea:
-		// Maximize the larger area == minimize the smaller area.
-		// Tries to make the single bigger rectangle.
-		splitHorizontal = (placedRect.width * h > w * placedRect.height);
-		break;
-	case SplitMaximizeArea:
-		// Maximize the smaller area == minimize the larger area.
-		// Tries to make the rectangles more even-sized.
-		splitHorizontal = (placedRect.width * h <= w * placedRect.height);
 		break;
 	case SplitShorterAxis:
 		// Split along the shorter total axis.

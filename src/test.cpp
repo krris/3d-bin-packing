@@ -8,9 +8,8 @@
 
 #include "../include/forward_declarations.hpp"
 #include "../include/cuboid.hpp"
-#include "../include/vertex.hpp"
 #include "../include/shelf_algorithm.hpp"
-#include "../include/Guillotine2d.hpp"
+#include "../include/guillotine2d.hpp"
 #include "../include/guillotine3d.hpp"
 
 using namespace std;
@@ -169,7 +168,7 @@ int main(int argc, char* argv[])
     	Cuboid c;
     	if (place.isPlaced == true)
     	{
-        	place = g3d.insert(place.width, place.height, place.depth,
+        	place = g3d.insert(place,
 					Guillotine3d::CuboidMinHeight, Guillotine3d::SplitLongerAxis);
     	    c.x = place.x + (0.5 * place.width);
     	    c.z = place.z + (0.5 * place.depth);
