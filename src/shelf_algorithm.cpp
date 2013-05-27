@@ -16,7 +16,6 @@ void ShelfAlgorithm::init(int width, int height, int depth)
 	binDepth = depth;
 
 	currentY = 0;
-	usedSurfaceArea = 0;
 
 	shelves.clear();
 	startNewShelf(0);
@@ -25,6 +24,9 @@ void ShelfAlgorithm::init(int width, int height, int depth)
 Cuboid ShelfAlgorithm::insert(Cuboid cuboid, ShelfChoiceHeuristic method)
 {
 	Cuboid newNode;
+	newNode.width = cuboid.width;
+	newNode.height = cuboid.height;
+	newNode.depth = cuboid.depth;
 	int width = cuboid.width;
 	int height = cuboid.height;
 	int depth = cuboid.depth;
@@ -46,10 +48,13 @@ Cuboid ShelfAlgorithm::insert(Cuboid cuboid, ShelfChoiceHeuristic method)
 			auto fits = fitsOnShelf(shelves[i], cuboid, i == shelves.size()-1);
 			if (get<0>(fits) == true)
 			{
-				int width_ = get<1>(fits);
-				int depth_ = get<2>(fits);
-				int height_ = get<3>(fits);
-				addToShelf(shelves[i], width_, height_, depth_, newNode);
+//				int width_ = get<1>(fits);
+//				int depth_ = get<2>(fits);
+//				int height_ = get<3>(fits);
+				newNode.width = get<1>(fits);
+				newNode.depth = get<2>(fits);
+				newNode.height = get<3>(fits);
+				addToShelf(shelves[i], newNode);
 				return newNode;
 			}
 		}
@@ -67,7 +72,7 @@ Cuboid ShelfAlgorithm::insert(Cuboid cuboid, ShelfChoiceHeuristic method)
 		startNewShelf(height);
 		auto fits = fitsOnShelf(shelves.back(), cuboid, true);
 		assert(get<0>(fits));
-		addToShelf(shelves.back(), width, height, depth, newNode);
+		addToShelf(shelves.back(), newNode);
 		return newNode;
 	}
 
@@ -120,35 +125,23 @@ tuple<bool, int, int, int> ShelfAlgorithm::fitsOnShelf(const Shelf& shelf, Cuboi
 
 }*/
 
-void ShelfAlgorithm::addToShelf(Shelf& shelf, int width, int height, int depth,
+void ShelfAlgorithm::addToShelf(Shelf& shelf,
 		Cuboid& newCuboid)
 {
-	// Swap width and height if the rect fits better that way.
-	//rotateToShelf(shelf, width, height);
-
-	// Add the rectangle to the shelf.
-	//newRect.x = shelf.currentX;
+	// Add the Cuboid to the shelf.
 	newCuboid.y = shelf.startY;
-	newCuboid.width = width;
-	newCuboid.height = height;
-	newCuboid.depth = depth;
 
-	Rect cuboidBase = shelf.guillotine.insert(width, depth, Guillotine2d::RectBestAreaFit, Guillotine2d::SplitLongerLeftoverAxis);
+	Rect cuboidBase = shelf.guillotine.insert(newCuboid.width, newCuboid.depth, Guillotine2d::RectBestAreaFit, Guillotine2d::SplitLongerLeftoverAxis);
 
 	newCuboid.x = cuboidBase.x;
 	newCuboid.z = cuboidBase.y;
 
 	newCuboid.isPlaced = cuboidBase.isPlaced;
 
-	// Advance the shelf end position horizontally.
-	//shelf.currentX += width;
-	//assert(shelf.currentX <= binWidth);
-
 	// Grow the shelf height.
-	shelf.height = max(shelf.height, height);
+	shelf.height = max(shelf.height, newCuboid.height);
 	assert(shelf.height <= binHeight);
 
-	usedSurfaceArea += width * height;
 }
 
 bool ShelfAlgorithm::canStartNewShelf(int height) const
@@ -166,7 +159,6 @@ void ShelfAlgorithm::startNewShelf(int startingHeight)
 	}
 
 	Shelf shelf;
-//	shelf.currentX = 0;
 	shelf.height = startingHeight;
 	shelf.startY = currentY;
 

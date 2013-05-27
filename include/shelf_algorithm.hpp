@@ -29,9 +29,6 @@ private:
 	/* Stores the starting y-coordinate of the latest(topmost) shelf. */
 	int currentY;
 
-	/* Tracks the total consumed surface area */
-	unsigned long usedSurfaceArea;
-
 	struct Shelf
 	{
 		int startY;
@@ -47,7 +44,7 @@ private:
 	 */
 	std::tuple<bool, int, int, int> fitsOnShelf(const Shelf& shelf, Cuboid cuboid, bool canResize) const;
 
-	void addToShelf(Shelf& shelf, int width, int height, int depth, Cuboid& newNode);
+	void addToShelf(Shelf& shelf, Cuboid& newNode);
 
 	bool canStartNewShelf(int height) const;
 
