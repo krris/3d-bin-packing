@@ -125,6 +125,9 @@ void ShelfAlgorithm::addToShelf(Shelf& shelf, Cuboid& newCuboid)
 
 	newCuboid.isPlaced = cuboidBase.isPlaced;
 
+	if (newCuboid.isPlaced == true)
+		usedCuboids.push_back(newCuboid);
+
 	// Grow the shelf height.
 	shelf.height = max(shelf.height, newCuboid.height);
 	assert(shelf.height <= binHeight);
@@ -134,6 +137,40 @@ void ShelfAlgorithm::addToShelf(Shelf& shelf, Cuboid& newCuboid)
 bool ShelfAlgorithm::canStartNewShelf(int height) const
 {
 	return shelves.back().startY + shelves.back().height + height < binHeight;
+}
+
+int ShelfAlgorithm::getFilledBinHeight()
+{
+	int max = -1;
+	for (Cuboid c : usedCuboids)
+	{
+		int height = c.y + c.height;
+		if (height > max)
+			max = height;
+	}
+	return max;
+}
+
+std::vector<Cuboid> ShelfAlgorithm::insert(std::vector<Cuboid> cuboids, ShelfChoiceHeuristic choice)
+{
+	vector<Cuboid> placedCuboids;
+    for (Cuboid c : cuboids)
+    {
+    	Cuboid placed = insert(c, choice);
+    	if (placed.isPlaced == true)
+    	{
+    		placedCuboids.push_back(placed);
+    	}
+    	else
+    	{
+    		cout << "Place not found!:" << endl;
+        	cout << "Width: " << c.width << endl;
+        	cout << "Height: " << c.height<< endl;
+        	cout << "Depth: " << c.depth<< endl;
+
+    	}
+    }
+    return placedCuboids;
 }
 
 void ShelfAlgorithm::startNewShelf(int startingHeight)

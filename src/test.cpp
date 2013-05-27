@@ -97,13 +97,13 @@ int main(int argc, char* argv[])
     	Cuboid place = shelfAlg.insert(c, ShelfAlgorithm::ShelfFirstFit);
     	if (place.isPlaced == true)
     	{
-    	    c.x = place.x + (0.5 * place.width);
-    	    c.z = place.z + (0.5 * place.depth);
-    	    c.y = place.y + 0.5 * place.height;
-    	    c.width = place.width;
-    	    c.height = place.height;
-    	    c.depth = place.depth;
-    		foundPlaces.push_back(c);
+    	    place.x = place.x + (0.5 * place.width);
+    	    place.z = place.z + (0.5 * place.depth);
+    	    place.y = place.y + 0.5 * place.height;
+//    	    c.width = place.width;
+//    	    c.height = place.height;
+//    	    c.depth = place.depth;
+    		foundPlaces.push_back(place);
         	cout << "Width: " << place.width << endl;
         	cout << "Height: " << place.height<< endl;
         	cout << "Depth: " << place.depth<< endl;

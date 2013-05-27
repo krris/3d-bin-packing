@@ -21,6 +21,11 @@ public:
 	};
 
 	Cuboid insert(Cuboid cuboid, ShelfChoiceHeuristic method);
+	std::vector<Cuboid> insert(std::vector<Cuboid> cuboids, ShelfChoiceHeuristic method);
+
+	int getFilledBinHeight();
+	std::vector<Cuboid> getUsedCuboids() { return usedCuboids; }
+
 
 private:
 	int binWidth;
@@ -38,6 +43,7 @@ private:
 	};
 
 	std::vector<Shelf> shelves;
+	std::vector<Cuboid> usedCuboids;
 
 	/**
 	 * Check if cuboid fits on shelf. If it fits, cuboid.isPlaced will be set
