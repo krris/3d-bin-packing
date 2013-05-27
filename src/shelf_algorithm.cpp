@@ -22,9 +22,12 @@ void ShelfAlgorithm::init(int width, int height, int depth)
 	startNewShelf(0);
 }
 
-Cuboid ShelfAlgorithm::insert(int width, int height, int depth, ShelfChoiceHeuristic method)
+Cuboid ShelfAlgorithm::insert(Cuboid cuboid, ShelfChoiceHeuristic method)
 {
 	Cuboid newNode;
+	int width = cuboid.width;
+	int height = cuboid.height;
+	int depth = cuboid.depth;
 
 
 	switch(method)
@@ -40,7 +43,7 @@ Cuboid ShelfAlgorithm::insert(int width, int height, int depth, ShelfChoiceHeuri
 
 		for(size_t i = 0; i < shelves.size(); ++i)
 		{
-			auto fits = fitsOnShelf(shelves[i], width, height, depth, i == shelves.size()-1);
+			auto fits = fitsOnShelf(shelves[i], cuboid, i == shelves.size()-1);
 			if (get<0>(fits) == true)
 			{
 				int width_ = get<1>(fits);
@@ -62,7 +65,7 @@ Cuboid ShelfAlgorithm::insert(int width, int height, int depth, ShelfChoiceHeuri
 	if (canStartNewShelf(height))
 	{
 		startNewShelf(height);
-		auto fits = fitsOnShelf(shelves.back(), width, height, depth, true);
+		auto fits = fitsOnShelf(shelves.back(), cuboid, true);
 		assert(get<0>(fits));
 		addToShelf(shelves.back(), width, height, depth, newNode);
 		return newNode;
@@ -72,10 +75,13 @@ Cuboid ShelfAlgorithm::insert(int width, int height, int depth, ShelfChoiceHeuri
 	return newNode;
 }
 
-tuple<bool, int, int, int> ShelfAlgorithm::fitsOnShelf(const Shelf& shelf, int width, int height, int depth,
+tuple<bool, int, int, int> ShelfAlgorithm::fitsOnShelf(const Shelf& shelf, Cuboid cuboid,
 		bool canResize) const
 {
 	//const int shelfHeight = canResize ? (binHeight - shelf.startY) : shelf.height;
+	int width = cuboid.width;
+	int height = cuboid.height;
+	int depth = cuboid.depth;
 
 	// Check if there is a place on current shelf
 

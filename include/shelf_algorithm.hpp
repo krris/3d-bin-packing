@@ -19,7 +19,7 @@ public:
 		ShelfFirstFit, // We test each rectangle against each shelf in turn and pack it to the first where it fits.
 	};
 
-	Cuboid insert(int width, int heigh, int depth, ShelfChoiceHeuristic method);
+	Cuboid insert(Cuboid cuboid, ShelfChoiceHeuristic method);
 
 private:
 	int binWidth;
@@ -45,7 +45,7 @@ private:
 	 * @param canResize If true, shelf height may be increased to fit the object
 	 * @return true and 2 edges if fits, flase otherwise
 	 */
-	std::tuple<bool, int, int, int> fitsOnShelf(const Shelf& shelf, int width, int height, int depth, bool canResize) const;
+	std::tuple<bool, int, int, int> fitsOnShelf(const Shelf& shelf, Cuboid cuboid, bool canResize) const;
 
 	void addToShelf(Shelf& shelf, int width, int height, int depth, Cuboid& newNode);
 
