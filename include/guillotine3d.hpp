@@ -37,11 +37,9 @@ public:
 	};
 
 	/**
-	 * Insert a cuboid with given sizes.
+	 * Insert a cuboid with a given size.
 	 * @return Cuboid which has  cooridantes, where will be placed in a bin.
 	 */
-//	Cuboid insert(int width, int height, int depth, FreeCuboidChoiceHeuristic cuboidChoice,
-//				GuillotineSplitHeuristic splitMethod);
 	Cuboid insert(Cuboid cuboid, FreeCuboidChoiceHeuristic cuboidChoice,
 				GuillotineSplitHeuristic splitMethod);
 
@@ -72,21 +70,16 @@ private:
 	Cuboid findPositionForNewNode(Cuboid cuboid,
 								FreeCuboidChoiceHeuristic cuboidChoice,
 								int *nodeIndex) const;
-//	Cuboid findPositionForNewNode(int width, int height, int depth,
-//								FreeCuboidChoiceHeuristic cuboidChoice,
-//								int *nodeIndex) const;
 
+	/**
+	 * Get all possible placements of cuboid.
+	 */
 	std::vector<Cuboid> movePossibilities(Cuboid cuboid, GuillotineSplitHeuristic splitMethod);
-
-
 
 	static int scoreByHeuristic(Cuboid cuboid, const Cuboid &freeCuboid,
 								FreeCuboidChoiceHeuristic cuboidChoice);
-//	static int scoreByHeuristic(int width, int height, int depth, const Cuboid &freeCuboid,
-//								FreeCuboidChoiceHeuristic cuboidChoice);
 
 	static int scoreMinHeight(Cuboid cuboid, const Cuboid& freeCuboid);
-//	static int scoreMinHeight(int width, int height, int depth, const Cuboid& freeCuboid);
 
 	/* Splits the given L-shaped free rectangle into two new free rectangles
 	 * after placedCuboid has been placed into it. Determines the split axis by

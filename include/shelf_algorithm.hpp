@@ -9,14 +9,15 @@
 
 class ShelfAlgorithm{
 public:
-	ShelfAlgorithm() : binWidth(0), binHeight(0), binDepth(0), currentY(0), usedSurfaceArea(0) {}
+	ShelfAlgorithm() : binWidth(0), binHeight(0), binDepth(0), currentY(0) {}
 	ShelfAlgorithm(int width, int height, int depth);
 
 	void init(int width, int height, int depth);
 	enum ShelfChoiceHeuristic
 	{
-		ShelfNextFit, // We always put the new rectangle to the last open shelf.
-		ShelfFirstFit, // We test each rectangle against each shelf in turn and pack it to the first where it fits.
+		ShelfNextFit, // We always put the new cuboid to the last open shelf.
+		ShelfFirstFit, // We test each cuboid against each shelf in turn and
+					   // pack it to the first where it fits.
 	};
 
 	Cuboid insert(Cuboid cuboid, ShelfChoiceHeuristic method);
@@ -39,13 +40,16 @@ private:
 	std::vector<Shelf> shelves;
 
 	/**
-	 * @param canResize If true, shelf height may be increased to fit the object
-	 * @return true and 2 edges if fits, flase otherwise
+	 * Check if cuboid fits on shelf. If it fits, cuboid.isPlaced will be set
+	 * to true.
 	 */
-	std::tuple<bool, int, int, int> fitsOnShelf(const Shelf& shelf, Cuboid cuboid, bool canResize) const;
+	Cuboid fitsOnShelf(const Shelf& shelf, Cuboid cuboid) const;
 
 	void addToShelf(Shelf& shelf, Cuboid& newNode);
 
+	/**
+	 * Check if is it possible to start new shelf.
+	 */
 	bool canStartNewShelf(int height) const;
 
 	void startNewShelf(int startingHeight);
