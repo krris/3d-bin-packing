@@ -9,15 +9,15 @@
 
 using namespace std;
 
-Guillotine3d::Guillotine3d(int width, int height, int depth)
+Guillotine3d::Guillotine3d(int width, int depth)
 {
-	init(width, height, depth);
+	init(width, depth);
 }
 
-void Guillotine3d::init(int width, int height, int depth)
+void Guillotine3d::init(int width, int depth)
 {
 	binWidth = width;
-	binHeight = height;
+	binHeight = std::numeric_limits<int>::max();
 	binDepth = depth;
 
 	usedCuboids.clear();
@@ -28,8 +28,8 @@ void Guillotine3d::init(int width, int height, int depth)
 	n.y = 0;
 	n.z = 0;
 	n.width = width;
-	n.height = height;
 	n.depth = depth;
+	n.height = std::numeric_limits<int>::max();
 
 	freeCuboids.clear();
 	freeCuboids.push_back(n);
@@ -286,7 +286,14 @@ void Guillotine3d::splitFreeCuboidAlongAxis(const Cuboid& freeCuboid,
 	top.x = freeCuboid.x;
 	top.y = freeCuboid.y + placedCuboid.height;
 	top.z = freeCuboid.z;
-	top.height = binHeight - top.y;
+	if (freeCuboid.height == std::numeric_limits<int>::max())
+	{
+		top.height = freeCuboid.height;
+	}
+	else
+	{
+		top.height = freeCuboid.height - top.y;
+	}
 	top.width = freeCuboid.width;
 	top.depth = freeCuboid.depth;
 

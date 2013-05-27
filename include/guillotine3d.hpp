@@ -19,13 +19,13 @@ class Guillotine3d {
 public:
 	/* Set the initial bin size to (0, 0).
 	 * Calls init() to set a proper bin size. */
-	Guillotine3d() : binWidth(0), binHeight(0), binDepth(0) {}
+	Guillotine3d() : binWidth(0), binHeight(std::numeric_limits<int>::max()), binDepth(0) {}
 
 	/* Initialize a new bin */
-	Guillotine3d(int width, int height, int depth);
+	Guillotine3d(int width, int depth);
 
 	/* Initialize an empty bin. */
-	void init(int width, int height, int depth);
+	void init(int width, int depth);
 
 	enum FreeCuboidChoiceHeuristic
 		{

@@ -44,8 +44,8 @@ int main(int argc, char* argv[])
     using namespace std;
 
     // Test serialization
-    Cuboid cuboid_1(100, 100, 100);
-    Cuboid cuboid_2(100, 50, 50);
+    Cuboid cuboid_1(100, 50, 50);
+    Cuboid cuboid_2(100, 100, 100);
     Cuboid cuboid_3(50, 50, 50);
     Cuboid cuboid_4(30, 30, 30);
     Cuboid cuboid_5(30, 30, 30);
@@ -129,7 +129,7 @@ int main(int argc, char* argv[])
 //    saveXml(foundPlaces, filename.c_str());
 
 
-//    Guillotine3d g3d(100, 1000, 100);
+//    Guillotine3d g3d(100, 100);
 //    vector<Cuboid> foundPlaces;
 //    for (Cuboid c : cuboids)
 //    {
@@ -160,7 +160,7 @@ int main(int argc, char* argv[])
 //    	}
 //    }
 
-    Guillotine3d g3d(100, 1000, 100);
+    Guillotine3d g3d(100, 100);
     vector<Cuboid> foundPlaces;
     int size = cuboids.size();
     for (int i = 0; i < size; ++i)
