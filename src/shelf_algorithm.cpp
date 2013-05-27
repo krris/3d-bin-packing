@@ -4,15 +4,15 @@
 
 using namespace std;
 
-ShelfAlgorithm::ShelfAlgorithm(int width, int height, int depth)
+ShelfAlgorithm::ShelfAlgorithm(int width, int depth)
 {
-	init(width, height, depth);
+	init(width,  depth);
 }
 
-void ShelfAlgorithm::init(int width, int height, int depth)
+void ShelfAlgorithm::init(int width, int depth)
 {
 	binWidth = width;
-	binHeight = height;
+	binHeight = numeric_limits<int>::max();
 	binDepth = depth;
 
 	currentY = 0;

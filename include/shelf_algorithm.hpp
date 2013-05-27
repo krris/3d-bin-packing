@@ -9,10 +9,10 @@
 
 class ShelfAlgorithm{
 public:
-	ShelfAlgorithm() : binWidth(0), binHeight(0), binDepth(0), currentY(0) {}
-	ShelfAlgorithm(int width, int height, int depth);
+	ShelfAlgorithm() : binWidth(0), binHeight(std::numeric_limits<int>::max()), binDepth(0), currentY(0) {}
+	ShelfAlgorithm(int width, int depth);
 
-	void init(int width, int height, int depth);
+	void init(int width, int depth);
 	enum ShelfChoiceHeuristic
 	{
 		ShelfNextFit, // We always put the new cuboid to the last open shelf.

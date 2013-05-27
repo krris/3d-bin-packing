@@ -90,7 +90,7 @@ int main(int argc, char* argv[])
 
 
 
-    ShelfAlgorithm shelfAlg(100, 1000, 100);
+    ShelfAlgorithm shelfAlg(100, 100);
     vector<Cuboid> foundPlaces;
     for (Cuboid c : cuboids)
     {
