@@ -36,6 +36,11 @@ public:
      * of choosing this cuboid. */
     int score = std::numeric_limits<int>::max();
 
+    static bool compare(Cuboid i,Cuboid j)
+    {
+    	return ((i.width * i.height * i.depth) > (j.width * j.height * j.depth));
+    }
+
 };
 
 #endif

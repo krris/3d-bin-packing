@@ -233,6 +233,74 @@ std::vector<Cuboid> Guillotine3d::movePossibilities(Cuboid cuboid,
 
 }
 
+vector<Cuboid> Guillotine3d::insertVector(std::vector<Cuboid> cuboids,
+		FreeCuboidChoiceHeuristic cuboidChoice,
+		GuillotineSplitHeuristic splitMethod)
+{
+    vector<Cuboid> foundPlaces;
+    for (Cuboid c : cuboids)
+    {
+    	Cuboid place = insert(c, Guillotine3d::CuboidMinHeight, Guillotine3d::SplitLongerAxis);
+    	if (place.isPlaced == true)
+    	{
+    	    c.x = place.x + (0.5 * place.width);
+    	    c.z = place.z + (0.5 * place.depth);
+    	    c.y = place.y + 0.5 * place.height;
+    	    c.width = place.width;
+    	    c.height = place.height;
+    	    c.depth = place.depth;
+    		foundPlaces.push_back(c);
+    	}
+    	else
+    	{
+    		cout << "Place not found!:" << endl;
+        	cout << "Width: " << c.width << endl;
+        	cout << "Height: " << c.depth<< endl;
+
+    	}
+    }
+    return foundPlaces;
+}
+
+std::vector<Cuboid> Guillotine3d::insertBestGlobalVector(
+		std::vector<Cuboid> cuboids, GuillotineSplitHeuristic splitMethod)
+{
+    vector<Cuboid> foundPlaces;
+    int size = cuboids.size();
+    for (int i = 0; i < size; ++i)
+    {
+    	Cuboid place = insertBestGlobal(cuboids, *this, Guillotine3d::SplitLongerAxis);
+    	Cuboid c;
+    	if (place.isPlaced == true)
+    	{
+        	place = insert(place,
+					Guillotine3d::CuboidMinHeight, Guillotine3d::SplitLongerAxis);
+    		foundPlaces.push_back(place);
+    	}
+    	else
+    	{
+    		cout << "Place not found!:" << endl;
+        	cout << "Width: " << c.width << endl;
+        	cout << "Height: " << c.depth<< endl;
+
+    	}
+
+    	int index;
+    	for (unsigned j = 0; j < cuboids.size(); j++)
+    	{
+    		if (cuboids[j].width == place.width &&
+    			cuboids[j].height == place.height &&
+    			cuboids[j].depth == place.depth)
+    		{
+    			index = j;
+    			break;
+    		}
+    	}
+    	cuboids.erase(cuboids.begin() + index);
+    }
+    return foundPlaces;
+}
+
 void Guillotine3d::splitFreeCuboidAlongAxis(const Cuboid& freeCuboid,
 		const Cuboid& placedCuboid, bool splitHorizontal)
 {

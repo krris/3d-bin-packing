@@ -42,11 +42,10 @@ std::vector<Cuboid> loadCuboidsFromXml(const char* filename)
     std::vector<Cuboid> loadedCuboids;
     try
     {
-        for(;;)
+    	while (true)
         {
             Cuboid cuboid;
             ia >> boost::serialization::make_nvp("cuboid",cuboid);
-            //your logic
             loadedCuboids.push_back(cuboid);
         }
     }
@@ -56,14 +55,18 @@ std::vector<Cuboid> loadCuboidsFromXml(const char* filename)
 
 vector<Cuboid> generateRandomCuboids(int number)
 {
-	const int maxSize = 200;
+	const int maxSize = 100;
 	vector<Cuboid> cuboids;
 	for (int i = 0; i < number; ++i)
 	{
 		int width = rand() % maxSize + 1;
 		int height = rand() % maxSize + 1;
 		int depth = rand() % maxSize + 1;
-		Cuboid c(width, height, depth);
+    	cout << "Width: " << width << endl;
+    	cout << "Height: " << width << endl;
+    	cout << "Depth: " << width<< endl;
+    	cout << "-------------" << endl;
+		Cuboid c(width, width, width);
 		cuboids.push_back(c);
 	}
 	return cuboids;
@@ -86,13 +89,6 @@ vector<Cuboid> transform(vector<Cuboid> cuboids)
 	vector<Cuboid> tranformed;
 	for (Cuboid c : cuboids)
 	{
-//    	cout << "Width: " << c.width << endl;
-//    	cout << "Height: " << c.height<< endl;
-//    	cout << "Depth: " << c.depth<< endl;
-//    	cout << "x: " << c.x<< endl;
-//    	cout << "y: " << c.y<< endl;
-//    	cout << "z: " << c.z<< endl;
-//    	cout << "----------------" << endl;
 		Cuboid newCuboid;
 	    newCuboid.x = c.x + (0.5 * c.width);
 	    newCuboid.z = c.z + (0.5 * c.depth);
@@ -101,25 +97,6 @@ vector<Cuboid> transform(vector<Cuboid> cuboids)
 	    newCuboid.depth = c.depth;
 	    newCuboid.height = c.height;
 	    tranformed.push_back(newCuboid);
-//	        	cout << "Width: " << c.width << endl;
-//	        	cout << "Height: " << c.height<< endl;
-//	        	cout << "Depth: " << c.depth<< endl;
-//	        	cout << "x: " << c.x<< endl;
-//	        	cout << "y: " << c.y<< endl;
-//	        	cout << "z: " << c.z<< endl;
-//	        	cout << "----------------" << endl;
-	}
-
-	for (Cuboid c : tranformed)
-	{
-	        	cout << "Width: " << c.width << endl;
-	        	cout << "Height: " << c.height<< endl;
-	        	cout << "Depth: " << c.depth<< endl;
-
-	        	cout << "x: " << c.x<< endl;
-	        	cout << "y: " << c.y<< endl;
-	        	cout << "z: " << c.z<< endl;
-	        	cout << "----------------" << endl;
 	}
 	return tranformed;
 
@@ -129,55 +106,48 @@ vector<Cuboid> transform(vector<Cuboid> cuboids)
 void shelfAlgorithm(int binWidth, int binDepth, vector<Cuboid> cuboids, string filename)
 {
 	ShelfAlgorithm shelfAlg(binWidth, binDepth);
-	/*vector<Cuboid> placedCuboids =*/ shelfAlg.insert(cuboids, ShelfAlgorithm::ShelfFirstFit);
+	sort(cuboids.begin(), cuboids.end(), Cuboid::compare);
+	shelfAlg.insert(cuboids, ShelfAlgorithm::ShelfFirstFit);
 	vector<Cuboid> placedCuboids = shelfAlg.getUsedCuboids();
 	vector<Cuboid> newCuboids = transform(placedCuboids);
 	saveXml(newCuboids, filename.c_str());
 }
 
+void guillotineAlgorithm(int binWidth, int binDepth, vector<Cuboid> cuboids, string filename)
+{
+	Guillotine3d guillotineAlg(binWidth, binDepth);
+	sort(cuboids.begin(), cuboids.end(), Cuboid::compare);
+	guillotineAlg.insertVector(cuboids, Guillotine3d::CuboidMinHeight, Guillotine3d::SplitLongerAxis);
+	vector<Cuboid> placedCuboids = guillotineAlg.getUsedCuboids();
+	vector<Cuboid> newCuboids = transform(placedCuboids);
+	saveXml(newCuboids, filename.c_str());
+}
 
-
-
-//{
-//	vector<Cuboid> placedCuboids;
-//	ShelfAlgorithm shelfAlg(binWidth, binDepth);
-//    for (Cuboid c : cuboids)
-//    {
-//    	Cuboid placed = shelfAlg.insert(c, ShelfAlgorithm::ShelfFirstFit);
-//    	if (placed.isPlaced == true)
-//    	{
-//    		placedCuboids.push_back(c);
-//    	}
-//    	else
-//    	{
-//    		cout << "Place not found!:" << endl;
-//        	cout << "Width: " << c.width << endl;
-//        	cout << "Height: " << c.height<< endl;
-//        	cout << "Depth: " << c.depth<< endl;
-//
-//    	}
-//    }
-//    return placedCuboids;
-//}
-
-
-
-
+void guillotineGlobalAlgorithm(int binWidth, int binDepth, vector<Cuboid> cuboids, string filename)
+{
+	Guillotine3d guillotineAlg(binWidth, binDepth);
+	guillotineAlg.insertBestGlobalVector(cuboids, Guillotine3d::SplitLongerAxis);
+	vector<Cuboid> placedCuboids = guillotineAlg.getUsedCuboids();
+	vector<Cuboid> newCuboids = transform(placedCuboids);
+	saveXml(newCuboids, filename.c_str());
+}
 
 
 int main(int argc, char* argv[])
 {
 	string outputFilename = "/home/krris/workspace/3dBinPacking/visualization/cuboids.xml";
 	string inputFilename = "/home/krris/workspace/3dBinPacking/visualization/cuboids_input.xml";
-	// set seed
+	// Set seed
 	srand (time(NULL));
 
 	if (argc < 6 || argc > 7)
 		usage();
+	// Without time measurement
 	else if (argc == 6)
 	{
 		string arg1 = argv[1];
 		string alg = argv[3];
+		// Generete random cuboids
 		if (arg1 == "-r" &&
 		   (alg == "-shelf" || alg == "-guillotine" || alg == "-global_guillotine" ))
 		{
@@ -185,6 +155,22 @@ int main(int argc, char* argv[])
 			int width = atoi(argv[4]);
 			int depth = atoi(argv[5]);
 			cout << "-r " << number << " " << alg << " width: " << width << " depth: " << depth << endl;
+			if (alg == "-shelf")
+			{
+				vector<Cuboid> cuboids = generateRandomCuboids(number);
+				shelfAlgorithm(width, depth, cuboids, outputFilename);
+			}
+			else if (alg == "-guillotine")
+			{
+				vector<Cuboid> cuboids = generateRandomCuboids(number);
+				guillotineAlgorithm(width, depth, cuboids, outputFilename);
+			}
+			else if (alg == "-global_guillotine")
+			{
+				vector<Cuboid> cuboids = generateRandomCuboids(number);
+				guillotineGlobalAlgorithm(width, depth, cuboids, outputFilename);
+			}
+
 		}
 		// Load cuboids from xml file.
 		else if (arg1 == "-f" &&
@@ -199,16 +185,28 @@ int main(int argc, char* argv[])
 				vector<Cuboid> cuboids = loadCuboidsFromXml(filename.c_str());
 				shelfAlgorithm(width, depth, cuboids, outputFilename);
 			}
+			else if (alg == "-guillotine")
+			{
+				vector<Cuboid> cuboids = loadCuboidsFromXml(filename.c_str());
+				guillotineAlgorithm(width, depth, cuboids, outputFilename);
+			}
+			else if (alg == "-global_guillotine")
+			{
+				vector<Cuboid> cuboids = loadCuboidsFromXml(filename.c_str());
+				guillotineGlobalAlgorithm(width, depth, cuboids, outputFilename);
+			}
 
 		}
 		else
 			usage();
 	}
+	// With time measurement
 	else if (argc == 7)
 	{
 		string arg1(argv[1]);
 		string arg2 = argv[2];
 		string alg = argv[4];
+		// Generate random cuboids
 		if (arg1 == "-t" && arg2 == "-r" &&
 		   (alg == "-shelf" || alg == "-guillotine" || alg == "-global_guillotine" ))
 		{
@@ -217,6 +215,7 @@ int main(int argc, char* argv[])
 			int depth = atoi(argv[6]);
 			cout << "-t -r " << number << " " << alg << " width: " << width << " depth: " << depth << endl;
 		}
+		// Load cuboids from xml file
 		else if (arg1 == "-t" && arg2 == "-f" &&
 		   (alg == "-shelf" || alg == "-guillotine" || alg == "-global_guillotine" ))
 		{

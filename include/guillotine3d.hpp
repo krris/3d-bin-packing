@@ -43,6 +43,12 @@ public:
 	Cuboid insert(Cuboid cuboid, FreeCuboidChoiceHeuristic cuboidChoice,
 				GuillotineSplitHeuristic splitMethod);
 
+	std::vector<Cuboid> insertVector(std::vector<Cuboid> cuboids, FreeCuboidChoiceHeuristic cuboidChoice,
+				GuillotineSplitHeuristic splitMethod);
+
+	std::vector<Cuboid> insertBestGlobalVector(std::vector<Cuboid> cuboids,
+			GuillotineSplitHeuristic splitMethod);
+
 	Cuboid insertBestGlobal(std::vector<Cuboid> cuboids, Guillotine3d guilotine,
 				GuillotineSplitHeuristic splitMethod);
 
