@@ -8,19 +8,31 @@
 #ifndef RECT_HPP_
 #define RECT_HPP_
 
+#include <boost/serialization/nvp.hpp>
+
 struct Rect{
-	int width;
-	int height;
-	int x;
-	int y;
+	int width = 0;
+	int height = 0;
+	int x = 0;
+	int y = 0;
 
 	/* If rectangle found a place in a bin. */
 	bool isPlaced = false;
+
+    template<class Archive>
+    void serialize(Archive &ar, const unsigned int file_verision)
+    {
+        ar & boost::serialization::make_nvp("width", width);
+        ar & boost::serialization::make_nvp("height", height);
+        ar & boost::serialization::make_nvp("x", x);
+        ar & boost::serialization::make_nvp("y", y);
+
+    }
 };
 
 struct RectSize{
-	int widht;
-	int height;
+	int widht = 0;
+	int height = 0;
 };
 
 

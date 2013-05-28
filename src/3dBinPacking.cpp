@@ -20,13 +20,15 @@
 #include "../include/shelf_algorithm.hpp"
 #include "../include/guillotine2d.hpp"
 #include "../include/guillotine3d.hpp"
+#include "../include/rect.hpp"
 using namespace std;
 
-void saveXml(const std::vector<Cuboid>& cuboids, const char* filename)
+void saveXml(const std::vector<Cuboid>& cuboids, const Rect& base, const char* filename)
 {
     std::ofstream ofs(filename);
     assert(ofs.good());
     boost::archive::xml_oarchive oa(ofs);
+    oa << boost::serialization::make_nvp("base", base);
     for (Cuboid cuboid : cuboids)
     {
         oa << boost::serialization::make_nvp("cuboid", cuboid);
@@ -111,7 +113,10 @@ void shelfAlgorithm(int binWidth, int binDepth, vector<Cuboid> cuboids, string f
 	shelfAlg.insert(cuboids, ShelfAlgorithm::ShelfFirstFit);
 	vector<Cuboid> placedCuboids = shelfAlg.getUsedCuboids();
 	vector<Cuboid> newCuboids = transform(placedCuboids);
-	saveXml(newCuboids, filename.c_str());
+	Rect base;
+	base.width = binWidth;
+	base.height = binDepth;
+	saveXml(newCuboids, base, filename.c_str());
 }
 
 void guillotineAlgorithm(int binWidth, int binDepth, vector<Cuboid> cuboids, string filename)
@@ -121,7 +126,10 @@ void guillotineAlgorithm(int binWidth, int binDepth, vector<Cuboid> cuboids, str
 	guillotineAlg.insertVector(cuboids, Guillotine3d::CuboidMinHeight, Guillotine3d::SplitLongerAxis);
 	vector<Cuboid> placedCuboids = guillotineAlg.getUsedCuboids();
 	vector<Cuboid> newCuboids = transform(placedCuboids);
-	saveXml(newCuboids, filename.c_str());
+	Rect base;
+	base.width = binWidth;
+	base.height = binDepth;;
+	saveXml(newCuboids, base, filename.c_str());
 }
 
 void guillotineGlobalAlgorithm(int binWidth, int binDepth, vector<Cuboid> cuboids, string filename)
@@ -130,7 +138,10 @@ void guillotineGlobalAlgorithm(int binWidth, int binDepth, vector<Cuboid> cuboid
 	guillotineAlg.insertBestGlobalVector(cuboids, Guillotine3d::SplitLongerAxis);
 	vector<Cuboid> placedCuboids = guillotineAlg.getUsedCuboids();
 	vector<Cuboid> newCuboids = transform(placedCuboids);
-	saveXml(newCuboids, filename.c_str());
+	Rect base;
+	base.width = binWidth;
+	base.height = binDepth;
+	saveXml(newCuboids, base, filename.c_str());
 }
 
 int frequency_of_primes (int n) {

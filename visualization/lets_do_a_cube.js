@@ -67,6 +67,11 @@ function init() {
 	z_num = 11;
 	// parsing xml
 	xmlDoc=loadXMLDoc("cuboids.xml");
+
+	elements=xmlDoc.getElementsByTagName("base");
+	base_width = parseInt(elements[0].childNodes[1].textContent);
+	base_height = parseInt(elements[0].childNodes[3].textContent);
+
 	elements=xmlDoc.getElementsByTagName("cuboid");
 	
 	for (i=0; i<elements.length; i++)
@@ -112,12 +117,15 @@ function init() {
 
 	// Plane
 
-	var geometryPlane = new THREE.PlaneGeometry( 200, 200 );
+	var geometryPlane = new THREE.PlaneGeometry( base_width, base_height );
+
 	geometryPlane.applyMatrix( new THREE.Matrix4().makeRotationX( - Math.PI / 2 ) );
 
 	var material = new THREE.MeshBasicMaterial( { color: 0xe0e0e0 } );
 
 	plane = new THREE.Mesh( geometryPlane, material );
+    	plane.position.x += 0.5 * base_width;
+    	plane.position.z += 0.5 * base_height;
 	scene.add( plane );
 
 	renderer = new THREE.CanvasRenderer();
