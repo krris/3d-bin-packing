@@ -84,7 +84,7 @@ Cuboid ShelfAlgorithm::fitsOnShelf(const Shelf& shelf, Cuboid cuboid) const
 	// Set cuboid's longest egde vertically
 	Rect fits = shelf.guillotine.fits(middle, min, Guillotine2d::RectBestAreaFit);
 	if (shelf.height > 0)
-		if (max < shelf.height)
+		if (max > shelf.height)
 			fits.isPlaced = false;
 	if (fits.isPlaced)
 	{
@@ -96,7 +96,7 @@ Cuboid ShelfAlgorithm::fitsOnShelf(const Shelf& shelf, Cuboid cuboid) const
 	// Set cuboid's second longest egde vertically
 	fits = shelf.guillotine.fits(min, max, Guillotine2d::RectBestAreaFit);
 	if (shelf.height > 0)
-		if (middle < shelf.height)
+		if (middle > shelf.height)
 			fits.isPlaced = false;
 	if (fits.isPlaced)
 	{
@@ -108,7 +108,7 @@ Cuboid ShelfAlgorithm::fitsOnShelf(const Shelf& shelf, Cuboid cuboid) const
 	// Set cuboid's smallest egde vertically
 	fits = shelf.guillotine.fits(middle, max, Guillotine2d::RectBestAreaFit);
 	if (shelf.height > 0)
-		if (min < shelf.height)
+		if (min > shelf.height)
 			fits.isPlaced = false;
 	if (fits.isPlaced)
 	{

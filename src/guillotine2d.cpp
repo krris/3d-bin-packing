@@ -112,7 +112,8 @@ Rect Guillotine2d::findPositionForNewNode(int width, int height,
 			break;
 		}
 		// Does the rectangle fit upright?
-		else if (width <= freeRectangles[i].width && height <= freeRectangles[i].height)
+		else
+		if (width <= freeRectangles[i].width && height <= freeRectangles[i].height)
 		{
 			int score = scoreByHeuristic(width, height, freeRectangles[i], rectChoice);
 
