@@ -16,19 +16,18 @@ var windowHalfY = window.innerHeight / 2;
 init();
 animate();
 
-function loadXMLDoc(dname)
-{
-if (window.XMLHttpRequest)
-  {
-  xhttp=new XMLHttpRequest();
-  }
-else
-  {
-  xhttp=new ActiveXObject("Microsoft.XMLHTTP");
-  }
-xhttp.open("GET",dname,false);
-xhttp.send();
-return xhttp.responseXML;
+function loadXMLDoc(dname) {
+    if (window.XMLHttpRequest)
+    {
+        xhttp=new XMLHttpRequest();
+    }
+    else
+    {
+        xhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+    xhttp.open("GET",dname,false);
+    xhttp.send();
+    return xhttp.responseXML;
 }
 
 function init() {
@@ -43,11 +42,6 @@ function init() {
 	info.style.textAlign = 'center';
 	info.innerHTML = 'Drag to spin the cube';
 	container.appendChild( info );
-
-//	camera = new THREE.PerspectiveCamera( 70, window.innerWidth / window.innerHeight, 1, 1000 );
-//	camera.position.y = 150;
-//	camera.position.z = 500;
-
 
 	scene = new THREE.Scene();
 
@@ -65,13 +59,16 @@ function init() {
 	x_num = 7;
 	y_num = 9;
 	z_num = 11;
-	// parsing xml
+
+	// Parsing xml
 	xmlDoc=loadXMLDoc("cuboids.xml");
 
+    // Get size of a base
 	elements=xmlDoc.getElementsByTagName("base");
 	base_width = parseInt(elements[0].childNodes[1].textContent);
 	base_height = parseInt(elements[0].childNodes[3].textContent);
 
+    // Get size of all cuboids
 	elements=xmlDoc.getElementsByTagName("cuboid");
 	
 	for (i=0; i<elements.length; i++)
@@ -97,26 +94,7 @@ function init() {
   		
     }
 
-
-	// Cube
-
-//	var geometry = new THREE.CubeGeometry( 100, 100, 100 );
-//
-//	for ( var i = 0; i < geometry.faces.length; i ++ ) {
-//
-//		geometry.faces[ i ].color.setHex( Math.random() * 0xffffff );
-//
-//	}
-//
-//	var material = new THREE.MeshBasicMaterial( { vertexColors: THREE.FaceColors } );
-//
-//	cube = new THREE.Mesh( geometry, material );
-//	cube.position.y = 0;
-//	scene.add( cube );
-
-
 	// Plane
-
 	var geometryPlane = new THREE.PlaneGeometry( base_width, base_height );
 
 	geometryPlane.applyMatrix( new THREE.Matrix4().makeRotationX( - Math.PI / 2 ) );
@@ -138,12 +116,6 @@ function init() {
 	stats.domElement.style.top = '0px';
 	container.appendChild( stats.domElement );
 
-//	document.addEventListener( 'mousedown', onDocumentMouseDown, false );
-//	document.addEventListener( 'touchstart', onDocumentTouchStart, false );
-//	document.addEventListener( 'touchmove', onDocumentTouchMove, false );
-
-	//
-    
     controls = new THREE.TrackballControls( camera );
 
 	window.addEventListener( 'resize', onWindowResize, false );
@@ -161,8 +133,6 @@ function onWindowResize() {
 	renderer.setSize( window.innerWidth, window.innerHeight );
 
 }
-
-//
 
 function onDocumentMouseDown( event ) {
 
@@ -227,7 +197,6 @@ function onDocumentTouchMove( event ) {
 
 }
 
-//
 
 function animate() {
 

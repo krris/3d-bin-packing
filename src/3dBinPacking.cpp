@@ -28,11 +28,12 @@ void saveXml(const std::vector<Cuboid>& cuboids, const Rect& base, const char* f
     std::ofstream ofs(filename);
     assert(ofs.good());
     boost::archive::xml_oarchive oa(ofs);
-    oa << boost::serialization::make_nvp("base", base);
+
     for (Cuboid cuboid : cuboids)
     {
         oa << boost::serialization::make_nvp("cuboid", cuboid);
     }
+    oa << boost::serialization::make_nvp("base", base);
 }
 
 std::vector<Cuboid> loadCuboidsFromXml(const char* filename)
@@ -65,11 +66,7 @@ vector<Cuboid> generateRandomCuboids(int number)
 		int width = rand() % maxSize + 1;
 		int height = rand() % maxSize + 1;
 		int depth = rand() % maxSize + 1;
-//    	cout << "Width: " << width << endl;
-//    	cout << "Height: " << width << endl;
-//    	cout << "Depth: " << width<< endl;
-//    	cout << "-------------" << endl;
-		Cuboid c(width, width, width);
+		Cuboid c(width, height, depth);
 		cuboids.push_back(c);
 	}
 	return cuboids;
@@ -117,6 +114,7 @@ void shelfAlgorithm(int binWidth, int binDepth, vector<Cuboid> cuboids, string f
 	base.width = binWidth;
 	base.height = binDepth;
 	saveXml(newCuboids, base, filename.c_str());
+	cout << "Bin height: " << shelfAlg.getFilledBinHeight() << endl;
 }
 
 void guillotineAlgorithm(int binWidth, int binDepth, vector<Cuboid> cuboids, string filename)
@@ -130,6 +128,7 @@ void guillotineAlgorithm(int binWidth, int binDepth, vector<Cuboid> cuboids, str
 	base.width = binWidth;
 	base.height = binDepth;;
 	saveXml(newCuboids, base, filename.c_str());
+	cout << "Bin height: " << guillotineAlg.getFilledBinHeight() << endl;
 }
 
 void guillotineGlobalAlgorithm(int binWidth, int binDepth, vector<Cuboid> cuboids, string filename)
@@ -142,6 +141,7 @@ void guillotineGlobalAlgorithm(int binWidth, int binDepth, vector<Cuboid> cuboid
 	base.width = binWidth;
 	base.height = binDepth;
 	saveXml(newCuboids, base, filename.c_str());
+	cout << "Bin height: " << guillotineAlg.getFilledBinHeight() << endl;
 }
 
 int frequency_of_primes (int n) {
@@ -261,7 +261,7 @@ int main(int argc, char* argv[])
 			string filename = argv[3];
 			int width = atoi(argv[5]);
 			int depth = atoi(argv[6]);
-			cout << "-t -f " << filename << " " << alg << "width: " << width << "depth: " << depth << endl;
+			cout << "-t -f " << filename << " " << alg << " width: " << width << "depth: " << depth << endl;
 			if (alg == "-shelf")
 			{
 				vector<Cuboid> cuboids = loadCuboidsFromXml(filename.c_str());
@@ -283,6 +283,6 @@ int main(int argc, char* argv[])
 	}
 
 
-	cout << "Works!" << endl;
+//	cout << "Works!" << endl;
 	return 0;
 }
