@@ -104,7 +104,7 @@ function init() {
 	plane = new THREE.Mesh( geometryPlane, material );
     	plane.position.x += 0.5 * base_width;
     	plane.position.z += 0.5 * base_height;
-	scene.add( plane );
+	//scene.add( plane );
 
 	renderer = new THREE.CanvasRenderer();
 	renderer.setSize( window.innerWidth, window.innerHeight );

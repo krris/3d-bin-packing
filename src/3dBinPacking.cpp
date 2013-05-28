@@ -262,21 +262,27 @@ int main(int argc, char* argv[])
 			int width = atoi(argv[5]);
 			int depth = atoi(argv[6]);
 			cout << "-t -f " << filename << " " << alg << " width: " << width << "depth: " << depth << endl;
+			clock_t time = clock();
 			if (alg == "-shelf")
 			{
 				vector<Cuboid> cuboids = loadCuboidsFromXml(filename.c_str());
 				shelfAlgorithm(width, depth, cuboids, outputFilename);
+				time = clock() - time;
 			}
 			else if (alg == "-guillotine")
 			{
 				vector<Cuboid> cuboids = loadCuboidsFromXml(filename.c_str());
 				guillotineAlgorithm(width, depth, cuboids, outputFilename);
+				time = clock() - time;
 			}
 			else if (alg == "-global_guillotine")
 			{
 				vector<Cuboid> cuboids = loadCuboidsFromXml(filename.c_str());
 				guillotineGlobalAlgorithm(width, depth, cuboids, outputFilename);
+				time = clock() - time;
 			}
+			double duration = time / (double) CLOCKS_PER_SEC;
+			cout << "It took me: " << time << " clicks ("<<duration<< " seconds)" << endl;
 		}
 		else
 			usage();
