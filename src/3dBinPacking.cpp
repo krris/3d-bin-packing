@@ -106,7 +106,7 @@ vector<Cuboid> transform(vector<Cuboid> cuboids)
 void shelfAlgorithm(int binWidth, int binDepth, vector<Cuboid> cuboids, string filename)
 {
 	ShelfAlgorithm shelfAlg(binWidth, binDepth);
-	sort(cuboids.begin(), cuboids.end(), Cuboid::compare);
+	sort(cuboids.begin(), cuboids.end(), &Cuboid::compareVolume);
 	shelfAlg.insert(cuboids, ShelfAlgorithm::ShelfFirstFit);
 	vector<Cuboid> placedCuboids = shelfAlg.getUsedCuboids();
 	vector<Cuboid> newCuboids = transform(placedCuboids);
@@ -120,8 +120,8 @@ void shelfAlgorithm(int binWidth, int binDepth, vector<Cuboid> cuboids, string f
 void guillotineAlgorithm(int binWidth, int binDepth, vector<Cuboid> cuboids, string filename)
 {
 	Guillotine3d guillotineAlg(binWidth, binDepth);
-	sort(cuboids.begin(), cuboids.end(), Cuboid::compare);
-	guillotineAlg.insertVector(cuboids, Guillotine3d::CuboidMinHeight, Guillotine3d::SplitLongerAxis);
+	sort(cuboids.begin(), cuboids.end(), &Cuboid::compareMaxEdge);
+	guillotineAlg.insertVector(cuboids, Guillotine3d::CuboidMinHeight, Guillotine3d::SplitLongerLeftoverAxis);
 	vector<Cuboid> placedCuboids = guillotineAlg.getUsedCuboids();
 	vector<Cuboid> newCuboids = transform(placedCuboids);
 	Rect base;
@@ -134,7 +134,7 @@ void guillotineAlgorithm(int binWidth, int binDepth, vector<Cuboid> cuboids, str
 void guillotineGlobalAlgorithm(int binWidth, int binDepth, vector<Cuboid> cuboids, string filename)
 {
 	Guillotine3d guillotineAlg(binWidth, binDepth);
-	guillotineAlg.insertBestGlobalVector(cuboids, Guillotine3d::SplitLongerAxis);
+	guillotineAlg.insertBestGlobalVector(cuboids, Guillotine3d::SplitLongerLeftoverAxis);
 	vector<Cuboid> placedCuboids = guillotineAlg.getUsedCuboids();
 	vector<Cuboid> newCuboids = transform(placedCuboids);
 	Rect base;

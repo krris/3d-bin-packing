@@ -47,7 +47,7 @@ public:
 	void insert(std::vector<RectSize> &rects, FreeRectChoiceHeuristic rectChoice,
 				GuillotineSplitHeuristic splitMethod);
 
-	bool fits(int width, int heigh, FreeRectChoiceHeuristic rectChoice) const;
+	Rect fits(int width, int heigh, FreeRectChoiceHeuristic rectChoice) const;
 
 
 	std::vector<Rect>& getFreeRectangles() { return freeRectangles; }

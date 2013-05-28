@@ -65,15 +65,15 @@ void Guillotine2d::insert(std::vector<RectSize>& rects,
 {
 }
 
-bool Guillotine2d::fits(int width, int height,
+Rect Guillotine2d::fits(int width, int height,
 		FreeRectChoiceHeuristic rectChoice) const
 {
 	int nodeIndex;
 	Rect rect = findPositionForNewNode(width, height, rectChoice, &nodeIndex);
 	if (rect.isPlaced == true)
-		return true;
+		return rect;
 	else
-		return false;
+		return rect;
 }
 
 
