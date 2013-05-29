@@ -83,12 +83,12 @@ private:
 	/* Splits the given L-shaped free rectangle into two new free rectangles
 	 * after placedRect has been placed into it. Determines the split axis by
 	 * using the given heuristic. */
-	void splitFreeRectByHeuristic(const Rect &freeRect, const Rect &placedRect,
+	void splitFreeRectByHeuristic(const Rect& freeRect, const Rect& placedRect,
 								  GuillotineSplitHeuristic method);
 
 	/* Splits the given L-shaped free rectangle into two new free rectangles
 	 * along the given fixed split axis. */
-	void splitFreeRectAlongAxis(const Rect &freeRect, const Rect &placedRect,
+	void splitFreeRectAlongAxis(const Rect& freeRect, const Rect& placedRect,
 								bool splitHorizontal);
 };
 

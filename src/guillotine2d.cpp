@@ -46,8 +46,6 @@ Rect Guillotine2d::insert(int width, int height,
 	// Abort if we didn't have enough space in the bin
 	if (newRect.isPlaced == false)
 		return newRect;
-	//if (newRect.height == 0)
-	//	return newRect;
 
 	// Remove the space that was just consumed by the new rectangle.
 	splitFreeRectByHeuristic(freeRectangles[freeNodeIndex], newRect, splitMethod);
@@ -88,7 +86,8 @@ Rect Guillotine2d::findPositionForNewNode(int width, int height,
 	for (unsigned i = 0; i < freeRectangles.size(); ++i)
 	{
 		// If this is a perfect fit upright, choose it immediately.
-		if (width == freeRectangles[i].width && height == freeRectangles[i].height)
+		if (width == freeRectangles[i].width &&
+			height == freeRectangles[i].height)
 		{
 			bestNode.isPlaced = true;
 			bestNode.x = freeRectangles[i].x;
@@ -100,7 +99,8 @@ Rect Guillotine2d::findPositionForNewNode(int width, int height,
 			break;
 		}
 		// If this is a perfect fit sideways, choose it.
-		else if (height == freeRectangles[i].width && width == freeRectangles[i].height)
+		else if (height == freeRectangles[i].width &&
+				width == freeRectangles[i].height)
 		{
 			bestNode.isPlaced = true;
 			bestNode.x = freeRectangles[i].x;
@@ -113,7 +113,8 @@ Rect Guillotine2d::findPositionForNewNode(int width, int height,
 		}
 		// Does the rectangle fit upright?
 		else
-		if (width <= freeRectangles[i].width && height <= freeRectangles[i].height)
+		if (width <= freeRectangles[i].width &&
+			height <= freeRectangles[i].height)
 		{
 			int score = scoreByHeuristic(width, height, freeRectangles[i], rectChoice);
 
@@ -129,7 +130,8 @@ Rect Guillotine2d::findPositionForNewNode(int width, int height,
 			}
 		}
 		// Does the rectangle fit sideways?
-		else if (height <= freeRectangles[i].width && width <= freeRectangles[i].height)
+		else if (height <= freeRectangles[i].width &&
+				width <= freeRectangles[i].height)
 		{
 			int score = scoreByHeuristic(height, width, freeRectangles[i], rectChoice);
 
@@ -174,7 +176,8 @@ int Guillotine2d::scoreBestShortSideFit(int width, int height,
 	return leftover;
 }
 
-void Guillotine2d::splitFreeRectByHeuristic(const Rect &freeRect, const Rect &placedRect, GuillotineSplitHeuristic method)
+void Guillotine2d::splitFreeRectByHeuristic(const Rect &freeRect,
+		const Rect &placedRect, GuillotineSplitHeuristic method)
 {
 	// Compute the lengths of the leftover area.
 	const int w = freeRect.width - placedRect.width;
