@@ -21,7 +21,7 @@ void ShelfAlgorithm::init(int width, int depth)
 	startNewShelf(0);
 }
 
-Cuboid ShelfAlgorithm::insert(Cuboid cuboid, ShelfChoiceHeuristic method)
+Cuboid ShelfAlgorithm::insert(const Cuboid& cuboid, ShelfChoiceHeuristic method)
 {
 	Cuboid fittingCuboid;
 	switch(method)
@@ -121,7 +121,7 @@ Cuboid ShelfAlgorithm::fitsOnShelf(const Shelf& shelf, Cuboid cuboid) const
 	return cuboid;
 }
 
-void ShelfAlgorithm::addToShelf(Shelf& shelf, Cuboid& newCuboid)
+void ShelfAlgorithm::addToShelf(Shelf& shelf, Cuboid newCuboid)
 {
 	// Add the cuboid to the shelf.
 	newCuboid.y = shelf.startY;
@@ -160,7 +160,8 @@ int ShelfAlgorithm::getFilledBinHeight()
 	return max;
 }
 
-std::vector<Cuboid> ShelfAlgorithm::insert(std::vector<Cuboid> cuboids, ShelfChoiceHeuristic choice)
+std::vector<Cuboid> ShelfAlgorithm::insert(const std::vector<Cuboid>& cuboids,
+		ShelfChoiceHeuristic choice)
 {
 	vector<Cuboid> placedCuboids;
     for (Cuboid c : cuboids)

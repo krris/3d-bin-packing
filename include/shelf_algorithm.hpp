@@ -9,7 +9,8 @@
 
 class ShelfAlgorithm{
 public:
-	ShelfAlgorithm() : binWidth(0), binHeight(std::numeric_limits<int>::max()), binDepth(0), currentY(0) {}
+	ShelfAlgorithm() : binWidth(0), binHeight(std::numeric_limits<int>::max()),
+		binDepth(0), currentY(0) {}
 	ShelfAlgorithm(int width, int depth);
 
 	void init(int width, int depth);
@@ -20,8 +21,9 @@ public:
 					   // pack it to the first where it fits.
 	};
 
-	Cuboid insert(Cuboid cuboid, ShelfChoiceHeuristic method);
-	std::vector<Cuboid> insert(std::vector<Cuboid> cuboids, ShelfChoiceHeuristic method);
+	Cuboid insert(const Cuboid& cuboid, ShelfChoiceHeuristic method);
+	std::vector<Cuboid> insert(const std::vector<Cuboid>& cuboids,
+			ShelfChoiceHeuristic method);
 
 	int getFilledBinHeight();
 	std::vector<Cuboid> getUsedCuboids() { return usedCuboids; }
@@ -51,7 +53,7 @@ private:
 	 */
 	Cuboid fitsOnShelf(const Shelf& shelf, Cuboid cuboid) const;
 
-	void addToShelf(Shelf& shelf, Cuboid& newNode);
+	void addToShelf(Shelf& shelf, Cuboid newCuboid);
 
 	/**
 	 * Check if is it possible to start new shelf.
