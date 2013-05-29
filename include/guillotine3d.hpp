@@ -40,17 +40,19 @@ public:
 	 * Insert a cuboid with a given size.
 	 * @return Cuboid which has  cooridantes, where will be placed in a bin.
 	 */
-	Cuboid insert(Cuboid cuboid, FreeCuboidChoiceHeuristic cuboidChoice,
-				GuillotineSplitHeuristic splitMethod);
+	Cuboid insert(const Cuboid& cuboid, FreeCuboidChoiceHeuristic cuboidChoice,
+			GuillotineSplitHeuristic splitMethod);
 
-	std::vector<Cuboid> insertVector(std::vector<Cuboid> cuboids, FreeCuboidChoiceHeuristic cuboidChoice,
-				GuillotineSplitHeuristic splitMethod);
+	std::vector<Cuboid> insertVector(const std::vector<Cuboid>& cuboids,
+			FreeCuboidChoiceHeuristic cuboidChoice,
+			GuillotineSplitHeuristic splitMethod);
 
 	std::vector<Cuboid> insertBestGlobalVector(std::vector<Cuboid> cuboids,
 			GuillotineSplitHeuristic splitMethod);
 
-	Cuboid insertBestGlobal(std::vector<Cuboid> cuboids, Guillotine3d guilotine,
-				GuillotineSplitHeuristic splitMethod);
+	Cuboid insertBestGlobal(std::vector<Cuboid>& cuboids,
+			const Guillotine3d& guilotine,
+			GuillotineSplitHeuristic splitMethod);
 
 	std::vector<Cuboid>& getFreeCuboids() { return freeCuboids; }
 
@@ -73,30 +75,33 @@ private:
 	 * Search through all free rectangles to find the best one to place
 	 * a new rectangle.
 	 */
-	Cuboid findPositionForNewNode(Cuboid cuboid,
-								FreeCuboidChoiceHeuristic cuboidChoice,
-								int *nodeIndex) const;
+	Cuboid findPositionForNewNode(const Cuboid& cuboid,
+			FreeCuboidChoiceHeuristic cuboidChoice,
+			int *nodeIndex) const;
 
 	/**
 	 * Get all possible placements of cuboid.
 	 */
-	std::vector<Cuboid> movePossibilities(Cuboid cuboid, GuillotineSplitHeuristic splitMethod);
+	std::vector<Cuboid> movePossibilities(const Cuboid& cuboid,
+			GuillotineSplitHeuristic splitMethod);
 
-	static int scoreByHeuristic(Cuboid cuboid, const Cuboid &freeCuboid,
-								FreeCuboidChoiceHeuristic cuboidChoice);
+	static int scoreByHeuristic(const Cuboid& cuboid, const Cuboid& freeCuboid,
+			FreeCuboidChoiceHeuristic cuboidChoice);
 
-	static int scoreMinHeight(Cuboid cuboid, const Cuboid& freeCuboid);
+	static int scoreMinHeight(const Cuboid& cuboid, const Cuboid& freeCuboid);
 
 	/* Splits the given L-shaped free rectangle into two new free rectangles
 	 * after placedCuboid has been placed into it. Determines the split axis by
 	 * using the given heuristic. */
-	void splitFreeCuboidByHeuristic(const Cuboid &freeCuboid, const Cuboid &placedCuboid,
-								  GuillotineSplitHeuristic method);
+	void splitFreeCuboidByHeuristic(const Cuboid& freeCuboid,
+			const Cuboid& placedCuboid,
+			GuillotineSplitHeuristic method);
 
 	/* Splits the given L-shaped free rectangle into two new free rectangles
 	 * along the given fixed split axis. */
-	void splitFreeCuboidAlongAxis(const Cuboid &freeCuboid, const Cuboid &placedCuboid,
-								bool splitHorizontal);
+	void splitFreeCuboidAlongAxis(const Cuboid &freeCuboid,
+			const Cuboid &placedCuboid,
+			bool splitHorizontal);
 };
 
 
