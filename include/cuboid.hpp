@@ -6,9 +6,8 @@
 #include <boost/archive/xml_oarchive.hpp>
 
 #include "forward_declarations.hpp"
-#include "rect.hpp"
 
-class Cuboid : public Rect{
+class Cuboid {
 public:
 	Cuboid() {}
     Cuboid(int w, int h, int d) :
@@ -31,6 +30,7 @@ public:
     int x = 0;
     int y = 0;
     int z = 0;
+    bool isPlaced = false;
 
     /* Variable useful in global guillotine algorithm to store a score
      * of choosing this cuboid. */

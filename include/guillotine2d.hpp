@@ -54,6 +54,8 @@ public:
 
 	std::vector<Rect>& getUsedRectangles() { return usedRectangles; }
 
+	bool isEmpty() const { return usedRectangles.empty();}
+
 private:
 	int binWidth;
 	int binHeight;

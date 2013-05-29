@@ -49,19 +49,22 @@ Cuboid ShelfAlgorithm::insert(const Cuboid& cuboid, ShelfChoiceHeuristic method)
 	}
 
 	// The rectangle did not fit on any of the shelves. Open a new shelf.
-	int width = cuboid.width;
-	int height = cuboid.height;
-	// Flip the rectangle so that the long side is horizontal.
-	if (width < height && height <= binWidth)
-		swap(width, height);
 
-	if (canStartNewShelf(height))
+	// Sort edges in decreasing order
+	vector<int> edges = {cuboid.width, cuboid.height, cuboid.depth};
+	sort(edges.begin(), edges.end());
+	int max = edges[2];
+	int middle = edges[1];
+	int min = edges[0];
+	Cuboid newCuboid(middle, max, min);
+
+	if (canStartNewShelf(newCuboid.height))
 	{
-		startNewShelf(height);
-		auto fits = fitsOnShelf(shelves.back(), cuboid);
+		startNewShelf(newCuboid.height);
+		auto fits = fitsOnShelf(shelves.back(), newCuboid);
 		assert(fits.isPlaced);
-		addToShelf(shelves.back(), cuboid);
-		return cuboid;
+		addToShelf(shelves.back(), fits);
+		return fits;
 	}
 
 	// The rectangle didn't fit.
@@ -74,7 +77,7 @@ Cuboid ShelfAlgorithm::fitsOnShelf(const Shelf& shelf, Cuboid cuboid) const
 	int height = cuboid.height;
 	int depth = cuboid.depth;
 
-	// Check if there is a place on current shelf
+	// Sort edges in decreasing order
 	vector<int> edges = {width, height, depth};
 	sort(edges.begin(), edges.end());
 	int max = edges[2];
