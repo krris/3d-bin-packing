@@ -68,12 +68,24 @@ Cuboid Guillotine3d::findPositionForNewNode(const Cuboid& cuboid,
 	int bestScore = std::numeric_limits<int>::max();
 
 	// Try each free cuboid to find the best one for placement a given cuboid
+
+	/*
+	 * W H D
+	 * W D H
+	 * D H W
+	 * D W H
+	 * H W D
+	 * H D W
+	 */
+
 	for (unsigned i = 0; i < freeCuboids.size(); ++i)
 	{
-		if (width <= freeCuboids[i].width && height <= freeCuboids[i].height && depth <= freeCuboids[i].depth)
+		// W H D
+		if (width <= freeCuboids[i].width &&
+			height <= freeCuboids[i].height &&
+			depth <= freeCuboids[i].depth)
 		{
 			int score = scoreByHeuristic(cuboid, freeCuboids[i], cuboidChoice);
-
 			if (score < bestScore)
 			{
 				bestNode.isPlaced = true;
@@ -83,6 +95,106 @@ Cuboid Guillotine3d::findPositionForNewNode(const Cuboid& cuboid,
 				bestNode.width = width;
 				bestNode.height = height;
 				bestNode.depth = depth;
+				bestScore = score;
+				*nodeIndex = i;
+			}
+		}
+
+		// W D H
+		if (width <= freeCuboids[i].width &&
+			depth <= freeCuboids[i].height &&
+			height <= freeCuboids[i].depth)
+		{
+			int score = scoreByHeuristic(cuboid, freeCuboids[i], cuboidChoice);
+			if (score < bestScore)
+			{
+				bestNode.isPlaced = true;
+				bestNode.x = freeCuboids[i].x;
+				bestNode.y = freeCuboids[i].y;
+				bestNode.z = freeCuboids[i].z;
+				bestNode.width = width;
+				bestNode.height = depth;
+				bestNode.depth = height;
+				bestScore = score;
+				*nodeIndex = i;
+			}
+		}
+
+		// D H W
+		if (depth <= freeCuboids[i].width &&
+			height <= freeCuboids[i].height &&
+			width <= freeCuboids[i].depth)
+		{
+			int score = scoreByHeuristic(cuboid, freeCuboids[i], cuboidChoice);
+			if (score < bestScore)
+			{
+				bestNode.isPlaced = true;
+				bestNode.x = freeCuboids[i].x;
+				bestNode.y = freeCuboids[i].y;
+				bestNode.z = freeCuboids[i].z;
+				bestNode.width = depth;
+				bestNode.height = height;
+				bestNode.depth = width;
+				bestScore = score;
+				*nodeIndex = i;
+			}
+		}
+
+		// D W H
+		if (depth <= freeCuboids[i].width &&
+			width <= freeCuboids[i].height &&
+			height <= freeCuboids[i].depth)
+		{
+			int score = scoreByHeuristic(cuboid, freeCuboids[i], cuboidChoice);
+			if (score < bestScore)
+			{
+				bestNode.isPlaced = true;
+				bestNode.x = freeCuboids[i].x;
+				bestNode.y = freeCuboids[i].y;
+				bestNode.z = freeCuboids[i].z;
+				bestNode.width = depth;
+				bestNode.height = width;
+				bestNode.depth = height;
+				bestScore = score;
+				*nodeIndex = i;
+			}
+		}
+
+		// H W D
+		if (height <= freeCuboids[i].width &&
+			width <= freeCuboids[i].height &&
+			depth <= freeCuboids[i].depth)
+		{
+			int score = scoreByHeuristic(cuboid, freeCuboids[i], cuboidChoice);
+			if (score < bestScore)
+			{
+				bestNode.isPlaced = true;
+				bestNode.x = freeCuboids[i].x;
+				bestNode.y = freeCuboids[i].y;
+				bestNode.z = freeCuboids[i].z;
+				bestNode.width = height;
+				bestNode.height = width;
+				bestNode.depth = depth;
+				bestScore = score;
+				*nodeIndex = i;
+			}
+		}
+
+		// H D W
+		if (height <= freeCuboids[i].width &&
+			width <= freeCuboids[i].height &&
+			depth <= freeCuboids[i].depth)
+		{
+			int score = scoreByHeuristic(cuboid, freeCuboids[i], cuboidChoice);
+			if (score < bestScore)
+			{
+				bestNode.isPlaced = true;
+				bestNode.x = freeCuboids[i].x;
+				bestNode.y = freeCuboids[i].y;
+				bestNode.z = freeCuboids[i].z;
+				bestNode.width = height;
+				bestNode.height = depth;
+				bestNode.depth = width;
 				bestScore = score;
 				*nodeIndex = i;
 			}
