@@ -4,15 +4,15 @@
 
 using namespace std;
 
-ShelfAlgorithm::ShelfAlgorithm(int width, int depth)
+ShelfAlgorithm::ShelfAlgorithm(float width, float depth)
 {
 	init(width,  depth);
 }
 
-void ShelfAlgorithm::init(int width, int depth)
+void ShelfAlgorithm::init(float width, float depth)
 {
 	binWidth = width;
-	binHeight = numeric_limits<int>::max();
+	binHeight = numeric_limits<float>::max();
 	binDepth = depth;
 
 	currentY = 0;
@@ -51,11 +51,11 @@ Cuboid ShelfAlgorithm::insert(const Cuboid& cuboid, ShelfChoiceHeuristic method)
 	// The rectangle did not fit on any of the shelves. Open a new shelf.
 
 	// Sort edges in decreasing order
-	vector<int> edges = {cuboid.width, cuboid.height, cuboid.depth};
+	vector<float> edges = {cuboid.width, cuboid.height, cuboid.depth};
 	sort(edges.begin(), edges.end());
-	int max = edges[2];
-	int middle = edges[1];
-	int min = edges[0];
+	float max = edges[2];
+	float middle = edges[1];
+	float min = edges[0];
 	Cuboid newCuboid(middle, max, min);
 
 	if (canStartNewShelf(newCuboid.height))
@@ -73,16 +73,16 @@ Cuboid ShelfAlgorithm::insert(const Cuboid& cuboid, ShelfChoiceHeuristic method)
 
 Cuboid ShelfAlgorithm::fitsOnShelf(const Shelf& shelf, Cuboid cuboid) const
 {
-	int width = cuboid.width;
-	int height = cuboid.height;
-	int depth = cuboid.depth;
+	float width = cuboid.width;
+	float height = cuboid.height;
+	float depth = cuboid.depth;
 
 	// Sort edges in decreasing order
-	vector<int> edges = {width, height, depth};
+	vector<float> edges = {width, height, depth};
 	sort(edges.begin(), edges.end());
-	int max = edges[2];
-	int middle = edges[1];
-	int min = edges[0];
+	float max = edges[2];
+	float middle = edges[1];
+	float min = edges[0];
 
 	// Set cuboid's longest egde vertically
 	Rect fits = shelf.guillotine.fits(middle, min, Guillotine2d::RectBestAreaFit);
@@ -146,17 +146,17 @@ void ShelfAlgorithm::addToShelf(Shelf& shelf, Cuboid newCuboid)
 
 }
 
-bool ShelfAlgorithm::canStartNewShelf(int height) const
+bool ShelfAlgorithm::canStartNewShelf(float height) const
 {
 	return shelves.back().startY + shelves.back().height + height < binHeight;
 }
 
-int ShelfAlgorithm::getFilledBinHeight()
+float ShelfAlgorithm::getFilledBinHeight()
 {
-	int max = -1;
+	float max = -1;
 	for (Cuboid c : usedCuboids)
 	{
-		int height = c.y + c.height;
+		float height = c.y + c.height;
 		if (height > max)
 			max = height;
 	}
@@ -186,7 +186,7 @@ std::vector<Cuboid> ShelfAlgorithm::insert(const std::vector<Cuboid>& cuboids,
     return placedCuboids;
 }
 
-void ShelfAlgorithm::startNewShelf(int startingHeight)
+void ShelfAlgorithm::startNewShelf(float startingHeight)
 {
 	if (shelves.size() > 0)
 	{

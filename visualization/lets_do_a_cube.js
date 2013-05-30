@@ -65,20 +65,20 @@ function init() {
 
     // Get size of a base
 	elements=xmlDoc.getElementsByTagName("base");
-	base_width = parseInt(elements[0].childNodes[1].textContent);
-	base_height = parseInt(elements[0].childNodes[3].textContent);
+	base_width = parseFloat(elements[0].childNodes[1].textContent);
+	base_height = parseFloat(elements[0].childNodes[3].textContent);
 
     // Get size of all cuboids
 	elements=xmlDoc.getElementsByTagName("cuboid");
 	
 	for (i=0; i<elements.length; i++)
   	{ 
-  		width = parseInt(elements[i].childNodes[width_num].textContent);
-		height = parseInt(elements[i].childNodes[height_num].textContent);
-		depth = parseInt(elements[i].childNodes[depth_num].textContent);
-		x = parseInt(elements[i].childNodes[x_num].textContent);
-		y = parseInt(elements[i].childNodes[y_num].textContent);
-		z = parseInt(elements[i].childNodes[z_num].textContent);
+  		width = parseFloat(elements[i].childNodes[width_num].textContent);
+		height = parseFloat(elements[i].childNodes[height_num].textContent);
+		depth = parseFloat(elements[i].childNodes[depth_num].textContent);
+		x = parseFloat(elements[i].childNodes[x_num].textContent);
+		y = parseFloat(elements[i].childNodes[y_num].textContent);
+		z = parseFloat(elements[i].childNodes[z_num].textContent);
     	var geometry = new THREE.CubeGeometry( width, height, depth);
     	for ( var ii = 0; ii < geometry.faces.length; ii ++ ) {
     		geometry.faces[ ii ].color.setHex( Math.random() * 0xffffff );

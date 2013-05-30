@@ -9,11 +9,11 @@
 
 class ShelfAlgorithm{
 public:
-	ShelfAlgorithm() : binWidth(0), binHeight(std::numeric_limits<int>::max()),
+	ShelfAlgorithm() : binWidth(0), binHeight(std::numeric_limits<float>::max()),
 		binDepth(0), currentY(0) {}
-	ShelfAlgorithm(int width, int depth);
+	ShelfAlgorithm(float width, float depth);
 
-	void init(int width, int depth);
+	void init(float width, float depth);
 	enum ShelfChoiceHeuristic
 	{
 		ShelfNextFit, // We always put the new cuboid to the last open shelf.
@@ -25,22 +25,22 @@ public:
 	std::vector<Cuboid> insert(const std::vector<Cuboid>& cuboids,
 			ShelfChoiceHeuristic method);
 
-	int getFilledBinHeight();
+	float getFilledBinHeight();
 	std::vector<Cuboid> getUsedCuboids() { return usedCuboids; }
 
 
 private:
-	int binWidth;
-	int binHeight;
-	int binDepth;
+	float binWidth;
+	float binHeight;
+	float binDepth;
 
 	/* Stores the starting y-coordinate of the latest(topmost) shelf. */
-	int currentY;
+	float currentY;
 
 	struct Shelf
 	{
-		int startY;
-		int height;
+		float startY;
+		float height;
 		Guillotine2d guillotine;
 	};
 
@@ -58,9 +58,9 @@ private:
 	/**
 	 * Check if is it possible to start new shelf.
 	 */
-	bool canStartNewShelf(int height) const;
+	bool canStartNewShelf(float height) const;
 
-	void startNewShelf(int startingHeight);
+	void startNewShelf(float startingHeight);
     
 };
 
