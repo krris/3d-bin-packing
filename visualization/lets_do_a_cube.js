@@ -48,9 +48,9 @@ function init() {
     var SCREEN_WIDTH = window.innerWidth, SCREEN_HEIGHT = window.innerHeight;
     var VIEW_ANGLE = 45, ASPECT = SCREEN_WIDTH / SCREEN_HEIGHT, NEAR = 0.1, FAR = 20000;
     camera = new THREE.PerspectiveCamera( VIEW_ANGLE, ASPECT, NEAR, FAR);
-    scene.add(camera);
+    //scene.add(camera);
     camera.position.set(0,150,400);
-    camera.lookAt(scene.position); 
+    //camera.lookAt(scene.position); 
 
 
 	width_num = 1;
