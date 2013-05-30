@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE boost_serialization>
+<boost_serialization signature="serialization::archive" version="10">
+<cuboid class_id="0" tracking_level="0" version="0">
+	<width>3</width>
+	<height>3</height>
+	<depth>3</depth>
+	<x>0</x>
+	<y>0</y>
+	<z>0</z>
+</cuboid>
+<cuboid>
+	<width>6</width>
+	<height>6</height>
+	<depth>6</depth>
+	<x>0</x>
+	<y>0</y>
+	<z>0</z>
+</cuboid>
+<cuboid>
+	<width>4</width>
+	<height>4</height>
+	<depth>4</depth>
+	<x>0</x>
+	<y>0</y>
+	<z>0</z>
+</cuboid>
+<base class_id="1" tracking_level="0" version="0">
+	<width>200</width>
+	<height>200</height>
+	<x>0</x>
+	<y>0</y>
+</base>
+</boost_serialization>
+

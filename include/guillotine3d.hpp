@@ -25,7 +25,8 @@ public:
 
 	enum FreeCuboidChoiceHeuristic
 		{
-			CuboidMinHeight
+			CuboidMinHeight,
+			CuboidMinVolume
 		};
 
 	enum GuillotineSplitHeuristic
@@ -47,7 +48,7 @@ public:
 			FreeCuboidChoiceHeuristic cuboidChoice,
 			GuillotineSplitHeuristic splitMethod);
 
-	std::vector<Cuboid> insertBestGlobalVector(std::vector<Cuboid> cuboids,
+	void insertBestGlobalVector(std::vector<Cuboid> cuboids,
 			GuillotineSplitHeuristic splitMethod);
 
 	Cuboid insertBestGlobal(std::vector<Cuboid>& cuboids,

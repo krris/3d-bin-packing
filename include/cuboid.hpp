@@ -47,6 +47,10 @@ public:
     	return ((i.width * i.height * i.depth) > (j.width * j.height * j.depth));
     }
 
+    friend bool operator<(const Cuboid& lhs,const Cuboid& rhs){
+        return (lhs.width * lhs.height * lhs.depth) < (rhs.width * rhs.depth * rhs.height);
+    }
+
 };
 
 #endif
