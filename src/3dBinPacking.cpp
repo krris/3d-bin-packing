@@ -153,7 +153,7 @@ int frequency_of_primes (int n) {
 
 int main(int argc, char* argv[])
 {
-	string outputFilename = "/home/krris/workspace/3dBinPacking/visualization/cuboids.xml";
+	string outputFilename = "/home/krris/workspace/3dBinPacking/visualization/cuboids_to_render.xml";
 	//string inputFilename = "/home/krris/workspace/3dBinPacking/visualization/cuboids_input.xml";
 	// Set seed
 	srand (time(NULL));

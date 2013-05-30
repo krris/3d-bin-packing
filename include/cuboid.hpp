@@ -16,9 +16,6 @@ public:
     template<class Archive>
     void serialize(Archive &ar, const unsigned int file_verision)
     {
-    	width -= 1;
-    	height -= 1;
-    	depth -= 1;
         ar & boost::serialization::make_nvp("width", width);
         ar & boost::serialization::make_nvp("height", height);
         ar & boost::serialization::make_nvp("depth", depth);
