@@ -6,12 +6,11 @@
 #include <boost/archive/xml_oarchive.hpp>
 
 #include "forward_declarations.hpp"
-#include "rect.hpp"
 
-class Cuboid : public Rect{
+class Cuboid {
 public:
 	Cuboid() {}
-    Cuboid(int w, int h, int d) :
+    Cuboid(float w, float h, float d) :
         width(w), height(h), depth(d) {}
 
     template<class Archive>
@@ -25,26 +24,31 @@ public:
         ar & boost::serialization::make_nvp("z", z);
     }
 
-    int width;
-    int height;
-    int depth;
-    int x = 0;
-    int y = 0;
-    int z = 0;
+    float width;
+    float height;
+    float depth;
+    float x = 0;
+    float y = 0;
+    float z = 0;
+    bool isPlaced = false;
 
     /* Variable useful in global guillotine algorithm to store a score
      * of choosing this cuboid. */
-    int score = std::numeric_limits<int>::max();
+    float score = std::numeric_limits<float>::max();
 
     static bool compareMaxEdge(Cuboid i,Cuboid j)
     {
-    	int i_max = std::max({i.width, i.height, i.depth});
-    	int j_max = std::max({j.width, j.height, j.depth});
+    	float i_max = std::max({i.width, i.height, i.depth});
+    	float j_max = std::max({j.width, j.height, j.depth});
     	return i_max > j_max;
     }
     static bool compareVolume(Cuboid i,Cuboid j)
     {
     	return ((i.width * i.height * i.depth) > (j.width * j.height * j.depth));
+    }
+
+    friend bool operator<(const Cuboid& lhs,const Cuboid& rhs){
+        return (lhs.width * lhs.height * lhs.depth) < (rhs.width * rhs.depth * rhs.height);
     }
 
 };

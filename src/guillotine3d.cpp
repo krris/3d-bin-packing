@@ -35,7 +35,8 @@ void Guillotine3d::init(int width, int depth)
 	freeCuboids.push_back(n);
 }
 
-Cuboid Guillotine3d::insert(Cuboid cuboid, FreeCuboidChoiceHeuristic cuboidChoice,
+Cuboid Guillotine3d::insert(const Cuboid& cuboid,
+		FreeCuboidChoiceHeuristic cuboidChoice,
 		GuillotineSplitHeuristic splitMethod)
 {
 	// Find where to put the new cuboid
@@ -56,7 +57,7 @@ Cuboid Guillotine3d::insert(Cuboid cuboid, FreeCuboidChoiceHeuristic cuboidChoic
 	return newCuboid;
 }
 
-Cuboid Guillotine3d::findPositionForNewNode(Cuboid cuboid,
+Cuboid Guillotine3d::findPositionForNewNode(const Cuboid& cuboid,
 		FreeCuboidChoiceHeuristic cuboidChoice, int* nodeIndex) const
 {
 	int width = cuboid.width;
@@ -67,12 +68,24 @@ Cuboid Guillotine3d::findPositionForNewNode(Cuboid cuboid,
 	int bestScore = std::numeric_limits<int>::max();
 
 	// Try each free cuboid to find the best one for placement a given cuboid
+
+	/*
+	 * W H D
+	 * W D H
+	 * D H W
+	 * D W H
+	 * H W D
+	 * H D W
+	 */
+
 	for (unsigned i = 0; i < freeCuboids.size(); ++i)
 	{
-		if (width <= freeCuboids[i].width && height <= freeCuboids[i].height && depth <= freeCuboids[i].depth)
+		// W H D
+		if (width <= freeCuboids[i].width &&
+			height <= freeCuboids[i].height &&
+			depth <= freeCuboids[i].depth)
 		{
 			int score = scoreByHeuristic(cuboid, freeCuboids[i], cuboidChoice);
-
 			if (score < bestScore)
 			{
 				bestNode.isPlaced = true;
@@ -86,11 +99,112 @@ Cuboid Guillotine3d::findPositionForNewNode(Cuboid cuboid,
 				*nodeIndex = i;
 			}
 		}
+
+		// W D H
+		if (width <= freeCuboids[i].width &&
+			depth <= freeCuboids[i].height &&
+			height <= freeCuboids[i].depth)
+		{
+			int score = scoreByHeuristic(cuboid, freeCuboids[i], cuboidChoice);
+			if (score < bestScore)
+			{
+				bestNode.isPlaced = true;
+				bestNode.x = freeCuboids[i].x;
+				bestNode.y = freeCuboids[i].y;
+				bestNode.z = freeCuboids[i].z;
+				bestNode.width = width;
+				bestNode.height = depth;
+				bestNode.depth = height;
+				bestScore = score;
+				*nodeIndex = i;
+			}
+		}
+
+		// D H W
+		if (depth <= freeCuboids[i].width &&
+			height <= freeCuboids[i].height &&
+			width <= freeCuboids[i].depth)
+		{
+			int score = scoreByHeuristic(cuboid, freeCuboids[i], cuboidChoice);
+			if (score < bestScore)
+			{
+				bestNode.isPlaced = true;
+				bestNode.x = freeCuboids[i].x;
+				bestNode.y = freeCuboids[i].y;
+				bestNode.z = freeCuboids[i].z;
+				bestNode.width = depth;
+				bestNode.height = height;
+				bestNode.depth = width;
+				bestScore = score;
+				*nodeIndex = i;
+			}
+		}
+
+		// D W H
+		if (depth <= freeCuboids[i].width &&
+			width <= freeCuboids[i].height &&
+			height <= freeCuboids[i].depth)
+		{
+			int score = scoreByHeuristic(cuboid, freeCuboids[i], cuboidChoice);
+			if (score < bestScore)
+			{
+				bestNode.isPlaced = true;
+				bestNode.x = freeCuboids[i].x;
+				bestNode.y = freeCuboids[i].y;
+				bestNode.z = freeCuboids[i].z;
+				bestNode.width = depth;
+				bestNode.height = width;
+				bestNode.depth = height;
+				bestScore = score;
+				*nodeIndex = i;
+			}
+		}
+
+		// H W D
+		if (height <= freeCuboids[i].width &&
+			width <= freeCuboids[i].height &&
+			depth <= freeCuboids[i].depth)
+		{
+			int score = scoreByHeuristic(cuboid, freeCuboids[i], cuboidChoice);
+			if (score < bestScore)
+			{
+				bestNode.isPlaced = true;
+				bestNode.x = freeCuboids[i].x;
+				bestNode.y = freeCuboids[i].y;
+				bestNode.z = freeCuboids[i].z;
+				bestNode.width = height;
+				bestNode.height = width;
+				bestNode.depth = depth;
+				bestScore = score;
+				*nodeIndex = i;
+			}
+		}
+
+		// H D W
+		if (height <= freeCuboids[i].width &&
+			width <= freeCuboids[i].height &&
+			depth <= freeCuboids[i].depth)
+		{
+			int score = scoreByHeuristic(cuboid, freeCuboids[i], cuboidChoice);
+			if (score < bestScore)
+			{
+				bestNode.isPlaced = true;
+				bestNode.x = freeCuboids[i].x;
+				bestNode.y = freeCuboids[i].y;
+				bestNode.z = freeCuboids[i].z;
+				bestNode.width = height;
+				bestNode.height = depth;
+				bestNode.depth = width;
+				bestScore = score;
+				*nodeIndex = i;
+			}
+		}
 	}
 	return bestNode;
 }
 
-int Guillotine3d::scoreByHeuristic(Cuboid cuboid, const Cuboid& freeCuboid,
+int Guillotine3d::scoreByHeuristic(const Cuboid& cuboid,
+		const Cuboid& freeCuboid,
 		FreeCuboidChoiceHeuristic cuboidChoice)
 {
 	switch (cuboidChoice)
@@ -141,14 +255,14 @@ void Guillotine3d::splitFreeCuboidByHeuristic(const Cuboid& freeCuboid,
 	splitFreeCuboidAlongAxis(freeCuboid, placedCuboid, splitHorizontal);
 }
 
-int Guillotine3d::scoreMinHeight(Cuboid cuboid, const Cuboid& freeCuboid)
+int Guillotine3d::scoreMinHeight(const Cuboid& cuboid, const Cuboid& freeCuboid)
 {
 	int filledBinHeight = freeCuboid.y;
 	return filledBinHeight + cuboid.height;
 }
 
-Cuboid Guillotine3d::insertBestGlobal(std::vector<Cuboid> cuboids,
-		Guillotine3d guillotine, GuillotineSplitHeuristic splitMethod)
+Cuboid Guillotine3d::insertBestGlobal(std::vector<Cuboid>& cuboids,
+		const Guillotine3d& guillotine, GuillotineSplitHeuristic splitMethod)
 {
 	vector<Cuboid> possibleMoves;
 
@@ -170,7 +284,8 @@ Cuboid Guillotine3d::insertBestGlobal(std::vector<Cuboid> cuboids,
 				Guillotine3d::CuboidMinHeight, Guillotine3d::SplitLongerAxis);
 		for (Cuboid c : cuboidsToPut)
 		{
-			guillotine_copy.insert(c, Guillotine3d::CuboidMinHeight, Guillotine3d::SplitLongerAxis);
+			guillotine_copy.insert(c, Guillotine3d::CuboidMinHeight,
+					Guillotine3d::SplitLongerAxis);
 		}
 
 		int score = guillotine_copy.getFilledBinHeight();
@@ -202,7 +317,7 @@ int Guillotine3d::getFilledBinHeight()
 	return max;
 }
 
-std::vector<Cuboid> Guillotine3d::movePossibilities(Cuboid cuboid,
+std::vector<Cuboid> Guillotine3d::movePossibilities(const Cuboid& cuboid,
 		GuillotineSplitHeuristic splitMethod)
 {
 	int width = cuboid.width;
@@ -212,7 +327,9 @@ std::vector<Cuboid> Guillotine3d::movePossibilities(Cuboid cuboid,
 	// Try each free cuboid to find the best one for placement
 	for (unsigned i = 0; i < freeCuboids.size(); ++i)
 	{
-		if (width <= freeCuboids[i].width && height <= freeCuboids[i].height && depth <= freeCuboids[i].depth)
+		if (width <= freeCuboids[i].width &&
+			height <= freeCuboids[i].height &&
+			depth <= freeCuboids[i].depth)
 		{
 			int score = scoreMinHeight(cuboid, freeCuboids[i]);
 			Cuboid newCuboid;
@@ -233,14 +350,15 @@ std::vector<Cuboid> Guillotine3d::movePossibilities(Cuboid cuboid,
 
 }
 
-vector<Cuboid> Guillotine3d::insertVector(std::vector<Cuboid> cuboids,
+vector<Cuboid> Guillotine3d::insertVector(const std::vector<Cuboid>& cuboids,
 		FreeCuboidChoiceHeuristic cuboidChoice,
 		GuillotineSplitHeuristic splitMethod)
 {
     vector<Cuboid> foundPlaces;
     for (Cuboid c : cuboids)
     {
-    	Cuboid place = insert(c, Guillotine3d::CuboidMinHeight, Guillotine3d::SplitLongerAxis);
+    	Cuboid place = insert(c, Guillotine3d::CuboidMinHeight,
+    			Guillotine3d::SplitLongerAxis);
     	if (place.isPlaced == true)
     	{
     	    c.x = place.x + (0.5 * place.width);
@@ -262,43 +380,77 @@ vector<Cuboid> Guillotine3d::insertVector(std::vector<Cuboid> cuboids,
     return foundPlaces;
 }
 
-std::vector<Cuboid> Guillotine3d::insertBestGlobalVector(
+void Guillotine3d::insertBestGlobalVector(
 		std::vector<Cuboid> cuboids, GuillotineSplitHeuristic splitMethod)
 {
-    vector<Cuboid> foundPlaces;
-    int size = cuboids.size();
-    for (int i = 0; i < size; ++i)
-    {
-    	Cuboid place = insertBestGlobal(cuboids, *this, Guillotine3d::SplitLongerAxis);
-    	Cuboid c;
-    	if (place.isPlaced == true)
-    	{
-        	place = insert(place,
-					Guillotine3d::CuboidMinHeight, Guillotine3d::SplitLongerAxis);
-    		foundPlaces.push_back(place);
-    	}
-    	else
-    	{
-    		cout << "Place not found!:" << endl;
-        	cout << "Width: " << c.width << endl;
-        	cout << "Height: " << c.depth<< endl;
+	sort(cuboids.begin(), cuboids.end());
+//	for (Cuboid c : cuboids)
+//	{
+//		cout << "width: " << c.width << endl;
+//		cout << "depth: " << c.depth<< endl;
+//		cout << "height: " << c.height << endl;
+//		cout << "------------------------------" << endl;
+//
+//	}
+	int bestScore = numeric_limits<int>::max();
+	while(next_permutation(cuboids.begin(), cuboids.end()))
+	{
+//		cout << "permutation:" << endl;
+//		for (Cuboid c : cuboids)
+//		{
+//			cout << "width: " << c.width << endl;
+//			cout << "depth: " << c.depth<< endl;
+//			cout << "height: " << c.height << endl;
+//			cout << "------------------------------" << endl;
+//
+//		}
+		Guillotine3d guillotine(this->binWidth, this->binDepth);
+		guillotine.insertVector(cuboids,
+				Guillotine3d::CuboidMinHeight, splitMethod);
+		int score = guillotine.getFilledBinHeight();
+		if (score < bestScore)
+		{
+			bestScore = score;
+			this->freeCuboids = guillotine.getFreeCuboids();
+			this->usedCuboids = guillotine.getUsedCuboids();
+		}
 
-    	}
+	}
 
-    	int index;
-    	for (unsigned j = 0; j < cuboids.size(); j++)
-    	{
-    		if (cuboids[j].width == place.width &&
-    			cuboids[j].height == place.height &&
-    			cuboids[j].depth == place.depth)
-    		{
-    			index = j;
-    			break;
-    		}
-    	}
-    	cuboids.erase(cuboids.begin() + index);
-    }
-    return foundPlaces;
+//    vector<Cuboid> foundPlaces;
+//    int size = cuboids.size();
+//    for (int i = 0; i < size; ++i)
+//    {
+//    	Cuboid place = insertBestGlobal(cuboids, *this, Guillotine3d::SplitLongerAxis);
+//    	Cuboid c;
+//    	if (place.isPlaced == true)
+//    	{
+//        	place = insert(place,
+//					Guillotine3d::CuboidMinHeight, Guillotine3d::SplitLongerAxis);
+//    		foundPlaces.push_back(place);
+//    	}
+//    	else
+//    	{
+//    		cout << "Place not found!:" << endl;
+//        	cout << "Width: " << c.width << endl;
+//        	cout << "Height: " << c.depth<< endl;
+//
+//    	}
+//
+//    	int index;
+//    	for (unsigned j = 0; j < cuboids.size(); j++)
+//    	{
+//    		if (cuboids[j].width == place.width &&
+//    			cuboids[j].height == place.height &&
+//    			cuboids[j].depth == place.depth)
+//    		{
+//    			index = j;
+//    			break;
+//    		}
+//    	}
+//    	cuboids.erase(cuboids.begin() + index);
+//    }
+//    return foundPlaces;
 }
 
 void Guillotine3d::splitFreeCuboidAlongAxis(const Cuboid& freeCuboid,
