@@ -37,7 +37,6 @@ void saveXml(const std::vector<Cuboid>& cuboids, const Rect& base, const char* f
 
 std::vector<Cuboid> loadCuboidsFromXml(const char* filename)
 {
-
     std::ifstream ifs(filename);
     assert(ifs.good());
     boost::archive::xml_iarchive ia(ifs);
@@ -56,6 +55,13 @@ std::vector<Cuboid> loadCuboidsFromXml(const char* filename)
     return loadedCuboids;
 }
 
+/**
+ * Generate random cuboids.
+ * @number Number of cuboids.
+ * @parameter 3 - every edge size is the same
+ * 			  2 - two edges have the same size
+ * 			  1 - every edge size is different.
+ */
 vector<Cuboid> generateRandomCuboids(int number, int parameter)
 {
 	const int maxSize = 100;
@@ -87,8 +93,10 @@ vector<Cuboid> generateRandomCuboids(int number, int parameter)
 }
 
 
-
-vector<Cuboid> transform(vector<Cuboid> cuboids)
+/**
+ * Transform cuboids before displaying in Three.js
+ */
+vector<Cuboid> transform(const vector<Cuboid>& cuboids)
 {
 	vector<Cuboid> tranformed;
 	for (Cuboid c : cuboids)
@@ -106,31 +114,40 @@ vector<Cuboid> transform(vector<Cuboid> cuboids)
 
 }
 
-
 void shelfAlgorithm(int binWidth, int binDepth, vector<Cuboid> cuboids, string filename)
 {
 	ShelfAlgorithm shelfAlg(binWidth, binDepth);
+
+	// Sort cuboids
 	sort(cuboids.begin(), cuboids.end(), &Cuboid::compareVolume);
+
+	// Insert cuboids
 	shelfAlg.insert(cuboids, ShelfAlgorithm::ShelfFirstFit);
+
 	vector<Cuboid> placedCuboids = shelfAlg.getUsedCuboids();
-	vector<Cuboid> newCuboids = transform(placedCuboids);
-	Rect base;
-	base.width = binWidth;
-	base.height = binDepth;
-	saveXml(newCuboids, base, filename.c_str());
+	vector<Cuboid> transformedCuboids = transform(placedCuboids);
+
+	// Save the output xml
+	Rect base(binWidth, binDepth);
+	saveXml(transformedCuboids, base, filename.c_str());
 	cout << "Bin height: " << shelfAlg.getFilledBinHeight() << endl;
 }
 
 void guillotineAlgorithm(int binWidth, int binDepth, vector<Cuboid> cuboids, string filename)
 {
 	Guillotine3d guillotineAlg(binWidth, binDepth);
+
+	// Sort cuboids
 	sort(cuboids.begin(), cuboids.end(), &Cuboid::compareMaxEdge);
+
+	// Insert cuboids
 	guillotineAlg.insertVector(cuboids, Guillotine3d::CuboidMinHeight, Guillotine3d::SplitLongerLeftoverAxis);
+
 	vector<Cuboid> placedCuboids = guillotineAlg.getUsedCuboids();
 	vector<Cuboid> newCuboids = transform(placedCuboids);
-	Rect base;
-	base.width = binWidth;
-	base.height = binDepth;;
+
+	// Save the output
+	Rect base(binWidth, binDepth);
 	saveXml(newCuboids, base, filename.c_str());
 	cout << "Bin height: " << guillotineAlg.getFilledBinHeight() << endl;
 }
@@ -138,21 +155,17 @@ void guillotineAlgorithm(int binWidth, int binDepth, vector<Cuboid> cuboids, str
 void guillotineGlobalAlgorithm(int binWidth, int binDepth, vector<Cuboid> cuboids, string filename)
 {
 	Guillotine3d guillotineAlg(binWidth, binDepth);
+
+	// Insert cuboids
 	guillotineAlg.insertBestGlobalVector(cuboids, Guillotine3d::SplitLongerLeftoverAxis);
+
 	vector<Cuboid> placedCuboids = guillotineAlg.getUsedCuboids();
 	vector<Cuboid> newCuboids = transform(placedCuboids);
-	Rect base;
-	base.width = binWidth;
-	base.height = binDepth;
+
+	// Save the output
+	Rect base(binWidth, binDepth);
 	saveXml(newCuboids, base, filename.c_str());
 	cout << "Bin height: " << guillotineAlg.getFilledBinHeight() << endl;
-}
-
-int frequency_of_primes (int n) {
-  int i,j;
-  int freq=n-1;
-  for (i=2; i<=n; ++i) for (j=sqrt(i);j>1;--j) if (i%j==0) {--freq; break;}
-  return freq;
 }
 
 void usage()
