@@ -163,7 +163,7 @@ void guillotineGlobalAlgorithm(int binWidth, int binDepth, vector<Cuboid> cuboid
 	Guillotine3d guillotineAlg(binWidth, binDepth);
 
 	// Insert cuboids
-	guillotineAlg.insertBestGlobal(cuboids, Guillotine3d::SplitLongerLeftoverAxis);
+	guillotineAlg.insertBestGlobal(cuboids, Guillotine3d::CuboidMinHeight, Guillotine3d::SplitLongerLeftoverAxis);
 
 	vector<Cuboid> placedCuboids = guillotineAlg.getUsedCuboids();
 	vector<Cuboid> newCuboids = transform(placedCuboids);
