@@ -48,11 +48,7 @@ public:
 			FreeCuboidChoiceHeuristic cuboidChoice,
 			GuillotineSplitHeuristic splitMethod);
 
-	void insertBestGlobalVector(std::vector<Cuboid> cuboids,
-			GuillotineSplitHeuristic splitMethod);
-
-	Cuboid insertBestGlobal(std::vector<Cuboid>& cuboids,
-			const Guillotine3d& guilotine,
+	void insertBestGlobal(std::vector<Cuboid> cuboids,
 			GuillotineSplitHeuristic splitMethod);
 
 	std::vector<Cuboid>& getFreeCuboids() { return freeCuboids; }

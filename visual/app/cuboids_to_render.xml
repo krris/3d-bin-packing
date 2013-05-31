@@ -10,80 +10,4000 @@
 	<z>50</z>
 </cuboid>
 <cuboid>
+	<width>100</width>
+	<height>100</height>
+	<depth>100</depth>
+	<x>50</x>
+	<y>50</y>
+	<z>150</z>
+</cuboid>
+<cuboid>
+	<width>100</width>
+	<height>100</height>
+	<depth>100</depth>
+	<x>50</x>
+	<y>50</y>
+	<z>250</z>
+</cuboid>
+<cuboid>
+	<width>100</width>
+	<height>100</height>
+	<depth>100</depth>
+	<x>50</x>
+	<y>50</y>
+	<z>350</z>
+</cuboid>
+<cuboid>
+	<width>99</width>
+	<height>99</height>
+	<depth>99</depth>
+	<x>49.5</x>
+	<y>49.5</y>
+	<z>449.5</z>
+</cuboid>
+<cuboid>
+	<width>99</width>
+	<height>99</height>
+	<depth>99</depth>
+	<x>149.5</x>
+	<y>49.5</y>
+	<z>49.5</z>
+</cuboid>
+<cuboid>
+	<width>99</width>
+	<height>99</height>
+	<depth>99</depth>
+	<x>149.5</x>
+	<y>49.5</y>
+	<z>148.5</z>
+</cuboid>
+<cuboid>
+	<width>99</width>
+	<height>99</height>
+	<depth>99</depth>
+	<x>149.5</x>
+	<y>49.5</y>
+	<z>247.5</z>
+</cuboid>
+<cuboid>
+	<width>99</width>
+	<height>99</height>
+	<depth>99</depth>
+	<x>149.5</x>
+	<y>49.5</y>
+	<z>346.5</z>
+</cuboid>
+<cuboid>
+	<width>99</width>
+	<height>99</height>
+	<depth>99</depth>
+	<x>149.5</x>
+	<y>49.5</y>
+	<z>445.5</z>
+</cuboid>
+<cuboid>
+	<width>98</width>
+	<height>98</height>
+	<depth>98</depth>
+	<x>248</x>
+	<y>49</y>
+	<z>49</z>
+</cuboid>
+<cuboid>
+	<width>98</width>
+	<height>98</height>
+	<depth>98</depth>
+	<x>248</x>
+	<y>49</y>
+	<z>147</z>
+</cuboid>
+<cuboid>
+	<width>98</width>
+	<height>98</height>
+	<depth>98</depth>
+	<x>248</x>
+	<y>49</y>
+	<z>245</z>
+</cuboid>
+<cuboid>
+	<width>98</width>
+	<height>98</height>
+	<depth>98</depth>
+	<x>248</x>
+	<y>49</y>
+	<z>343</z>
+</cuboid>
+<cuboid>
+	<width>98</width>
+	<height>98</height>
+	<depth>98</depth>
+	<x>248</x>
+	<y>49</y>
+	<z>441</z>
+</cuboid>
+<cuboid>
+	<width>98</width>
+	<height>98</height>
+	<depth>98</depth>
+	<x>346</x>
+	<y>49</y>
+	<z>49</z>
+</cuboid>
+<cuboid>
+	<width>98</width>
+	<height>98</height>
+	<depth>98</depth>
+	<x>346</x>
+	<y>49</y>
+	<z>147</z>
+</cuboid>
+<cuboid>
+	<width>98</width>
+	<height>98</height>
+	<depth>98</depth>
+	<x>346</x>
+	<y>49</y>
+	<z>245</z>
+</cuboid>
+<cuboid>
+	<width>98</width>
+	<height>98</height>
+	<depth>98</depth>
+	<x>346</x>
+	<y>49</y>
+	<z>343</z>
+</cuboid>
+<cuboid>
+	<width>97</width>
+	<height>97</height>
+	<depth>97</depth>
+	<x>345.5</x>
+	<y>48.5</y>
+	<z>440.5</z>
+</cuboid>
+<cuboid>
+	<width>97</width>
+	<height>97</height>
+	<depth>97</depth>
+	<x>443.5</x>
+	<y>48.5</y>
+	<z>48.5</z>
+</cuboid>
+<cuboid>
+	<width>97</width>
+	<height>97</height>
+	<depth>97</depth>
+	<x>443.5</x>
+	<y>48.5</y>
+	<z>145.5</z>
+</cuboid>
+<cuboid>
+	<width>97</width>
+	<height>97</height>
+	<depth>97</depth>
+	<x>443.5</x>
+	<y>48.5</y>
+	<z>242.5</z>
+</cuboid>
+<cuboid>
+	<width>96</width>
+	<height>96</height>
+	<depth>96</depth>
+	<x>443</x>
+	<y>48</y>
+	<z>339</z>
+</cuboid>
+<cuboid>
+	<width>96</width>
+	<height>96</height>
+	<depth>96</depth>
+	<x>443</x>
+	<y>48</y>
+	<z>435</z>
+</cuboid>
+<cuboid>
+	<width>96</width>
+	<height>96</height>
+	<depth>96</depth>
+	<x>48</x>
+	<y>148</y>
+	<z>48</z>
+</cuboid>
+<cuboid>
+	<width>96</width>
+	<height>96</height>
+	<depth>96</depth>
+	<x>48</x>
+	<y>148</y>
+	<z>144</z>
+</cuboid>
+<cuboid>
+	<width>96</width>
+	<height>96</height>
+	<depth>96</depth>
+	<x>48</x>
+	<y>148</y>
+	<z>240</z>
+</cuboid>
+<cuboid>
+	<width>96</width>
+	<height>96</height>
+	<depth>96</depth>
+	<x>48</x>
+	<y>148</y>
+	<z>336</z>
+</cuboid>
+<cuboid>
+	<width>96</width>
+	<height>96</height>
+	<depth>96</depth>
+	<x>48</x>
+	<y>148</y>
+	<z>432</z>
+</cuboid>
+<cuboid>
+	<width>95</width>
+	<height>95</height>
+	<depth>95</depth>
+	<x>143.5</x>
+	<y>147.5</y>
+	<z>47.5</z>
+</cuboid>
+<cuboid>
+	<width>95</width>
+	<height>95</height>
+	<depth>95</depth>
+	<x>143.5</x>
+	<y>147.5</y>
+	<z>142.5</z>
+</cuboid>
+<cuboid>
+	<width>95</width>
+	<height>95</height>
+	<depth>95</depth>
+	<x>143.5</x>
+	<y>147.5</y>
+	<z>237.5</z>
+</cuboid>
+<cuboid>
+	<width>95</width>
+	<height>95</height>
+	<depth>95</depth>
+	<x>143.5</x>
+	<y>147.5</y>
+	<z>332.5</z>
+</cuboid>
+<cuboid>
+	<width>95</width>
+	<height>95</height>
+	<depth>95</depth>
+	<x>143.5</x>
+	<y>147.5</y>
+	<z>427.5</z>
+</cuboid>
+<cuboid>
+	<width>95</width>
+	<height>95</height>
+	<depth>95</depth>
+	<x>238.5</x>
+	<y>147.5</y>
+	<z>47.5</z>
+</cuboid>
+<cuboid>
+	<width>95</width>
+	<height>95</height>
+	<depth>95</depth>
+	<x>238.5</x>
+	<y>147.5</y>
+	<z>142.5</z>
+</cuboid>
+<cuboid>
+	<width>95</width>
+	<height>95</height>
+	<depth>95</depth>
+	<x>238.5</x>
+	<y>147.5</y>
+	<z>237.5</z>
+</cuboid>
+<cuboid>
+	<width>95</width>
+	<height>95</height>
+	<depth>95</depth>
+	<x>238.5</x>
+	<y>147.5</y>
+	<z>332.5</z>
+</cuboid>
+<cuboid>
+	<width>95</width>
+	<height>95</height>
+	<depth>95</depth>
+	<x>238.5</x>
+	<y>147.5</y>
+	<z>427.5</z>
+</cuboid>
+<cuboid>
+	<width>95</width>
+	<height>95</height>
+	<depth>95</depth>
+	<x>333.5</x>
+	<y>147.5</y>
+	<z>47.5</z>
+</cuboid>
+<cuboid>
+	<width>94</width>
+	<height>94</height>
+	<depth>94</depth>
+	<x>333</x>
+	<y>147</y>
+	<z>142</z>
+</cuboid>
+<cuboid>
+	<width>94</width>
+	<height>94</height>
+	<depth>94</depth>
+	<x>333</x>
+	<y>147</y>
+	<z>236</z>
+</cuboid>
+<cuboid>
+	<width>93</width>
+	<height>93</height>
+	<depth>93</depth>
+	<x>332.5</x>
+	<y>146.5</y>
+	<z>329.5</z>
+</cuboid>
+<cuboid>
+	<width>93</width>
+	<height>93</height>
+	<depth>93</depth>
+	<x>332.5</x>
+	<y>146.5</y>
+	<z>422.5</z>
+</cuboid>
+<cuboid>
+	<width>93</width>
+	<height>93</height>
+	<depth>93</depth>
+	<x>427.5</x>
+	<y>146.5</y>
+	<z>46.5</z>
+</cuboid>
+<cuboid>
+	<width>93</width>
+	<height>93</height>
+	<depth>93</depth>
+	<x>427.5</x>
+	<y>146.5</y>
+	<z>139.5</z>
+</cuboid>
+<cuboid>
+	<width>92</width>
+	<height>92</height>
+	<depth>92</depth>
+	<x>427</x>
+	<y>146</y>
+	<z>232</z>
+</cuboid>
+<cuboid>
+	<width>92</width>
+	<height>92</height>
+	<depth>92</depth>
+	<x>427</x>
+	<y>146</y>
+	<z>324</z>
+</cuboid>
+<cuboid>
+	<width>92</width>
+	<height>92</height>
+	<depth>92</depth>
+	<x>427</x>
+	<y>146</y>
+	<z>416</z>
+</cuboid>
+<cuboid>
+	<width>92</width>
+	<height>92</height>
+	<depth>92</depth>
+	<x>46</x>
+	<y>242</y>
+	<z>46</z>
+</cuboid>
+<cuboid>
+	<width>92</width>
+	<height>92</height>
+	<depth>92</depth>
+	<x>46</x>
+	<y>242</y>
+	<z>138</z>
+</cuboid>
+<cuboid>
+	<width>92</width>
+	<height>92</height>
+	<depth>92</depth>
+	<x>46</x>
+	<y>242</y>
+	<z>230</z>
+</cuboid>
+<cuboid>
+	<width>92</width>
+	<height>92</height>
+	<depth>92</depth>
+	<x>46</x>
+	<y>242</y>
+	<z>322</z>
+</cuboid>
+<cuboid>
+	<width>92</width>
+	<height>92</height>
+	<depth>92</depth>
+	<x>46</x>
+	<y>242</y>
+	<z>414</z>
+</cuboid>
+<cuboid>
+	<width>92</width>
+	<height>92</height>
+	<depth>92</depth>
+	<x>138</x>
+	<y>242</y>
+	<z>46</z>
+</cuboid>
+<cuboid>
+	<width>91</width>
+	<height>91</height>
+	<depth>91</depth>
+	<x>137.5</x>
+	<y>241.5</y>
+	<z>137.5</z>
+</cuboid>
+<cuboid>
+	<width>91</width>
+	<height>91</height>
+	<depth>91</depth>
+	<x>137.5</x>
+	<y>241.5</y>
+	<z>228.5</z>
+</cuboid>
+<cuboid>
+	<width>91</width>
+	<height>91</height>
+	<depth>91</depth>
+	<x>137.5</x>
+	<y>241.5</y>
+	<z>319.5</z>
+</cuboid>
+<cuboid>
 	<width>90</width>
 	<height>90</height>
 	<depth>90</depth>
-	<x>45</x>
-	<y>45</y>
-	<z>145</z>
+	<x>137</x>
+	<y>241</y>
+	<z>410</z>
+</cuboid>
+<cuboid>
+	<width>90</width>
+	<height>90</height>
+	<depth>90</depth>
+	<x>229</x>
+	<y>241</y>
+	<z>45</z>
+</cuboid>
+<cuboid>
+	<width>90</width>
+	<height>90</height>
+	<depth>90</depth>
+	<x>229</x>
+	<y>241</y>
+	<z>135</z>
+</cuboid>
+<cuboid>
+	<width>90</width>
+	<height>90</height>
+	<depth>90</depth>
+	<x>229</x>
+	<y>241</y>
+	<z>225</z>
+</cuboid>
+<cuboid>
+	<width>89</width>
+	<height>89</height>
+	<depth>89</depth>
+	<x>228.5</x>
+	<y>240.5</y>
+	<z>314.5</z>
+</cuboid>
+<cuboid>
+	<width>89</width>
+	<height>89</height>
+	<depth>89</depth>
+	<x>228.5</x>
+	<y>240.5</y>
+	<z>403.5</z>
+</cuboid>
+<cuboid>
+	<width>89</width>
+	<height>89</height>
+	<depth>89</depth>
+	<x>318.5</x>
+	<y>240.5</y>
+	<z>44.5</z>
+</cuboid>
+<cuboid>
+	<width>89</width>
+	<height>89</height>
+	<depth>89</depth>
+	<x>318.5</x>
+	<y>240.5</y>
+	<z>133.5</z>
+</cuboid>
+<cuboid>
+	<width>89</width>
+	<height>89</height>
+	<depth>89</depth>
+	<x>318.5</x>
+	<y>240.5</y>
+	<z>222.5</z>
+</cuboid>
+<cuboid>
+	<width>89</width>
+	<height>89</height>
+	<depth>89</depth>
+	<x>318.5</x>
+	<y>240.5</y>
+	<z>311.5</z>
+</cuboid>
+<cuboid>
+	<width>89</width>
+	<height>89</height>
+	<depth>89</depth>
+	<x>318.5</x>
+	<y>240.5</y>
+	<z>400.5</z>
+</cuboid>
+<cuboid>
+	<width>88</width>
+	<height>88</height>
+	<depth>88</depth>
+	<x>407</x>
+	<y>240</y>
+	<z>44</z>
+</cuboid>
+<cuboid>
+	<width>88</width>
+	<height>88</height>
+	<depth>88</depth>
+	<x>407</x>
+	<y>240</y>
+	<z>132</z>
+</cuboid>
+<cuboid>
+	<width>88</width>
+	<height>88</height>
+	<depth>88</depth>
+	<x>407</x>
+	<y>240</y>
+	<z>220</z>
+</cuboid>
+<cuboid>
+	<width>88</width>
+	<height>88</height>
+	<depth>88</depth>
+	<x>407</x>
+	<y>240</y>
+	<z>308</z>
+</cuboid>
+<cuboid>
+	<width>88</width>
+	<height>88</height>
+	<depth>88</depth>
+	<x>407</x>
+	<y>240</y>
+	<z>396</z>
+</cuboid>
+<cuboid>
+	<width>88</width>
+	<height>88</height>
+	<depth>88</depth>
+	<x>44</x>
+	<y>332</y>
+	<z>44</z>
+</cuboid>
+<cuboid>
+	<width>88</width>
+	<height>88</height>
+	<depth>88</depth>
+	<x>44</x>
+	<y>332</y>
+	<z>132</z>
+</cuboid>
+<cuboid>
+	<width>87</width>
+	<height>87</height>
+	<depth>87</depth>
+	<x>43.5</x>
+	<y>331.5</y>
+	<z>219.5</z>
+</cuboid>
+<cuboid>
+	<width>87</width>
+	<height>87</height>
+	<depth>87</depth>
+	<x>43.5</x>
+	<y>331.5</y>
+	<z>306.5</z>
+</cuboid>
+<cuboid>
+	<width>87</width>
+	<height>87</height>
+	<depth>87</depth>
+	<x>43.5</x>
+	<y>331.5</y>
+	<z>393.5</z>
+</cuboid>
+<cuboid>
+	<width>86</width>
+	<height>86</height>
+	<depth>86</depth>
+	<x>131</x>
+	<y>331</y>
+	<z>43</z>
+</cuboid>
+<cuboid>
+	<width>86</width>
+	<height>86</height>
+	<depth>86</depth>
+	<x>131</x>
+	<y>331</y>
+	<z>129</z>
+</cuboid>
+<cuboid>
+	<width>86</width>
+	<height>86</height>
+	<depth>86</depth>
+	<x>131</x>
+	<y>331</y>
+	<z>215</z>
+</cuboid>
+<cuboid>
+	<width>85</width>
+	<height>85</height>
+	<depth>85</depth>
+	<x>130.5</x>
+	<y>330.5</y>
+	<z>300.5</z>
+</cuboid>
+<cuboid>
+	<width>85</width>
+	<height>85</height>
+	<depth>85</depth>
+	<x>130.5</x>
+	<y>330.5</y>
+	<z>385.5</z>
+</cuboid>
+<cuboid>
+	<width>85</width>
+	<height>85</height>
+	<depth>85</depth>
+	<x>216.5</x>
+	<y>330.5</y>
+	<z>42.5</z>
+</cuboid>
+<cuboid>
+	<width>85</width>
+	<height>85</height>
+	<depth>85</depth>
+	<x>216.5</x>
+	<y>330.5</y>
+	<z>127.5</z>
+</cuboid>
+<cuboid>
+	<width>85</width>
+	<height>85</height>
+	<depth>85</depth>
+	<x>216.5</x>
+	<y>330.5</y>
+	<z>212.5</z>
+</cuboid>
+<cuboid>
+	<width>85</width>
+	<height>85</height>
+	<depth>85</depth>
+	<x>216.5</x>
+	<y>330.5</y>
+	<z>297.5</z>
+</cuboid>
+<cuboid>
+	<width>84</width>
+	<height>84</height>
+	<depth>84</depth>
+	<x>216</x>
+	<y>330</y>
+	<z>382</z>
+</cuboid>
+<cuboid>
+	<width>84</width>
+	<height>84</height>
+	<depth>84</depth>
+	<x>301</x>
+	<y>330</y>
+	<z>42</z>
+</cuboid>
+<cuboid>
+	<width>84</width>
+	<height>84</height>
+	<depth>84</depth>
+	<x>301</x>
+	<y>330</y>
+	<z>126</z>
+</cuboid>
+<cuboid>
+	<width>84</width>
+	<height>84</height>
+	<depth>84</depth>
+	<x>301</x>
+	<y>330</y>
+	<z>210</z>
+</cuboid>
+<cuboid>
+	<width>84</width>
+	<height>84</height>
+	<depth>84</depth>
+	<x>301</x>
+	<y>330</y>
+	<z>294</z>
+</cuboid>
+<cuboid>
+	<width>84</width>
+	<height>84</height>
+	<depth>84</depth>
+	<x>301</x>
+	<y>330</y>
+	<z>378</z>
+</cuboid>
+<cuboid>
+	<width>83</width>
+	<height>83</height>
+	<depth>83</depth>
+	<x>384.5</x>
+	<y>329.5</y>
+	<z>41.5</z>
+</cuboid>
+<cuboid>
+	<width>83</width>
+	<height>83</height>
+	<depth>83</depth>
+	<x>384.5</x>
+	<y>329.5</y>
+	<z>124.5</z>
+</cuboid>
+<cuboid>
+	<width>83</width>
+	<height>83</height>
+	<depth>83</depth>
+	<x>384.5</x>
+	<y>329.5</y>
+	<z>207.5</z>
+</cuboid>
+<cuboid>
+	<width>82</width>
+	<height>82</height>
+	<depth>82</depth>
+	<x>384</x>
+	<y>329</y>
+	<z>290</z>
+</cuboid>
+<cuboid>
+	<width>82</width>
+	<height>82</height>
+	<depth>82</depth>
+	<x>384</x>
+	<y>329</y>
+	<z>372</z>
+</cuboid>
+<cuboid>
+	<width>82</width>
+	<height>82</height>
+	<depth>82</depth>
+	<x>384</x>
+	<y>329</y>
+	<z>454</z>
+</cuboid>
+<cuboid>
+	<width>82</width>
+	<height>82</height>
+	<depth>82</depth>
+	<x>41</x>
+	<y>417</y>
+	<z>41</z>
+</cuboid>
+<cuboid>
+	<width>81</width>
+	<height>81</height>
+	<depth>81</depth>
+	<x>40.5</x>
+	<y>416.5</y>
+	<z>122.5</z>
+</cuboid>
+<cuboid>
+	<width>81</width>
+	<height>81</height>
+	<depth>81</depth>
+	<x>40.5</x>
+	<y>416.5</y>
+	<z>203.5</z>
+</cuboid>
+<cuboid>
+	<width>81</width>
+	<height>81</height>
+	<depth>81</depth>
+	<x>40.5</x>
+	<y>416.5</y>
+	<z>284.5</z>
 </cuboid>
 <cuboid>
 	<width>80</width>
 	<height>80</height>
 	<depth>80</depth>
-	<x>140</x>
-	<y>40</y>
-	<z>40</z>
+	<x>299</x>
+	<y>328</y>
+	<z>460</z>
+</cuboid>
+<cuboid>
+	<width>80</width>
+	<height>80</height>
+	<depth>80</depth>
+	<x>40</x>
+	<y>416</y>
+	<z>365</z>
+</cuboid>
+<cuboid>
+	<width>80</width>
+	<height>80</height>
+	<depth>80</depth>
+	<x>40</x>
+	<y>416</y>
+	<z>445</z>
+</cuboid>
+<cuboid>
+	<width>79</width>
+	<height>79</height>
+	<depth>79</depth>
+	<x>121.5</x>
+	<y>415.5</y>
+	<z>39.5</z>
+</cuboid>
+<cuboid>
+	<width>79</width>
+	<height>79</height>
+	<depth>79</depth>
+	<x>121.5</x>
+	<y>415.5</y>
+	<z>118.5</z>
+</cuboid>
+<cuboid>
+	<width>79</width>
+	<height>79</height>
+	<depth>79</depth>
+	<x>121.5</x>
+	<y>415.5</y>
+	<z>197.5</z>
+</cuboid>
+<cuboid>
+	<width>79</width>
+	<height>79</height>
+	<depth>79</depth>
+	<x>121.5</x>
+	<y>415.5</y>
+	<z>276.5</z>
+</cuboid>
+<cuboid>
+	<width>79</width>
+	<height>79</height>
+	<depth>79</depth>
+	<x>121.5</x>
+	<y>415.5</y>
+	<z>355.5</z>
+</cuboid>
+<cuboid>
+	<width>78</width>
+	<height>78</height>
+	<depth>78</depth>
+	<x>121</x>
+	<y>415</y>
+	<z>434</z>
+</cuboid>
+<cuboid>
+	<width>78</width>
+	<height>78</height>
+	<depth>78</depth>
+	<x>200</x>
+	<y>415</y>
+	<z>39</z>
+</cuboid>
+<cuboid>
+	<width>78</width>
+	<height>78</height>
+	<depth>78</depth>
+	<x>200</x>
+	<y>415</y>
+	<z>117</z>
+</cuboid>
+<cuboid>
+	<width>78</width>
+	<height>78</height>
+	<depth>78</depth>
+	<x>200</x>
+	<y>415</y>
+	<z>195</z>
+</cuboid>
+<cuboid>
+	<width>78</width>
+	<height>78</height>
+	<depth>78</depth>
+	<x>200</x>
+	<y>415</y>
+	<z>273</z>
+</cuboid>
+<cuboid>
+	<width>77</width>
+	<height>77</height>
+	<depth>77</depth>
+	<x>199.5</x>
+	<y>414.5</y>
+	<z>350.5</z>
+</cuboid>
+<cuboid>
+	<width>77</width>
+	<height>77</height>
+	<depth>77</depth>
+	<x>199.5</x>
+	<y>414.5</y>
+	<z>427.5</z>
+</cuboid>
+<cuboid>
+	<width>77</width>
+	<height>77</height>
+	<depth>77</depth>
+	<x>277.5</x>
+	<y>414.5</y>
+	<z>38.5</z>
+</cuboid>
+<cuboid>
+	<width>77</width>
+	<height>77</height>
+	<depth>77</depth>
+	<x>277.5</x>
+	<y>414.5</y>
+	<z>115.5</z>
+</cuboid>
+<cuboid>
+	<width>76</width>
+	<height>76</height>
+	<depth>76</depth>
+	<x>212</x>
+	<y>326</y>
+	<z>462</z>
+</cuboid>
+<cuboid>
+	<width>76</width>
+	<height>76</height>
+	<depth>76</depth>
+	<x>277</x>
+	<y>414</y>
+	<z>192</z>
+</cuboid>
+<cuboid>
+	<width>76</width>
+	<height>76</height>
+	<depth>76</depth>
+	<x>277</x>
+	<y>414</y>
+	<z>268</z>
+</cuboid>
+<cuboid>
+	<width>76</width>
+	<height>76</height>
+	<depth>76</depth>
+	<x>277</x>
+	<y>414</y>
+	<z>344</z>
+</cuboid>
+<cuboid>
+	<width>76</width>
+	<height>76</height>
+	<depth>76</depth>
+	<x>277</x>
+	<y>414</y>
+	<z>420</z>
+</cuboid>
+<cuboid>
+	<width>75</width>
+	<height>75</height>
+	<depth>75</depth>
+	<x>353.5</x>
+	<y>413.5</y>
+	<z>37.5</z>
+</cuboid>
+<cuboid>
+	<width>75</width>
+	<height>75</height>
+	<depth>75</depth>
+	<x>353.5</x>
+	<y>413.5</y>
+	<z>112.5</z>
+</cuboid>
+<cuboid>
+	<width>75</width>
+	<height>75</height>
+	<depth>75</depth>
+	<x>353.5</x>
+	<y>413.5</y>
+	<z>187.5</z>
+</cuboid>
+<cuboid>
+	<width>75</width>
+	<height>75</height>
+	<depth>75</depth>
+	<x>353.5</x>
+	<y>413.5</y>
+	<z>262.5</z>
+</cuboid>
+<cuboid>
+	<width>75</width>
+	<height>75</height>
+	<depth>75</depth>
+	<x>353.5</x>
+	<y>413.5</y>
+	<z>337.5</z>
+</cuboid>
+<cuboid>
+	<width>74</width>
+	<height>74</height>
+	<depth>74</depth>
+	<x>463</x>
+	<y>325</y>
+	<z>37</z>
+</cuboid>
+<cuboid>
+	<width>74</width>
+	<height>74</height>
+	<depth>74</depth>
+	<x>463</x>
+	<y>325</y>
+	<z>111</z>
+</cuboid>
+<cuboid>
+	<width>74</width>
+	<height>74</height>
+	<depth>74</depth>
+	<x>463</x>
+	<y>325</y>
+	<z>185</z>
+</cuboid>
+<cuboid>
+	<width>74</width>
+	<height>74</height>
+	<depth>74</depth>
+	<x>463</x>
+	<y>325</y>
+	<z>259</z>
+</cuboid>
+<cuboid>
+	<width>73</width>
+	<height>73</height>
+	<depth>73</depth>
+	<x>462.5</x>
+	<y>324.5</y>
+	<z>332.5</z>
+</cuboid>
+<cuboid>
+	<width>73</width>
+	<height>73</height>
+	<depth>73</depth>
+	<x>462.5</x>
+	<y>324.5</y>
+	<z>405.5</z>
+</cuboid>
+<cuboid>
+	<width>73</width>
+	<height>73</height>
+	<depth>73</depth>
+	<x>352.5</x>
+	<y>412.5</y>
+	<z>411.5</z>
+</cuboid>
+<cuboid>
+	<width>73</width>
+	<height>73</height>
+	<depth>73</depth>
+	<x>427.5</x>
+	<y>412.5</y>
+	<z>36.5</z>
+</cuboid>
+<cuboid>
+	<width>73</width>
+	<height>73</height>
+	<depth>73</depth>
+	<x>427.5</x>
+	<y>412.5</y>
+	<z>109.5</z>
+</cuboid>
+<cuboid>
+	<width>72</width>
+	<height>72</height>
+	<depth>72</depth>
+	<x>124</x>
+	<y>324</y>
+	<z>464</z>
+</cuboid>
+<cuboid>
+	<width>72</width>
+	<height>72</height>
+	<depth>72</depth>
+	<x>427</x>
+	<y>412</y>
+	<z>182</z>
+</cuboid>
+<cuboid>
+	<width>72</width>
+	<height>72</height>
+	<depth>72</depth>
+	<x>427</x>
+	<y>412</y>
+	<z>254</z>
+</cuboid>
+<cuboid>
+	<width>72</width>
+	<height>72</height>
+	<depth>72</depth>
+	<x>427</x>
+	<y>412</y>
+	<z>326</z>
+</cuboid>
+<cuboid>
+	<width>72</width>
+	<height>72</height>
+	<depth>72</depth>
+	<x>427</x>
+	<y>412</y>
+	<z>398</z>
+</cuboid>
+<cuboid>
+	<width>72</width>
+	<height>72</height>
+	<depth>72</depth>
+	<x>36</x>
+	<y>494</y>
+	<z>36</z>
+</cuboid>
+<cuboid>
+	<width>71</width>
+	<height>71</height>
+	<depth>71</depth>
+	<x>35.5</x>
+	<y>493.5</y>
+	<z>107.5</z>
+</cuboid>
+<cuboid>
+	<width>71</width>
+	<height>71</height>
+	<depth>71</depth>
+	<x>35.5</x>
+	<y>493.5</y>
+	<z>178.5</z>
+</cuboid>
+<cuboid>
+	<width>71</width>
+	<height>71</height>
+	<depth>71</depth>
+	<x>35.5</x>
+	<y>493.5</y>
+	<z>249.5</z>
 </cuboid>
 <cuboid>
 	<width>70</width>
 	<height>70</height>
 	<depth>70</depth>
-	<x>135</x>
-	<y>35</y>
-	<z>115</z>
+	<x>35</x>
+	<y>493</y>
+	<z>320</z>
+</cuboid>
+<cuboid>
+	<width>70</width>
+	<height>70</height>
+	<depth>70</depth>
+	<x>35</x>
+	<y>493</y>
+	<z>390</z>
+</cuboid>
+<cuboid>
+	<width>70</width>
+	<height>70</height>
+	<depth>70</depth>
+	<x>35</x>
+	<y>493</y>
+	<z>460</z>
+</cuboid>
+<cuboid>
+	<width>70</width>
+	<height>70</height>
+	<depth>70</depth>
+	<x>107</x>
+	<y>493</y>
+	<z>35</z>
+</cuboid>
+<cuboid>
+	<width>70</width>
+	<height>70</height>
+	<depth>70</depth>
+	<x>107</x>
+	<y>493</y>
+	<z>105</z>
+</cuboid>
+<cuboid>
+	<width>70</width>
+	<height>70</height>
+	<depth>70</depth>
+	<x>107</x>
+	<y>493</y>
+	<z>175</z>
+</cuboid>
+<cuboid>
+	<width>69</width>
+	<height>69</height>
+	<depth>69</depth>
+	<x>106.5</x>
+	<y>492.5</y>
+	<z>244.5</z>
+</cuboid>
+<cuboid>
+	<width>69</width>
+	<height>69</height>
+	<depth>69</depth>
+	<x>106.5</x>
+	<y>492.5</y>
+	<z>313.5</z>
+</cuboid>
+<cuboid>
+	<width>69</width>
+	<height>69</height>
+	<depth>69</depth>
+	<x>106.5</x>
+	<y>492.5</y>
+	<z>382.5</z>
+</cuboid>
+<cuboid>
+	<width>69</width>
+	<height>69</height>
+	<depth>69</depth>
+	<x>106.5</x>
+	<y>492.5</y>
+	<z>451.5</z>
+</cuboid>
+<cuboid>
+	<width>69</width>
+	<height>69</height>
+	<depth>69</depth>
+	<x>176.5</x>
+	<y>492.5</y>
+	<z>34.5</z>
+</cuboid>
+<cuboid>
+	<width>68</width>
+	<height>68</height>
+	<depth>68</depth>
+	<x>176</x>
+	<y>492</y>
+	<z>103</z>
+</cuboid>
+<cuboid>
+	<width>68</width>
+	<height>68</height>
+	<depth>68</depth>
+	<x>176</x>
+	<y>492</y>
+	<z>171</z>
+</cuboid>
+<cuboid>
+	<width>68</width>
+	<height>68</height>
+	<depth>68</depth>
+	<x>176</x>
+	<y>492</y>
+	<z>239</z>
+</cuboid>
+<cuboid>
+	<width>68</width>
+	<height>68</height>
+	<depth>68</depth>
+	<x>176</x>
+	<y>492</y>
+	<z>307</z>
+</cuboid>
+<cuboid>
+	<width>68</width>
+	<height>68</height>
+	<depth>68</depth>
+	<x>176</x>
+	<y>492</y>
+	<z>375</z>
+</cuboid>
+<cuboid>
+	<width>68</width>
+	<height>68</height>
+	<depth>68</depth>
+	<x>176</x>
+	<y>492</y>
+	<z>443</z>
+</cuboid>
+<cuboid>
+	<width>68</width>
+	<height>68</height>
+	<depth>68</depth>
+	<x>245</x>
+	<y>492</y>
+	<z>34</z>
+</cuboid>
+<cuboid>
+	<width>67</width>
+	<height>67</height>
+	<depth>67</depth>
+	<x>244.5</x>
+	<y>491.5</y>
+	<z>101.5</z>
+</cuboid>
+<cuboid>
+	<width>67</width>
+	<height>67</height>
+	<depth>67</depth>
+	<x>244.5</x>
+	<y>491.5</y>
+	<z>168.5</z>
+</cuboid>
+<cuboid>
+	<width>67</width>
+	<height>67</height>
+	<depth>67</depth>
+	<x>244.5</x>
+	<y>491.5</y>
+	<z>235.5</z>
+</cuboid>
+<cuboid>
+	<width>67</width>
+	<height>67</height>
+	<depth>67</depth>
+	<x>244.5</x>
+	<y>491.5</y>
+	<z>302.5</z>
+</cuboid>
+<cuboid>
+	<width>67</width>
+	<height>67</height>
+	<depth>67</depth>
+	<x>244.5</x>
+	<y>491.5</y>
+	<z>369.5</z>
+</cuboid>
+<cuboid>
+	<width>67</width>
+	<height>67</height>
+	<depth>67</depth>
+	<x>244.5</x>
+	<y>491.5</y>
+	<z>436.5</z>
+</cuboid>
+<cuboid>
+	<width>67</width>
+	<height>67</height>
+	<depth>67</depth>
+	<x>312.5</x>
+	<y>491.5</y>
+	<z>33.5</z>
+</cuboid>
+<cuboid>
+	<width>67</width>
+	<height>67</height>
+	<depth>67</depth>
+	<x>312.5</x>
+	<y>491.5</y>
+	<z>100.5</z>
+</cuboid>
+<cuboid>
+	<width>67</width>
+	<height>67</height>
+	<depth>67</depth>
+	<x>312.5</x>
+	<y>491.5</y>
+	<z>167.5</z>
+</cuboid>
+<cuboid>
+	<width>66</width>
+	<height>66</height>
+	<depth>66</depth>
+	<x>424</x>
+	<y>409</y>
+	<z>467</z>
+</cuboid>
+<cuboid>
+	<width>66</width>
+	<height>66</height>
+	<depth>66</depth>
+	<x>312</x>
+	<y>491</y>
+	<z>234</z>
+</cuboid>
+<cuboid>
+	<width>65</width>
+	<height>65</height>
+	<depth>65</depth>
+	<x>311.5</x>
+	<y>490.5</y>
+	<z>299.5</z>
+</cuboid>
+<cuboid>
+	<width>65</width>
+	<height>65</height>
+	<depth>65</depth>
+	<x>311.5</x>
+	<y>490.5</y>
+	<z>364.5</z>
+</cuboid>
+<cuboid>
+	<width>65</width>
+	<height>65</height>
+	<depth>65</depth>
+	<x>311.5</x>
+	<y>490.5</y>
+	<z>429.5</z>
+</cuboid>
+<cuboid>
+	<width>64</width>
+	<height>64</height>
+	<depth>64</depth>
+	<x>378</x>
+	<y>490</y>
+	<z>32</z>
+</cuboid>
+<cuboid>
+	<width>64</width>
+	<height>64</height>
+	<depth>64</depth>
+	<x>378</x>
+	<y>490</y>
+	<z>96</z>
+</cuboid>
+<cuboid>
+	<width>64</width>
+	<height>64</height>
+	<depth>64</depth>
+	<x>378</x>
+	<y>490</y>
+	<z>160</z>
+</cuboid>
+<cuboid>
+	<width>63</width>
+	<height>63</height>
+	<depth>63</depth>
+	<x>31.5</x>
+	<y>319.5</y>
+	<z>468.5</z>
+</cuboid>
+<cuboid>
+	<width>63</width>
+	<height>63</height>
+	<depth>63</depth>
+	<x>377.5</x>
+	<y>489.5</y>
+	<z>223.5</z>
+</cuboid>
+<cuboid>
+	<width>63</width>
+	<height>63</height>
+	<depth>63</depth>
+	<x>377.5</x>
+	<y>489.5</y>
+	<z>286.5</z>
+</cuboid>
+<cuboid>
+	<width>63</width>
+	<height>63</height>
+	<depth>63</depth>
+	<x>377.5</x>
+	<y>489.5</y>
+	<z>349.5</z>
+</cuboid>
+<cuboid>
+	<width>63</width>
+	<height>63</height>
+	<depth>63</depth>
+	<x>377.5</x>
+	<y>489.5</y>
+	<z>412.5</z>
+</cuboid>
+<cuboid>
+	<width>62</width>
+	<height>62</height>
+	<depth>62</depth>
+	<x>441</x>
+	<y>489</y>
+	<z>31</z>
+</cuboid>
+<cuboid>
+	<width>62</width>
+	<height>62</height>
+	<depth>62</depth>
+	<x>441</x>
+	<y>489</y>
+	<z>93</z>
+</cuboid>
+<cuboid>
+	<width>62</width>
+	<height>62</height>
+	<depth>62</depth>
+	<x>441</x>
+	<y>489</y>
+	<z>155</z>
+</cuboid>
+<cuboid>
+	<width>61</width>
+	<height>61</height>
+	<depth>61</depth>
+	<x>440.5</x>
+	<y>488.5</y>
+	<z>216.5</z>
+</cuboid>
+<cuboid>
+	<width>61</width>
+	<height>61</height>
+	<depth>61</depth>
+	<x>440.5</x>
+	<y>488.5</y>
+	<z>277.5</z>
+</cuboid>
+<cuboid>
+	<width>61</width>
+	<height>61</height>
+	<depth>61</depth>
+	<x>440.5</x>
+	<y>488.5</y>
+	<z>338.5</z>
+</cuboid>
+<cuboid>
+	<width>61</width>
+	<height>61</height>
+	<depth>61</depth>
+	<x>440.5</x>
+	<y>488.5</y>
+	<z>399.5</z>
+</cuboid>
+<cuboid>
+	<width>61</width>
+	<height>61</height>
+	<depth>61</depth>
+	<x>440.5</x>
+	<y>488.5</y>
+	<z>460.5</z>
+</cuboid>
+<cuboid>
+	<width>61</width>
+	<height>61</height>
+	<depth>61</depth>
+	<x>30.5</x>
+	<y>560.5</y>
+	<z>30.5</z>
+</cuboid>
+<cuboid>
+	<width>61</width>
+	<height>61</height>
+	<depth>61</depth>
+	<x>30.5</x>
+	<y>560.5</y>
+	<z>91.5</z>
+</cuboid>
+<cuboid>
+	<width>61</width>
+	<height>61</height>
+	<depth>61</depth>
+	<x>30.5</x>
+	<y>560.5</y>
+	<z>152.5</z>
+</cuboid>
+<cuboid>
+	<width>61</width>
+	<height>61</height>
+	<depth>61</depth>
+	<x>30.5</x>
+	<y>560.5</y>
+	<z>213.5</z>
+</cuboid>
+<cuboid>
+	<width>61</width>
+	<height>61</height>
+	<depth>61</depth>
+	<x>30.5</x>
+	<y>560.5</y>
+	<z>274.5</z>
+</cuboid>
+<cuboid>
+	<width>61</width>
+	<height>61</height>
+	<depth>61</depth>
+	<x>30.5</x>
+	<y>560.5</y>
+	<z>335.5</z>
+</cuboid>
+<cuboid>
+	<width>61</width>
+	<height>61</height>
+	<depth>61</depth>
+	<x>30.5</x>
+	<y>560.5</y>
+	<z>396.5</z>
+</cuboid>
+<cuboid>
+	<width>60</width>
+	<height>60</height>
+	<depth>60</depth>
+	<x>393</x>
+	<y>226</y>
+	<z>470</z>
 </cuboid>
 <cuboid>
 	<width>60</width>
 	<height>60</height>
 	<depth>60</depth>
 	<x>30</x>
-	<y>130</y>
+	<y>560</y>
+	<z>457</z>
+</cuboid>
+<cuboid>
+	<width>60</width>
+	<height>60</height>
+	<depth>60</depth>
+	<x>91</x>
+	<y>560</y>
 	<z>30</z>
+</cuboid>
+<cuboid>
+	<width>60</width>
+	<height>60</height>
+	<depth>60</depth>
+	<x>91</x>
+	<y>560</y>
+	<z>90</z>
+</cuboid>
+<cuboid>
+	<width>60</width>
+	<height>60</height>
+	<depth>60</depth>
+	<x>91</x>
+	<y>560</y>
+	<z>150</z>
+</cuboid>
+<cuboid>
+	<width>59</width>
+	<height>59</height>
+	<depth>59</depth>
+	<x>90.5</x>
+	<y>559.5</y>
+	<z>209.5</z>
+</cuboid>
+<cuboid>
+	<width>59</width>
+	<height>59</height>
+	<depth>59</depth>
+	<x>90.5</x>
+	<y>559.5</y>
+	<z>268.5</z>
+</cuboid>
+<cuboid>
+	<width>58</width>
+	<height>58</height>
+	<depth>58</depth>
+	<x>455</x>
+	<y>317</y>
+	<z>471</z>
+</cuboid>
+<cuboid>
+	<width>58</width>
+	<height>58</height>
+	<depth>58</depth>
+	<x>90</x>
+	<y>559</y>
+	<z>327</z>
+</cuboid>
+<cuboid>
+	<width>58</width>
+	<height>58</height>
+	<depth>58</depth>
+	<x>90</x>
+	<y>559</y>
+	<z>385</z>
+</cuboid>
+<cuboid>
+	<width>58</width>
+	<height>58</height>
+	<depth>58</depth>
+	<x>90</x>
+	<y>559</y>
+	<z>443</z>
+</cuboid>
+<cuboid>
+	<width>58</width>
+	<height>58</height>
+	<depth>58</depth>
+	<x>150</x>
+	<y>559</y>
+	<z>29</z>
+</cuboid>
+<cuboid>
+	<width>57</width>
+	<height>57</height>
+	<depth>57</depth>
+	<x>149.5</x>
+	<y>558.5</y>
+	<z>86.5</z>
+</cuboid>
+<cuboid>
+	<width>57</width>
+	<height>57</height>
+	<depth>57</depth>
+	<x>149.5</x>
+	<y>558.5</y>
+	<z>143.5</z>
+</cuboid>
+<cuboid>
+	<width>57</width>
+	<height>57</height>
+	<depth>57</depth>
+	<x>149.5</x>
+	<y>558.5</y>
+	<z>200.5</z>
+</cuboid>
+<cuboid>
+	<width>57</width>
+	<height>57</height>
+	<depth>57</depth>
+	<x>149.5</x>
+	<y>558.5</y>
+	<z>257.5</z>
+</cuboid>
+<cuboid>
+	<width>57</width>
+	<height>57</height>
+	<depth>57</depth>
+	<x>149.5</x>
+	<y>558.5</y>
+	<z>314.5</z>
+</cuboid>
+<cuboid>
+	<width>56</width>
+	<height>56</height>
+	<depth>56</depth>
+	<x>374</x>
+	<y>486</y>
+	<z>472</z>
+</cuboid>
+<cuboid>
+	<width>56</width>
+	<height>56</height>
+	<depth>56</depth>
+	<x>149</x>
+	<y>558</y>
+	<z>371</z>
+</cuboid>
+<cuboid>
+	<width>56</width>
+	<height>56</height>
+	<depth>56</depth>
+	<x>149</x>
+	<y>558</y>
+	<z>427</z>
+</cuboid>
+<cuboid>
+	<width>56</width>
+	<height>56</height>
+	<depth>56</depth>
+	<x>207</x>
+	<y>558</y>
+	<z>28</z>
+</cuboid>
+<cuboid>
+	<width>56</width>
+	<height>56</height>
+	<depth>56</depth>
+	<x>207</x>
+	<y>558</y>
+	<z>84</z>
+</cuboid>
+<cuboid>
+	<width>55</width>
+	<height>55</height>
+	<depth>55</depth>
+	<x>301.5</x>
+	<y>223.5</y>
+	<z>472.5</z>
+</cuboid>
+<cuboid>
+	<width>55</width>
+	<height>55</height>
+	<depth>55</depth>
+	<x>206.5</x>
+	<y>557.5</y>
+	<z>139.5</z>
+</cuboid>
+<cuboid>
+	<width>55</width>
+	<height>55</height>
+	<depth>55</depth>
+	<x>206.5</x>
+	<y>557.5</y>
+	<z>194.5</z>
+</cuboid>
+<cuboid>
+	<width>54</width>
+	<height>54</height>
+	<depth>54</depth>
+	<x>206</x>
+	<y>557</y>
+	<z>249</z>
+</cuboid>
+<cuboid>
+	<width>54</width>
+	<height>54</height>
+	<depth>54</depth>
+	<x>206</x>
+	<y>557</y>
+	<z>303</z>
+</cuboid>
+<cuboid>
+	<width>54</width>
+	<height>54</height>
+	<depth>54</depth>
+	<x>206</x>
+	<y>557</y>
+	<z>357</z>
+</cuboid>
+<cuboid>
+	<width>54</width>
+	<height>54</height>
+	<depth>54</depth>
+	<x>206</x>
+	<y>557</y>
+	<z>411</z>
+</cuboid>
+<cuboid>
+	<width>54</width>
+	<height>54</height>
+	<depth>54</depth>
+	<x>206</x>
+	<y>557</y>
+	<z>465</z>
+</cuboid>
+<cuboid>
+	<width>53</width>
+	<height>53</height>
+	<depth>53</depth>
+	<x>261.5</x>
+	<y>556.5</y>
+	<z>26.5</z>
+</cuboid>
+<cuboid>
+	<width>53</width>
+	<height>53</height>
+	<depth>53</depth>
+	<x>261.5</x>
+	<y>556.5</y>
+	<z>79.5</z>
+</cuboid>
+<cuboid>
+	<width>53</width>
+	<height>53</height>
+	<depth>53</depth>
+	<x>261.5</x>
+	<y>556.5</y>
+	<z>132.5</z>
+</cuboid>
+<cuboid>
+	<width>53</width>
+	<height>53</height>
+	<depth>53</depth>
+	<x>261.5</x>
+	<y>556.5</y>
+	<z>185.5</z>
+</cuboid>
+<cuboid>
+	<width>52</width>
+	<height>52</height>
+	<depth>52</depth>
+	<x>210</x>
+	<y>222</y>
+	<z>474</z>
+</cuboid>
+<cuboid>
+	<width>52</width>
+	<height>52</height>
+	<depth>52</depth>
+	<x>342</x>
+	<y>402</y>
+	<z>474</z>
+</cuboid>
+<cuboid>
+	<width>52</width>
+	<height>52</height>
+	<depth>52</depth>
+	<x>261</x>
+	<y>556</y>
+	<z>238</z>
+</cuboid>
+<cuboid>
+	<width>52</width>
+	<height>52</height>
+	<depth>52</depth>
+	<x>261</x>
+	<y>556</y>
+	<z>290</z>
+</cuboid>
+<cuboid>
+	<width>52</width>
+	<height>52</height>
+	<depth>52</depth>
+	<x>261</x>
+	<y>556</y>
+	<z>342</z>
+</cuboid>
+<cuboid>
+	<width>52</width>
+	<height>52</height>
+	<depth>52</depth>
+	<x>261</x>
+	<y>556</y>
+	<z>394</z>
+</cuboid>
+<cuboid>
+	<width>51</width>
+	<height>51</height>
+	<depth>51</depth>
+	<x>260.5</x>
+	<y>555.5</y>
+	<z>445.5</z>
 </cuboid>
 <cuboid>
 	<width>50</width>
 	<height>50</height>
 	<depth>50</depth>
-	<x>125</x>
-	<y>25</y>
+	<x>313</x>
+	<y>555</y>
+	<z>25</z>
+</cuboid>
+<cuboid>
+	<width>50</width>
+	<height>50</height>
+	<depth>50</depth>
+	<x>313</x>
+	<y>555</y>
+	<z>75</z>
+</cuboid>
+<cuboid>
+	<width>50</width>
+	<height>50</height>
+	<depth>50</depth>
+	<x>313</x>
+	<y>555</y>
+	<z>125</z>
+</cuboid>
+<cuboid>
+	<width>50</width>
+	<height>50</height>
+	<depth>50</depth>
+	<x>313</x>
+	<y>555</y>
 	<z>175</z>
+</cuboid>
+<cuboid>
+	<width>50</width>
+	<height>50</height>
+	<depth>50</depth>
+	<x>313</x>
+	<y>555</y>
+	<z>225</z>
+</cuboid>
+<cuboid>
+	<width>50</width>
+	<height>50</height>
+	<depth>50</depth>
+	<x>313</x>
+	<y>555</y>
+	<z>275</z>
+</cuboid>
+<cuboid>
+	<width>49</width>
+	<height>49</height>
+	<depth>49</depth>
+	<x>475.5</x>
+	<y>220.5</y>
+	<z>24.5</z>
+</cuboid>
+<cuboid>
+	<width>49</width>
+	<height>49</height>
+	<depth>49</depth>
+	<x>475.5</x>
+	<y>220.5</y>
+	<z>73.5</z>
+</cuboid>
+<cuboid>
+	<width>49</width>
+	<height>49</height>
+	<depth>49</depth>
+	<x>475.5</x>
+	<y>220.5</y>
+	<z>122.5</z>
+</cuboid>
+<cuboid>
+	<width>49</width>
+	<height>49</height>
+	<depth>49</depth>
+	<x>475.5</x>
+	<y>220.5</y>
+	<z>171.5</z>
+</cuboid>
+<cuboid>
+	<width>48</width>
+	<height>48</height>
+	<depth>48</depth>
+	<x>475</x>
+	<y>220</y>
+	<z>220</z>
+</cuboid>
+<cuboid>
+	<width>48</width>
+	<height>48</height>
+	<depth>48</depth>
+	<x>475</x>
+	<y>220</y>
+	<z>268</z>
+</cuboid>
+<cuboid>
+	<width>48</width>
+	<height>48</height>
+	<depth>48</depth>
+	<x>475</x>
+	<y>220</y>
+	<z>316</z>
+</cuboid>
+<cuboid>
+	<width>48</width>
+	<height>48</height>
+	<depth>48</depth>
+	<x>475</x>
+	<y>220</y>
+	<z>364</z>
+</cuboid>
+<cuboid>
+	<width>47</width>
+	<height>47</height>
+	<depth>47</depth>
+	<x>474.5</x>
+	<y>219.5</y>
+	<z>411.5</z>
+</cuboid>
+<cuboid>
+	<width>47</width>
+	<height>47</height>
+	<depth>47</depth>
+	<x>474.5</x>
+	<y>219.5</y>
+	<z>458.5</z>
+</cuboid>
+<cuboid>
+	<width>47</width>
+	<height>47</height>
+	<depth>47</depth>
+	<x>311.5</x>
+	<y>553.5</y>
+	<z>323.5</z>
+</cuboid>
+<cuboid>
+	<width>47</width>
+	<height>47</height>
+	<depth>47</depth>
+	<x>311.5</x>
+	<y>553.5</y>
+	<z>370.5</z>
+</cuboid>
+<cuboid>
+	<width>47</width>
+	<height>47</height>
+	<depth>47</depth>
+	<x>311.5</x>
+	<y>553.5</y>
+	<z>417.5</z>
+</cuboid>
+<cuboid>
+	<width>47</width>
+	<height>47</height>
+	<depth>47</depth>
+	<x>311.5</x>
+	<y>553.5</y>
+	<z>464.5</z>
+</cuboid>
+<cuboid>
+	<width>46</width>
+	<height>46</height>
+	<depth>46</depth>
+	<x>361</x>
+	<y>553</y>
+	<z>23</z>
+</cuboid>
+<cuboid>
+	<width>46</width>
+	<height>46</height>
+	<depth>46</depth>
+	<x>361</x>
+	<y>553</y>
+	<z>69</z>
+</cuboid>
+<cuboid>
+	<width>46</width>
+	<height>46</height>
+	<depth>46</depth>
+	<x>361</x>
+	<y>553</y>
+	<z>115</z>
+</cuboid>
+<cuboid>
+	<width>46</width>
+	<height>46</height>
+	<depth>46</depth>
+	<x>361</x>
+	<y>553</y>
+	<z>161</z>
+</cuboid>
+<cuboid>
+	<width>46</width>
+	<height>46</height>
+	<depth>46</depth>
+	<x>361</x>
+	<y>553</y>
+	<z>207</z>
+</cuboid>
+<cuboid>
+	<width>46</width>
+	<height>46</height>
+	<depth>46</depth>
+	<x>361</x>
+	<y>553</y>
+	<z>253</z>
+</cuboid>
+<cuboid>
+	<width>46</width>
+	<height>46</height>
+	<depth>46</depth>
+	<x>361</x>
+	<y>553</y>
+	<z>299</z>
+</cuboid>
+<cuboid>
+	<width>46</width>
+	<height>46</height>
+	<depth>46</depth>
+	<x>361</x>
+	<y>553</y>
+	<z>345</z>
+</cuboid>
+<cuboid>
+	<width>46</width>
+	<height>46</height>
+	<depth>46</depth>
+	<x>361</x>
+	<y>553</y>
+	<z>391</z>
+</cuboid>
+<cuboid>
+	<width>46</width>
+	<height>46</height>
+	<depth>46</depth>
+	<x>361</x>
+	<y>553</y>
+	<z>437</z>
+</cuboid>
+<cuboid>
+	<width>46</width>
+	<height>46</height>
+	<depth>46</depth>
+	<x>407</x>
+	<y>553</y>
+	<z>23</z>
+</cuboid>
+<cuboid>
+	<width>45</width>
+	<height>45</height>
+	<depth>45</depth>
+	<x>114.5</x>
+	<y>218.5</y>
+	<z>477.5</z>
+</cuboid>
+<cuboid>
+	<width>45</width>
+	<height>45</height>
+	<depth>45</depth>
+	<x>159.5</x>
+	<y>218.5</y>
+	<z>477.5</z>
+</cuboid>
+<cuboid>
+	<width>45</width>
+	<height>45</height>
+	<depth>45</depth>
+	<x>143.5</x>
+	<y>552.5</y>
+	<z>477.5</z>
+</cuboid>
+<cuboid>
+	<width>45</width>
+	<height>45</height>
+	<depth>45</depth>
+	<x>406.5</x>
+	<y>552.5</y>
+	<z>68.5</z>
+</cuboid>
+<cuboid>
+	<width>45</width>
+	<height>45</height>
+	<depth>45</depth>
+	<x>406.5</x>
+	<y>552.5</y>
+	<z>113.5</z>
+</cuboid>
+<cuboid>
+	<width>45</width>
+	<height>45</height>
+	<depth>45</depth>
+	<x>406.5</x>
+	<y>552.5</y>
+	<z>158.5</z>
+</cuboid>
+<cuboid>
+	<width>45</width>
+	<height>45</height>
+	<depth>45</depth>
+	<x>406.5</x>
+	<y>552.5</y>
+	<z>203.5</z>
+</cuboid>
+<cuboid>
+	<width>45</width>
+	<height>45</height>
+	<depth>45</depth>
+	<x>406.5</x>
+	<y>552.5</y>
+	<z>248.5</z>
+</cuboid>
+<cuboid>
+	<width>45</width>
+	<height>45</height>
+	<depth>45</depth>
+	<x>406.5</x>
+	<y>552.5</y>
+	<z>293.5</z>
+</cuboid>
+<cuboid>
+	<width>44</width>
+	<height>44</height>
+	<depth>44</depth>
+	<x>406</x>
+	<y>552</y>
+	<z>338</z>
+</cuboid>
+<cuboid>
+	<width>44</width>
+	<height>44</height>
+	<depth>44</depth>
+	<x>406</x>
+	<y>552</y>
+	<z>382</z>
+</cuboid>
+<cuboid>
+	<width>43</width>
+	<height>43</height>
+	<depth>43</depth>
+	<x>405.5</x>
+	<y>551.5</y>
+	<z>425.5</z>
+</cuboid>
+<cuboid>
+	<width>43</width>
+	<height>43</height>
+	<depth>43</depth>
+	<x>405.5</x>
+	<y>551.5</y>
+	<z>468.5</z>
+</cuboid>
+<cuboid>
+	<width>43</width>
+	<height>43</height>
+	<depth>43</depth>
+	<x>451.5</x>
+	<y>551.5</y>
+	<z>21.5</z>
+</cuboid>
+<cuboid>
+	<width>43</width>
+	<height>43</height>
+	<depth>43</depth>
+	<x>451.5</x>
+	<y>551.5</y>
+	<z>64.5</z>
+</cuboid>
+<cuboid>
+	<width>43</width>
+	<height>43</height>
+	<depth>43</depth>
+	<x>451.5</x>
+	<y>551.5</y>
+	<z>107.5</z>
+</cuboid>
+<cuboid>
+	<width>43</width>
+	<height>43</height>
+	<depth>43</depth>
+	<x>451.5</x>
+	<y>551.5</y>
+	<z>150.5</z>
+</cuboid>
+<cuboid>
+	<width>42</width>
+	<height>42</height>
+	<depth>42</depth>
+	<x>260</x>
+	<y>397</y>
+	<z>479</z>
+</cuboid>
+<cuboid>
+	<width>42</width>
+	<height>42</height>
+	<depth>42</depth>
+	<x>451</x>
+	<y>551</y>
+	<z>193</z>
+</cuboid>
+<cuboid>
+	<width>42</width>
+	<height>42</height>
+	<depth>42</depth>
+	<x>451</x>
+	<y>551</y>
+	<z>235</z>
+</cuboid>
+<cuboid>
+	<width>42</width>
+	<height>42</height>
+	<depth>42</depth>
+	<x>451</x>
+	<y>551</y>
+	<z>277</z>
+</cuboid>
+<cuboid>
+	<width>42</width>
+	<height>42</height>
+	<depth>42</depth>
+	<x>451</x>
+	<y>551</y>
+	<z>319</z>
+</cuboid>
+<cuboid>
+	<width>42</width>
+	<height>42</height>
+	<depth>42</depth>
+	<x>451</x>
+	<y>551</y>
+	<z>361</z>
+</cuboid>
+<cuboid>
+	<width>42</width>
+	<height>42</height>
+	<depth>42</depth>
+	<x>451</x>
+	<y>551</y>
+	<z>403</z>
+</cuboid>
+<cuboid>
+	<width>41</width>
+	<height>41</height>
+	<depth>41</depth>
+	<x>450.5</x>
+	<y>550.5</y>
+	<z>444.5</z>
+</cuboid>
+<cuboid>
+	<width>41</width>
+	<height>41</height>
+	<depth>41</depth>
+	<x>20.5</x>
+	<y>611.5</y>
+	<z>20.5</z>
+</cuboid>
+<cuboid>
+	<width>41</width>
+	<height>41</height>
+	<depth>41</depth>
+	<x>20.5</x>
+	<y>611.5</y>
+	<z>61.5</z>
 </cuboid>
 <cuboid>
 	<width>40</width>
 	<height>40</height>
 	<depth>40</depth>
 	<x>20</x>
-	<y>120</y>
-	<z>80</z>
+	<y>216</y>
+	<z>480</z>
+</cuboid>
+<cuboid>
+	<width>40</width>
+	<height>40</height>
+	<depth>40</depth>
+	<x>60</x>
+	<y>216</y>
+	<z>480</z>
+</cuboid>
+<cuboid>
+	<width>40</width>
+	<height>40</height>
+	<depth>40</depth>
+	<x>358</x>
+	<y>550</y>
+	<z>480</z>
+</cuboid>
+<cuboid>
+	<width>40</width>
+	<height>40</height>
+	<depth>40</depth>
+	<x>20</x>
+	<y>611</y>
+	<z>102</z>
+</cuboid>
+<cuboid>
+	<width>40</width>
+	<height>40</height>
+	<depth>40</depth>
+	<x>20</x>
+	<y>611</y>
+	<z>142</z>
+</cuboid>
+<cuboid>
+	<width>40</width>
+	<height>40</height>
+	<depth>40</depth>
+	<x>20</x>
+	<y>611</y>
+	<z>182</z>
+</cuboid>
+<cuboid>
+	<width>40</width>
+	<height>40</height>
+	<depth>40</depth>
+	<x>20</x>
+	<y>611</y>
+	<z>222</z>
+</cuboid>
+<cuboid>
+	<width>40</width>
+	<height>40</height>
+	<depth>40</depth>
+	<x>20</x>
+	<y>611</y>
+	<z>262</z>
+</cuboid>
+<cuboid>
+	<width>40</width>
+	<height>40</height>
+	<depth>40</depth>
+	<x>20</x>
+	<y>611</y>
+	<z>302</z>
+</cuboid>
+<cuboid>
+	<width>39</width>
+	<height>39</height>
+	<depth>39</depth>
+	<x>19.5</x>
+	<y>610.5</y>
+	<z>341.5</z>
+</cuboid>
+<cuboid>
+	<width>39</width>
+	<height>39</height>
+	<depth>39</depth>
+	<x>19.5</x>
+	<y>610.5</y>
+	<z>380.5</z>
+</cuboid>
+<cuboid>
+	<width>39</width>
+	<height>39</height>
+	<depth>39</depth>
+	<x>19.5</x>
+	<y>610.5</y>
+	<z>419.5</z>
+</cuboid>
+<cuboid>
+	<width>39</width>
+	<height>39</height>
+	<depth>39</depth>
+	<x>19.5</x>
+	<y>610.5</y>
+	<z>458.5</z>
+</cuboid>
+<cuboid>
+	<width>39</width>
+	<height>39</height>
+	<depth>39</depth>
+	<x>60.5</x>
+	<y>610.5</y>
+	<z>19.5</z>
+</cuboid>
+<cuboid>
+	<width>39</width>
+	<height>39</height>
+	<depth>39</depth>
+	<x>60.5</x>
+	<y>610.5</y>
+	<z>58.5</z>
+</cuboid>
+<cuboid>
+	<width>39</width>
+	<height>39</height>
+	<depth>39</depth>
+	<x>60.5</x>
+	<y>610.5</y>
+	<z>97.5</z>
+</cuboid>
+<cuboid>
+	<width>38</width>
+	<height>38</height>
+	<depth>38</depth>
+	<x>400</x>
+	<y>119</y>
+	<z>481</z>
+</cuboid>
+<cuboid>
+	<width>38</width>
+	<height>38</height>
+	<depth>38</depth>
+	<x>438</x>
+	<y>119</y>
+	<z>481</z>
+</cuboid>
+<cuboid>
+	<width>38</width>
+	<height>38</height>
+	<depth>38</depth>
+	<x>298</x>
+	<y>477</y>
+	<z>481</z>
+</cuboid>
+<cuboid>
+	<width>38</width>
+	<height>38</height>
+	<depth>38</depth>
+	<x>60</x>
+	<y>610</y>
+	<z>136</z>
+</cuboid>
+<cuboid>
+	<width>38</width>
+	<height>38</height>
+	<depth>38</depth>
+	<x>60</x>
+	<y>610</y>
+	<z>174</z>
+</cuboid>
+<cuboid>
+	<width>38</width>
+	<height>38</height>
+	<depth>38</depth>
+	<x>60</x>
+	<y>610</y>
+	<z>212</z>
+</cuboid>
+<cuboid>
+	<width>38</width>
+	<height>38</height>
+	<depth>38</depth>
+	<x>60</x>
+	<y>610</y>
+	<z>250</z>
+</cuboid>
+<cuboid>
+	<width>38</width>
+	<height>38</height>
+	<depth>38</depth>
+	<x>60</x>
+	<y>610</y>
+	<z>288</z>
+</cuboid>
+<cuboid>
+	<width>38</width>
+	<height>38</height>
+	<depth>38</depth>
+	<x>60</x>
+	<y>610</y>
+	<z>326</z>
+</cuboid>
+<cuboid>
+	<width>38</width>
+	<height>38</height>
+	<depth>38</depth>
+	<x>60</x>
+	<y>610</y>
+	<z>364</z>
+</cuboid>
+<cuboid>
+	<width>37</width>
+	<height>37</height>
+	<depth>37</depth>
+	<x>254.5</x>
+	<y>214.5</y>
+	<z>466.5</z>
+</cuboid>
+<cuboid>
+	<width>37</width>
+	<height>37</height>
+	<depth>37</depth>
+	<x>59.5</x>
+	<y>609.5</y>
+	<z>401.5</z>
+</cuboid>
+<cuboid>
+	<width>37</width>
+	<height>37</height>
+	<depth>37</depth>
+	<x>59.5</x>
+	<y>609.5</y>
+	<z>438.5</z>
+</cuboid>
+<cuboid>
+	<width>37</width>
+	<height>37</height>
+	<depth>37</depth>
+	<x>59.5</x>
+	<y>609.5</y>
+	<z>475.5</z>
+</cuboid>
+<cuboid>
+	<width>36</width>
+	<height>36</height>
+	<depth>36</depth>
+	<x>482</x>
+	<y>394</y>
+	<z>18</z>
+</cuboid>
+<cuboid>
+	<width>36</width>
+	<height>36</height>
+	<depth>36</depth>
+	<x>482</x>
+	<y>394</y>
+	<z>54</z>
+</cuboid>
+<cuboid>
+	<width>36</width>
+	<height>36</height>
+	<depth>36</depth>
+	<x>482</x>
+	<y>394</y>
+	<z>90</z>
+</cuboid>
+<cuboid>
+	<width>35</width>
+	<height>35</height>
+	<depth>35</depth>
+	<x>481.5</x>
+	<y>393.5</y>
+	<z>125.5</z>
+</cuboid>
+<cuboid>
+	<width>35</width>
+	<height>35</height>
+	<depth>35</depth>
+	<x>481.5</x>
+	<y>393.5</y>
+	<z>160.5</z>
+</cuboid>
+<cuboid>
+	<width>35</width>
+	<height>35</height>
+	<depth>35</depth>
+	<x>481.5</x>
+	<y>393.5</y>
+	<z>195.5</z>
+</cuboid>
+<cuboid>
+	<width>35</width>
+	<height>35</height>
+	<depth>35</depth>
+	<x>481.5</x>
+	<y>393.5</y>
+	<z>230.5</z>
+</cuboid>
+<cuboid>
+	<width>35</width>
+	<height>35</height>
+	<depth>35</depth>
+	<x>481.5</x>
+	<y>393.5</y>
+	<z>265.5</z>
+</cuboid>
+<cuboid>
+	<width>35</width>
+	<height>35</height>
+	<depth>35</depth>
+	<x>481.5</x>
+	<y>393.5</y>
+	<z>300.5</z>
+</cuboid>
+<cuboid>
+	<width>34</width>
+	<height>34</height>
+	<depth>34</depth>
+	<x>346</x>
+	<y>213</y>
+	<z>462</z>
+</cuboid>
+<cuboid>
+	<width>34</width>
+	<height>34</height>
+	<depth>34</depth>
+	<x>298</x>
+	<y>393</y>
+	<z>475</z>
+</cuboid>
+<cuboid>
+	<width>34</width>
+	<height>34</height>
+	<depth>34</depth>
+	<x>178</x>
+	<y>393</y>
+	<z>483</z>
+</cuboid>
+<cuboid>
+	<width>33</width>
+	<height>33</height>
+	<depth>33</depth>
+	<x>211.5</x>
+	<y>392.5</y>
+	<z>482.5</z>
+</cuboid>
+<cuboid>
+	<width>33</width>
+	<height>33</height>
+	<depth>33</depth>
+	<x>480.5</x>
+	<y>392.5</y>
+	<z>334.5</z>
+</cuboid>
+<cuboid>
+	<width>33</width>
+	<height>33</height>
+	<depth>33</depth>
+	<x>480.5</x>
+	<y>392.5</y>
+	<z>367.5</z>
+</cuboid>
+<cuboid>
+	<width>33</width>
+	<height>33</height>
+	<depth>33</depth>
+	<x>480.5</x>
+	<y>392.5</y>
+	<z>400.5</z>
+</cuboid>
+<cuboid>
+	<width>32</width>
+	<height>32</height>
+	<depth>32</depth>
+	<x>480</x>
+	<y>392</y>
+	<z>433</z>
+</cuboid>
+<cuboid>
+	<width>32</width>
+	<height>32</height>
+	<depth>32</depth>
+	<x>480</x>
+	<y>392</y>
+	<z>465</z>
+</cuboid>
+<cuboid>
+	<width>32</width>
+	<height>32</height>
+	<depth>32</depth>
+	<x>446</x>
+	<y>546</y>
+	<z>481</z>
+</cuboid>
+<cuboid>
+	<width>32</width>
+	<height>32</height>
+	<depth>32</depth>
+	<x>96</x>
+	<y>607</y>
+	<z>16</z>
+</cuboid>
+<cuboid>
+	<width>31</width>
+	<height>31</height>
+	<depth>31</depth>
+	<x>301.5</x>
+	<y>115.5</y>
+	<z>484.5</z>
+</cuboid>
+<cuboid>
+	<width>31</width>
+	<height>31</height>
+	<depth>31</depth>
+	<x>332.5</x>
+	<y>115.5</y>
+	<z>484.5</z>
+</cuboid>
+<cuboid>
+	<width>31</width>
+	<height>31</height>
+	<depth>31</depth>
+	<x>363.5</x>
+	<y>115.5</y>
+	<z>484.5</z>
+</cuboid>
+<cuboid>
+	<width>31</width>
+	<height>31</height>
+	<depth>31</depth>
+	<x>95.5</x>
+	<y>606.5</y>
+	<z>47.5</z>
+</cuboid>
+<cuboid>
+	<width>31</width>
+	<height>31</height>
+	<depth>31</depth>
+	<x>95.5</x>
+	<y>606.5</y>
+	<z>78.5</z>
 </cuboid>
 <cuboid>
 	<width>30</width>
 	<height>30</height>
 	<depth>30</depth>
-	<x>15</x>
-	<y>115</y>
-	<z>115</z>
+	<x>226</x>
+	<y>473</y>
+	<z>485</z>
+</cuboid>
+<cuboid>
+	<width>30</width>
+	<height>30</height>
+	<depth>30</depth>
+	<x>256</x>
+	<y>473</y>
+	<z>485</z>
+</cuboid>
+<cuboid>
+	<width>30</width>
+	<height>30</height>
+	<depth>30</depth>
+	<x>95</x>
+	<y>606</y>
+	<z>109</z>
+</cuboid>
+<cuboid>
+	<width>30</width>
+	<height>30</height>
+	<depth>30</depth>
+	<x>95</x>
+	<y>606</y>
+	<z>139</z>
+</cuboid>
+<cuboid>
+	<width>30</width>
+	<height>30</height>
+	<depth>30</depth>
+	<x>95</x>
+	<y>606</y>
+	<z>169</z>
+</cuboid>
+<cuboid>
+	<width>29</width>
+	<height>29</height>
+	<depth>29</depth>
+	<x>249.5</x>
+	<y>544.5</y>
+	<z>485.5</z>
+</cuboid>
+<cuboid>
+	<width>29</width>
+	<height>29</height>
+	<depth>29</depth>
+	<x>94.5</x>
+	<y>605.5</y>
+	<z>198.5</z>
+</cuboid>
+<cuboid>
+	<width>29</width>
+	<height>29</height>
+	<depth>29</depth>
+	<x>94.5</x>
+	<y>605.5</y>
+	<z>227.5</z>
+</cuboid>
+<cuboid>
+	<width>29</width>
+	<height>29</height>
+	<depth>29</depth>
+	<x>94.5</x>
+	<y>605.5</y>
+	<z>256.5</z>
+</cuboid>
+<cuboid>
+	<width>28</width>
+	<height>28</height>
+	<depth>28</depth>
+	<x>437</x>
+	<y>210</y>
+	<z>454</z>
+</cuboid>
+<cuboid>
+	<width>27</width>
+	<height>27</height>
+	<depth>27</depth>
+	<x>436.5</x>
+	<y>209.5</y>
+	<z>481.5</z>
+</cuboid>
+<cuboid>
+	<width>27</width>
+	<height>27</height>
+	<depth>27</depth>
+	<x>95.5</x>
+	<y>389.5</y>
+	<z>486.5</z>
+</cuboid>
+<cuboid>
+	<width>27</width>
+	<height>27</height>
+	<depth>27</depth>
+	<x>122.5</x>
+	<y>389.5</y>
+	<z>486.5</z>
+</cuboid>
+<cuboid>
+	<width>27</width>
+	<height>27</height>
+	<depth>27</depth>
+	<x>330.5</x>
+	<y>471.5</y>
+	<z>475.5</z>
+</cuboid>
+<cuboid>
+	<width>27</width>
+	<height>27</height>
+	<depth>27</depth>
+	<x>485.5</x>
+	<y>471.5</y>
+	<z>13.5</z>
+</cuboid>
+<cuboid>
+	<width>27</width>
+	<height>27</height>
+	<depth>27</depth>
+	<x>485.5</x>
+	<y>471.5</y>
+	<z>40.5</z>
+</cuboid>
+<cuboid>
+	<width>26</width>
+	<height>26</height>
+	<depth>26</depth>
+	<x>487</x>
+	<y>113</y>
+	<z>13</z>
+</cuboid>
+<cuboid>
+	<width>26</width>
+	<height>26</height>
+	<depth>26</depth>
+	<x>487</x>
+	<y>113</y>
+	<z>39</z>
+</cuboid>
+<cuboid>
+	<width>26</width>
+	<height>26</height>
+	<depth>26</depth>
+	<x>487</x>
+	<y>113</y>
+	<z>65</z>
+</cuboid>
+<cuboid>
+	<width>26</width>
+	<height>26</height>
+	<depth>26</depth>
+	<x>487</x>
+	<y>113</y>
+	<z>91</z>
+</cuboid>
+<cuboid>
+	<width>26</width>
+	<height>26</height>
+	<depth>26</depth>
+	<x>487</x>
+	<y>113</y>
+	<z>117</z>
+</cuboid>
+<cuboid>
+	<width>26</width>
+	<height>26</height>
+	<depth>26</depth>
+	<x>487</x>
+	<y>113</y>
+	<z>143</z>
+</cuboid>
+<cuboid>
+	<width>25</width>
+	<height>25</height>
+	<depth>25</depth>
+	<x>108.5</x>
+	<y>112.5</y>
+	<z>487.5</z>
+</cuboid>
+<cuboid>
+	<width>25</width>
+	<height>25</height>
+	<depth>25</depth>
+	<x>133.5</x>
+	<y>112.5</y>
+	<z>487.5</z>
+</cuboid>
+<cuboid>
+	<width>24</width>
+	<height>24</height>
+	<depth>24</depth>
+	<x>158</x>
+	<y>112</y>
+	<z>487</z>
+</cuboid>
+<cuboid>
+	<width>24</width>
+	<height>24</height>
+	<depth>24</depth>
+	<x>203</x>
+	<y>112</y>
+	<z>487</z>
+</cuboid>
+<cuboid>
+	<width>24</width>
+	<height>24</height>
+	<depth>24</depth>
+	<x>227</x>
+	<y>112</y>
+	<z>487</z>
+</cuboid>
+<cuboid>
+	<width>24</width>
+	<height>24</height>
+	<depth>24</depth>
+	<x>251</x>
+	<y>112</y>
+	<z>487</z>
+</cuboid>
+<cuboid>
+	<width>23</width>
+	<height>23</height>
+	<depth>23</depth>
+	<x>274.5</x>
+	<y>111.5</y>
+	<z>486.5</z>
+</cuboid>
+<cuboid>
+	<width>23</width>
+	<height>23</height>
+	<depth>23</depth>
+	<x>485.5</x>
+	<y>111.5</y>
+	<z>167.5</z>
+</cuboid>
+<cuboid>
+	<width>23</width>
+	<height>23</height>
+	<depth>23</depth>
+	<x>485.5</x>
+	<y>111.5</y>
+	<z>190.5</z>
+</cuboid>
+<cuboid>
+	<width>23</width>
+	<height>23</height>
+	<depth>23</depth>
+	<x>485.5</x>
+	<y>111.5</y>
+	<z>213.5</z>
+</cuboid>
+<cuboid>
+	<width>23</width>
+	<height>23</height>
+	<depth>23</depth>
+	<x>485.5</x>
+	<y>111.5</y>
+	<z>236.5</z>
+</cuboid>
+<cuboid>
+	<width>23</width>
+	<height>23</height>
+	<depth>23</depth>
+	<x>485.5</x>
+	<y>111.5</y>
+	<z>259.5</z>
+</cuboid>
+<cuboid>
+	<width>23</width>
+	<height>23</height>
+	<depth>23</depth>
+	<x>485.5</x>
+	<y>111.5</y>
+	<z>282.5</z>
+</cuboid>
+<cuboid>
+	<width>23</width>
+	<height>23</height>
+	<depth>23</depth>
+	<x>485.5</x>
+	<y>111.5</y>
+	<z>305.5</z>
+</cuboid>
+<cuboid>
+	<width>22</width>
+	<height>22</height>
+	<depth>22</depth>
+	<x>485</x>
+	<y>111</y>
+	<z>328</z>
+</cuboid>
+<cuboid>
+	<width>22</width>
+	<height>22</height>
+	<depth>22</depth>
+	<x>485</x>
+	<y>111</y>
+	<z>350</z>
+</cuboid>
+<cuboid>
+	<width>22</width>
+	<height>22</height>
+	<depth>22</depth>
+	<x>485</x>
+	<y>111</y>
+	<z>372</z>
+</cuboid>
+<cuboid>
+	<width>21</width>
+	<height>21</height>
+	<depth>21</depth>
+	<x>180.5</x>
+	<y>110.5</y>
+	<z>485.5</z>
+</cuboid>
+<cuboid>
+	<width>21</width>
+	<height>21</height>
+	<depth>21</depth>
+	<x>484.5</x>
+	<y>110.5</y>
+	<z>393.5</z>
+</cuboid>
+<cuboid>
+	<width>21</width>
+	<height>21</height>
+	<depth>21</depth>
+	<x>484.5</x>
+	<y>110.5</y>
+	<z>414.5</z>
+</cuboid>
+<cuboid>
+	<width>21</width>
+	<height>21</height>
+	<depth>21</depth>
+	<x>484.5</x>
+	<y>110.5</y>
+	<z>435.5</z>
+</cuboid>
+<cuboid>
+	<width>21</width>
+	<height>21</height>
+	<depth>21</depth>
+	<x>484.5</x>
+	<y>110.5</y>
+	<z>456.5</z>
+</cuboid>
+<cuboid>
+	<width>21</width>
+	<height>21</height>
+	<depth>21</depth>
+	<x>484.5</x>
+	<y>110.5</y>
+	<z>477.5</z>
+</cuboid>
+<cuboid>
+	<width>21</width>
+	<height>21</height>
+	<depth>21</depth>
+	<x>339.5</x>
+	<y>206.5</y>
+	<z>489.5</z>
+</cuboid>
+<cuboid>
+	<width>21</width>
+	<height>21</height>
+	<depth>21</depth>
+	<x>73.5</x>
+	<y>298.5</y>
+	<z>447.5</z>
 </cuboid>
 <cuboid>
 	<width>20</width>
 	<height>20</height>
 	<depth>20</depth>
-	<x>160</x>
-	<y>10</y>
-	<z>160</z>
+	<x>10</x>
+	<y>110</y>
+	<z>490</z>
+</cuboid>
+<cuboid>
+	<width>20</width>
+	<height>20</height>
+	<depth>20</depth>
+	<x>30</x>
+	<y>110</y>
+	<z>490</z>
+</cuboid>
+<cuboid>
+	<width>20</width>
+	<height>20</height>
+	<depth>20</depth>
+	<x>50</x>
+	<y>110</y>
+	<z>490</z>
+</cuboid>
+<cuboid>
+	<width>20</width>
+	<height>20</height>
+	<depth>20</depth>
+	<x>70</x>
+	<y>110</y>
+	<z>490</z>
+</cuboid>
+<cuboid>
+	<width>20</width>
+	<height>20</height>
+	<depth>20</depth>
+	<x>73</x>
+	<y>298</y>
+	<z>468</z>
+</cuboid>
+<cuboid>
+	<width>20</width>
+	<height>20</height>
+	<depth>20</depth>
+	<x>73</x>
+	<y>298</y>
+	<z>488</z>
+</cuboid>
+<cuboid>
+	<width>20</width>
+	<height>20</height>
+	<depth>20</depth>
+	<x>146</x>
+	<y>386</y>
+	<z>483</z>
+</cuboid>
+<cuboid>
+	<width>20</width>
+	<height>20</height>
+	<depth>20</depth>
+	<x>378</x>
+	<y>386</y>
+	<z>458</z>
+</cuboid>
+<cuboid>
+	<width>20</width>
+	<height>20</height>
+	<depth>20</depth>
+	<x>378</x>
+	<y>386</y>
+	<z>478</z>
+</cuboid>
+<cuboid>
+	<width>19</width>
+	<height>19</height>
+	<depth>19</depth>
+	<x>473.5</x>
+	<y>385.5</y>
+	<z>490.5</z>
+</cuboid>
+<cuboid>
+	<width>19</width>
+	<height>19</height>
+	<depth>19</depth>
+	<x>151.5</x>
+	<y>467.5</y>
+	<z>486.5</z>
+</cuboid>
+<cuboid>
+	<width>19</width>
+	<height>19</height>
+	<depth>19</depth>
+	<x>170.5</x>
+	<y>467.5</y>
+	<z>486.5</z>
+</cuboid>
+<cuboid>
+	<width>19</width>
+	<height>19</height>
+	<depth>19</depth>
+	<x>189.5</x>
+	<y>467.5</y>
+	<z>486.5</z>
+</cuboid>
+<cuboid>
+	<width>18</width>
+	<height>18</height>
+	<depth>18</depth>
+	<x>460</x>
+	<y>205</y>
+	<z>491</z>
+</cuboid>
+<cuboid>
+	<width>18</width>
+	<height>18</height>
+	<depth>18</depth>
+	<x>478</x>
+	<y>205</y>
+	<z>491</z>
+</cuboid>
+<cuboid>
+	<width>18</width>
+	<height>18</height>
+	<depth>18</depth>
+	<x>481</x>
+	<y>467</y>
+	<z>63</z>
+</cuboid>
+<cuboid>
+	<width>17</width>
+	<height>17</height>
+	<depth>17</depth>
+	<x>403.5</x>
+	<y>8.5</y>
+	<z>491.5</z>
+</cuboid>
+<cuboid>
+	<width>17</width>
+	<height>17</height>
+	<depth>17</depth>
+	<x>420.5</x>
+	<y>8.5</y>
+	<z>491.5</z>
+</cuboid>
+<cuboid>
+	<width>17</width>
+	<height>17</height>
+	<depth>17</depth>
+	<x>437.5</x>
+	<y>8.5</y>
+	<z>491.5</z>
+</cuboid>
+<cuboid>
+	<width>17</width>
+	<height>17</height>
+	<depth>17</depth>
+	<x>454.5</x>
+	<y>8.5</y>
+	<z>491.5</z>
+</cuboid>
+<cuboid>
+	<width>16</width>
+	<height>16</height>
+	<depth>16</depth>
+	<x>471</x>
+	<y>8</y>
+	<z>491</z>
+</cuboid>
+<cuboid>
+	<width>16</width>
+	<height>16</height>
+	<depth>16</depth>
+	<x>88</x>
+	<y>108</y>
+	<z>488</z>
+</cuboid>
+<cuboid>
+	<width>16</width>
+	<height>16</height>
+	<depth>16</depth>
+	<x>465</x>
+	<y>108</y>
+	<z>470</z>
+</cuboid>
+<cuboid>
+	<width>16</width>
+	<height>16</height>
+	<depth>16</depth>
+	<x>465</x>
+	<y>108</y>
+	<z>486</z>
+</cuboid>
+<cuboid>
+	<width>16</width>
+	<height>16</height>
+	<depth>16</depth>
+	<x>480</x>
+	<y>466</y>
+	<z>80</z>
+</cuboid>
+<cuboid>
+	<width>16</width>
+	<height>16</height>
+	<depth>16</depth>
+	<x>480</x>
+	<y>466</y>
+	<z>96</z>
+</cuboid>
+<cuboid>
+	<width>15</width>
+	<height>15</height>
+	<depth>15</depth>
+	<x>243.5</x>
+	<y>203.5</y>
+	<z>492.5</z>
+</cuboid>
+<cuboid>
+	<width>15</width>
+	<height>15</height>
+	<depth>15</depth>
+	<x>258.5</x>
+	<y>203.5</y>
+	<z>492.5</z>
+</cuboid>
+<cuboid>
+	<width>15</width>
+	<height>15</height>
+	<depth>15</depth>
+	<x>491.5</x>
+	<y>295.5</y>
+	<z>449.5</z>
+</cuboid>
+<cuboid>
+	<width>15</width>
+	<height>15</height>
+	<depth>15</depth>
+	<x>491.5</x>
+	<y>295.5</y>
+	<z>464.5</z>
+</cuboid>
+<cuboid>
+	<width>14</width>
+	<height>14</height>
+	<depth>14</depth>
+	<x>491</x>
+	<y>295</y>
+	<z>479</z>
+</cuboid>
+<cuboid>
+	<width>14</width>
+	<height>14</height>
+	<depth>14</depth>
+	<x>491</x>
+	<y>295</y>
+	<z>493</z>
+</cuboid>
+<cuboid>
+	<width>14</width>
+	<height>14</height>
+	<depth>14</depth>
+	<x>7</x>
+	<y>383</y>
+	<z>492</z>
+</cuboid>
+<cuboid>
+	<width>13</width>
+	<height>13</height>
+	<depth>13</depth>
+	<x>356.5</x>
+	<y>202.5</y>
+	<z>485.5</z>
+</cuboid>
+<cuboid>
+	<width>13</width>
+	<height>13</height>
+	<depth>13</depth>
+	<x>166.5</x>
+	<y>294.5</y>
+	<z>434.5</z>
+</cuboid>
+<cuboid>
+	<width>13</width>
+	<height>13</height>
+	<depth>13</depth>
+	<x>166.5</x>
+	<y>294.5</y>
+	<z>447.5</z>
+</cuboid>
+<cuboid>
+	<width>12</width>
+	<height>12</height>
+	<depth>12</depth>
+	<x>485</x>
+	<y>6</y>
+	<z>489</z>
+</cuboid>
+<cuboid>
+	<width>12</width>
+	<height>12</height>
+	<depth>12</depth>
+	<x>480</x>
+	<y>106</y>
+	<z>494</z>
+</cuboid>
+<cuboid>
+	<width>12</width>
+	<height>12</height>
+	<depth>12</depth>
+	<x>86</x>
+	<y>202</y>
+	<z>466</z>
+</cuboid>
+<cuboid>
+	<width>12</width>
+	<height>12</height>
+	<depth>12</depth>
+	<x>86</x>
+	<y>202</y>
+	<z>478</z>
+</cuboid>
+<cuboid>
+	<width>12</width>
+	<height>12</height>
+	<depth>12</depth>
+	<x>86</x>
+	<y>202</y>
+	<z>490</z>
+</cuboid>
+<cuboid>
+	<width>11</width>
+	<height>11</height>
+	<depth>11</depth>
+	<x>302.5</x>
+	<y>5.5</y>
+	<z>494.5</z>
+</cuboid>
+<cuboid>
+	<width>11</width>
+	<height>11</height>
+	<depth>11</depth>
+	<x>313.5</x>
+	<y>5.5</y>
+	<z>494.5</z>
+</cuboid>
+<cuboid>
+	<width>11</width>
+	<height>11</height>
+	<depth>11</depth>
+	<x>324.5</x>
+	<y>5.5</y>
+	<z>494.5</z>
+</cuboid>
+<cuboid>
+	<width>11</width>
+	<height>11</height>
+	<depth>11</depth>
+	<x>335.5</x>
+	<y>5.5</y>
+	<z>494.5</z>
+</cuboid>
+<cuboid>
+	<width>11</width>
+	<height>11</height>
+	<depth>11</depth>
+	<x>346.5</x>
+	<y>5.5</y>
+	<z>494.5</z>
+</cuboid>
+<cuboid>
+	<width>11</width>
+	<height>11</height>
+	<depth>11</depth>
+	<x>357.5</x>
+	<y>5.5</y>
+	<z>494.5</z>
 </cuboid>
 <cuboid>
 	<width>10</width>
 	<height>10</height>
 	<depth>10</depth>
-	<x>155</x>
+	<x>368</x>
 	<y>5</y>
-	<z>175</z>
+	<z>494</z>
+</cuboid>
+<cuboid>
+	<width>10</width>
+	<height>10</height>
+	<depth>10</depth>
+	<x>378</x>
+	<y>5</y>
+	<z>494</z>
+</cuboid>
+<cuboid>
+	<width>10</width>
+	<height>10</height>
+	<depth>10</depth>
+	<x>388</x>
+	<y>5</y>
+	<z>494</z>
+</cuboid>
+<cuboid>
+	<width>9</width>
+	<height>9</height>
+	<depth>9</depth>
+	<x>203.5</x>
+	<y>4.5</y>
+	<z>494.5</z>
+</cuboid>
+<cuboid>
+	<width>9</width>
+	<height>9</height>
+	<depth>9</depth>
+	<x>212.5</x>
+	<y>4.5</y>
+	<z>494.5</z>
+</cuboid>
+<cuboid>
+	<width>9</width>
+	<height>9</height>
+	<depth>9</depth>
+	<x>221.5</x>
+	<y>4.5</y>
+	<z>494.5</z>
+</cuboid>
+<cuboid>
+	<width>9</width>
+	<height>9</height>
+	<depth>9</depth>
+	<x>230.5</x>
+	<y>4.5</y>
+	<z>494.5</z>
+</cuboid>
+<cuboid>
+	<width>9</width>
+	<height>9</height>
+	<depth>9</depth>
+	<x>239.5</x>
+	<y>4.5</y>
+	<z>494.5</z>
+</cuboid>
+<cuboid>
+	<width>8</width>
+	<height>8</height>
+	<depth>8</depth>
+	<x>248</x>
+	<y>4</y>
+	<z>494</z>
+</cuboid>
+<cuboid>
+	<width>8</width>
+	<height>8</height>
+	<depth>8</depth>
+	<x>256</x>
+	<y>4</y>
+	<z>494</z>
+</cuboid>
+<cuboid>
+	<width>8</width>
+	<height>8</height>
+	<depth>8</depth>
+	<x>264</x>
+	<y>4</y>
+	<z>494</z>
+</cuboid>
+<cuboid>
+	<width>8</width>
+	<height>8</height>
+	<depth>8</depth>
+	<x>272</x>
+	<y>4</y>
+	<z>494</z>
+</cuboid>
+<cuboid>
+	<width>8</width>
+	<height>8</height>
+	<depth>8</depth>
+	<x>280</x>
+	<y>4</y>
+	<z>494</z>
+</cuboid>
+<cuboid>
+	<width>8</width>
+	<height>8</height>
+	<depth>8</depth>
+	<x>288</x>
+	<y>4</y>
+	<z>494</z>
+</cuboid>
+<cuboid>
+	<width>8</width>
+	<height>8</height>
+	<depth>8</depth>
+	<x>496</x>
+	<y>4</y>
+	<z>4</z>
+</cuboid>
+<cuboid>
+	<width>8</width>
+	<height>8</height>
+	<depth>8</depth>
+	<x>496</x>
+	<y>4</y>
+	<z>12</z>
+</cuboid>
+<cuboid>
+	<width>7</width>
+	<height>7</height>
+	<depth>7</depth>
+	<x>495.5</x>
+	<y>3.5</y>
+	<z>19.5</z>
+</cuboid>
+<cuboid>
+	<width>7</width>
+	<height>7</height>
+	<depth>7</depth>
+	<x>495.5</x>
+	<y>3.5</y>
+	<z>26.5</z>
+</cuboid>
+<cuboid>
+	<width>7</width>
+	<height>7</height>
+	<depth>7</depth>
+	<x>495.5</x>
+	<y>3.5</y>
+	<z>33.5</z>
+</cuboid>
+<cuboid>
+	<width>7</width>
+	<height>7</height>
+	<depth>7</depth>
+	<x>495.5</x>
+	<y>3.5</y>
+	<z>40.5</z>
+</cuboid>
+<cuboid>
+	<width>7</width>
+	<height>7</height>
+	<depth>7</depth>
+	<x>495.5</x>
+	<y>3.5</y>
+	<z>47.5</z>
+</cuboid>
+<cuboid>
+	<width>7</width>
+	<height>7</height>
+	<depth>7</depth>
+	<x>495.5</x>
+	<y>3.5</y>
+	<z>54.5</z>
+</cuboid>
+<cuboid>
+	<width>6</width>
+	<height>6</height>
+	<depth>6</depth>
+	<x>495</x>
+	<y>3</y>
+	<z>61</z>
+</cuboid>
+<cuboid>
+	<width>6</width>
+	<height>6</height>
+	<depth>6</depth>
+	<x>495</x>
+	<y>3</y>
+	<z>67</z>
+</cuboid>
+<cuboid>
+	<width>6</width>
+	<height>6</height>
+	<depth>6</depth>
+	<x>495</x>
+	<y>3</y>
+	<z>73</z>
+</cuboid>
+<cuboid>
+	<width>5</width>
+	<height>5</height>
+	<depth>5</depth>
+	<x>294.5</x>
+	<y>2.5</y>
+	<z>492.5</z>
+</cuboid>
+<cuboid>
+	<width>5</width>
+	<height>5</height>
+	<depth>5</depth>
+	<x>102.5</x>
+	<y>2.5</y>
+	<z>497.5</z>
+</cuboid>
+<cuboid>
+	<width>5</width>
+	<height>5</height>
+	<depth>5</depth>
+	<x>107.5</x>
+	<y>2.5</y>
+	<z>497.5</z>
+</cuboid>
+<cuboid>
+	<width>5</width>
+	<height>5</height>
+	<depth>5</depth>
+	<x>112.5</x>
+	<y>2.5</y>
+	<z>497.5</z>
+</cuboid>
+<cuboid>
+	<width>4</width>
+	<height>4</height>
+	<depth>4</depth>
+	<x>481</x>
+	<y>2</y>
+	<z>497</z>
+</cuboid>
+<cuboid>
+	<width>4</width>
+	<height>4</height>
+	<depth>4</depth>
+	<x>485</x>
+	<y>2</y>
+	<z>497</z>
+</cuboid>
+<cuboid>
+	<width>3</width>
+	<height>3</height>
+	<depth>3</depth>
+	<x>293.5</x>
+	<y>1.5</y>
+	<z>496.5</z>
+</cuboid>
+<cuboid>
+	<width>3</width>
+	<height>3</height>
+	<depth>3</depth>
+	<x>488.5</x>
+	<y>1.5</y>
+	<z>496.5</z>
+</cuboid>
+<cuboid>
+	<width>3</width>
+	<height>3</height>
+	<depth>3</depth>
+	<x>116.5</x>
+	<y>1.5</y>
+	<z>496.5</z>
+</cuboid>
+<cuboid>
+	<width>3</width>
+	<height>3</height>
+	<depth>3</depth>
+	<x>119.5</x>
+	<y>1.5</y>
+	<z>496.5</z>
+</cuboid>
+<cuboid>
+	<width>2</width>
+	<height>2</height>
+	<depth>2</depth>
+	<x>296</x>
+	<y>1</y>
+	<z>496</z>
+</cuboid>
+<cuboid>
+	<width>2</width>
+	<height>2</height>
+	<depth>2</depth>
+	<x>116</x>
+	<y>1</y>
+	<z>499</z>
+</cuboid>
+<cuboid>
+	<width>2</width>
+	<height>2</height>
+	<depth>2</depth>
+	<x>118</x>
+	<y>1</y>
+	<z>499</z>
+</cuboid>
+<cuboid>
+	<width>2</width>
+	<height>2</height>
+	<depth>2</depth>
+	<x>120</x>
+	<y>1</y>
+	<z>499</z>
+</cuboid>
+<cuboid>
+	<width>2</width>
+	<height>2</height>
+	<depth>2</depth>
+	<x>122</x>
+	<y>1</y>
+	<z>499</z>
+</cuboid>
+<cuboid>
+	<width>2</width>
+	<height>2</height>
+	<depth>2</depth>
+	<x>124</x>
+	<y>1</y>
+	<z>499</z>
+</cuboid>
+<cuboid>
+	<width>1</width>
+	<height>1</height>
+	<depth>1</depth>
+	<x>295.5</x>
+	<y>0.5</y>
+	<z>497.5</z>
+</cuboid>
+<cuboid>
+	<width>1</width>
+	<height>1</height>
+	<depth>1</depth>
+	<x>296.5</x>
+	<y>0.5</y>
+	<z>497.5</z>
+</cuboid>
+<cuboid>
+	<width>1</width>
+	<height>1</height>
+	<depth>1</depth>
+	<x>487.5</x>
+	<y>0.5</y>
+	<z>498.5</z>
+</cuboid>
+<cuboid>
+	<width>1</width>
+	<height>1</height>
+	<depth>1</depth>
+	<x>488.5</x>
+	<y>0.5</y>
+	<z>498.5</z>
+</cuboid>
+<cuboid>
+	<width>1</width>
+	<height>1</height>
+	<depth>1</depth>
+	<x>489.5</x>
+	<y>0.5</y>
+	<z>498.5</z>
+</cuboid>
+<cuboid>
+	<width>1</width>
+	<height>1</height>
+	<depth>1</depth>
+	<x>490.5</x>
+	<y>0.5</y>
+	<z>495.5</z>
 </cuboid>
 <base class_id="1" tracking_level="0" version="0">
-	<width>200</width>
-	<height>200</height>
+	<width>500</width>
+	<height>500</height>
 	<x>0</x>
 	<y>0</y>
 </base>

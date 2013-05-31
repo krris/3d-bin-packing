@@ -32,7 +32,8 @@ void saveXml(const std::vector<Cuboid>& cuboids, const Rect& base, const char* f
     {
         oa << boost::serialization::make_nvp("cuboid", cuboid);
     }
-    oa << boost::serialization::make_nvp("base", base);
+    if (base.width != 0 && base.height!=0)
+    	oa << boost::serialization::make_nvp("base", base);
 }
 
 std::vector<Cuboid> loadCuboidsFromXml(const char* filename)
@@ -157,7 +158,7 @@ void guillotineGlobalAlgorithm(int binWidth, int binDepth, vector<Cuboid> cuboid
 	Guillotine3d guillotineAlg(binWidth, binDepth);
 
 	// Insert cuboids
-	guillotineAlg.insertBestGlobalVector(cuboids, Guillotine3d::SplitLongerLeftoverAxis);
+	guillotineAlg.insertBestGlobal(cuboids, Guillotine3d::SplitLongerLeftoverAxis);
 
 	vector<Cuboid> placedCuboids = guillotineAlg.getUsedCuboids();
 	vector<Cuboid> newCuboids = transform(placedCuboids);
@@ -193,6 +194,21 @@ int main(int argc, char* argv[])
 {
 	// Set seed
 	srand (time(NULL));
+
+	// Generate random cuboids only
+	if (argc == 5)
+	{
+		string arg = argv[1];
+		if (arg == "-r")
+		{
+			int numberOfRandCuboids = atoi(argv[2]);
+			int paramRandCuboids = atoi(argv[3]);
+			string outFile = argv[4];
+			vector<Cuboid> cuboids = generateRandomCuboids(numberOfRandCuboids, paramRandCuboids);
+			saveXml(cuboids, Rect(), outFile.c_str());
+			return 0;
+		}
+	}
 
 	if (argc < 8 || argc > 10)
 		usage();
