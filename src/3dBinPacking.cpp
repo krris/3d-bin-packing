@@ -56,15 +56,30 @@ std::vector<Cuboid> loadCuboidsFromXml(const char* filename)
     return loadedCuboids;
 }
 
-vector<Cuboid> generateRandomCuboids(int number)
+vector<Cuboid> generateRandomCuboids(int number, int parameter)
 {
 	const int maxSize = 100;
 	vector<Cuboid> cuboids;
 	for (int i = 0; i < number; ++i)
 	{
+		int height;
+		int depth;
 		int width = rand() % maxSize + 1;
-		int height = rand() % maxSize + 1;
-		int depth = rand() % maxSize + 1;
+		if (parameter == 3)
+		{
+			height = width;
+			depth = width;
+		}
+		else if (parameter == 2)
+		{
+			depth = width;
+			height = rand() % maxSize + 1;
+		}
+		else
+		{
+			height = rand() % maxSize + 1;
+			depth = rand() % maxSize + 1;
+		}
 		Cuboid c(width, height, depth);
 		cuboids.push_back(c);
 	}
@@ -163,8 +178,6 @@ void usage()
 
 int main(int argc, char* argv[])
 {
-	//string outputFilename = "/home/krris/workspace/3dBinPacking/visual/app/cuboids_to_render.xml";
-	//string inputFilename = "/home/krris/workspace/3dBinPacking/visual/app/cuboids_input.xml";
 	// Set seed
 	srand (time(NULL));
 
@@ -216,7 +229,7 @@ int main(int argc, char* argv[])
 			usage();
 			return 1;
 		}
-		if (outFile.empty())
+		if (inFile.empty())
 		{
 			if (random == false)
 			{
@@ -228,142 +241,33 @@ int main(int argc, char* argv[])
 		cout << "algorithm: "<< algorithm << " outFile: " << outFile << " inFile: " << inFile
 			<< " width: " << width << " depth: " << depth << " random: " << random << " noRandC: " <<numberOfRandCuboids <<
 			" param: " << paramRandCuboids << " time: " << timeMeasurement << endl;
+
+
+		// Run algorithms
+
+		vector<Cuboid> cuboids;
+		if (random)
+			cuboids = generateRandomCuboids(numberOfRandCuboids, paramRandCuboids);
+		else
+			cuboids = loadCuboidsFromXml(inFile.c_str());
+
+		clock_t time = clock();
+
+		if (algorithm == "-shelf")
+			shelfAlgorithm(width, depth, cuboids, outFile);
+		else if (algorithm == "-guillotine")
+			guillotineAlgorithm(width, depth, cuboids, outFile);
+		else if (algorithm == "-global_guillotine")
+			guillotineGlobalAlgorithm(width, depth, cuboids, outFile);
+
+
+		if (timeMeasurement)
+		{
+			time = clock() - time;
+			double duration = time / (double) CLOCKS_PER_SEC;
+			cout << "It took me: " << time << " clicks ("<<duration<< " seconds)" << endl;
+		}
 	}
 
-
-
-
-//	if (argc < 6 || argc > 7)
-//		usage();
-//	// Without time measurement
-//	else if (argc == 6)
-//	{
-//		string arg1 = argv[1];
-//		string alg = argv[3];
-//		// Generete random cuboids
-//		if (arg1 == "-r" &&
-//		   (alg == "-shelf" || alg == "-guillotine" || alg == "-global_guillotine" ))
-//		{
-//			int number = atoi(argv[2]);
-//			int width = atoi(argv[4]);
-//			int depth = atoi(argv[5]);
-//			cout << "-r " << number << " " << alg << " width: " << width << " depth: " << depth << endl;
-//			if (alg == "-shelf")
-//			{
-//				vector<Cuboid> cuboids = generateRandomCuboids(number);
-//				shelfAlgorithm(width, depth, cuboids, outputFilename);
-//			}
-//			else if (alg == "-guillotine")
-//			{
-//				vector<Cuboid> cuboids = generateRandomCuboids(number);
-//				guillotineAlgorithm(width, depth, cuboids, outputFilename);
-//			}
-//			else if (alg == "-global_guillotine")
-//			{
-//				vector<Cuboid> cuboids = generateRandomCuboids(number);
-//				guillotineGlobalAlgorithm(width, depth, cuboids, outputFilename);
-//			}
-//
-//		}
-//		// Load cuboids from xml file.
-//		else if (arg1 == "-f" &&
-//			(alg == "-shelf" || alg == "-guillotine" || alg == "-global_guillotine" ))
-//		{
-//			string filename = argv[2];
-//			int width = atoi(argv[4]);
-//			int depth = atoi(argv[5]);
-//			cout << "-f " << filename << " " << alg  << " width: " << width << " depth: " << depth << endl;
-//			if (alg == "-shelf")
-//			{
-//				vector<Cuboid> cuboids = loadCuboidsFromXml(filename.c_str());
-//				shelfAlgorithm(width, depth, cuboids, outputFilename);
-//			}
-//			else if (alg == "-guillotine")
-//			{
-//				vector<Cuboid> cuboids = loadCuboidsFromXml(filename.c_str());
-//				guillotineAlgorithm(width, depth, cuboids, outputFilename);
-//			}
-//			else if (alg == "-global_guillotine")
-//			{
-//				vector<Cuboid> cuboids = loadCuboidsFromXml(filename.c_str());
-//				guillotineGlobalAlgorithm(width, depth, cuboids, outputFilename);
-//			}
-//
-//		}
-//		else
-//			usage();
-//	}
-//	// With time measurement
-//	else if (argc == 7)
-//	{
-//		string arg1(argv[1]);
-//		string arg2 = argv[2];
-//		string alg = argv[4];
-//		// Generate random cuboids
-//		if (arg1 == "-t" && arg2 == "-r" &&
-//		   (alg == "-shelf" || alg == "-guillotine" || alg == "-global_guillotine" ))
-//		{
-//			int number = atoi(argv[3]);
-//			int width = atoi(argv[5]);
-//			int depth = atoi(argv[6]);
-//			cout << "-t -r " << number << " " << alg << " width: " << width << " depth: " << depth << endl;
-//			clock_t time = clock();
-//			if (alg == "-shelf")
-//			{
-//				vector<Cuboid> cuboids = generateRandomCuboids(number);
-//				shelfAlgorithm(width, depth, cuboids, outputFilename);
-//				time = clock() - time;
-//			}
-//			else if (alg == "-guillotine")
-//			{
-//				vector<Cuboid> cuboids = generateRandomCuboids(number);
-//				guillotineAlgorithm(width, depth, cuboids, outputFilename);
-//				time = clock() - time;
-//			}
-//			else if (alg == "-global_guillotine")
-//			{
-//				vector<Cuboid> cuboids = generateRandomCuboids(number);
-//				guillotineGlobalAlgorithm(width, depth, cuboids, outputFilename);
-//				time = clock() - time;
-//			}
-//			double duration = time / (double) CLOCKS_PER_SEC;
-//			cout << "It took me: " << time << " clicks ("<<duration<< " seconds)" << endl;
-//		}
-//		// Load cuboids from xml file
-//		else if (arg1 == "-t" && arg2 == "-f" &&
-//		   (alg == "-shelf" || alg == "-guillotine" || alg == "-global_guillotine" ))
-//		{
-//			string filename = argv[3];
-//			int width = atoi(argv[5]);
-//			int depth = atoi(argv[6]);
-//			cout << "-t -f " << filename << " " << alg << " width: " << width << "depth: " << depth << endl;
-//			clock_t time = clock();
-//			if (alg == "-shelf")
-//			{
-//				vector<Cuboid> cuboids = loadCuboidsFromXml(filename.c_str());
-//				shelfAlgorithm(width, depth, cuboids, outputFilename);
-//				time = clock() - time;
-//			}
-//			else if (alg == "-guillotine")
-//			{
-//				vector<Cuboid> cuboids = loadCuboidsFromXml(filename.c_str());
-//				guillotineAlgorithm(width, depth, cuboids, outputFilename);
-//				time = clock() - time;
-//			}
-//			else if (alg == "-global_guillotine")
-//			{
-//				vector<Cuboid> cuboids = loadCuboidsFromXml(filename.c_str());
-//				guillotineGlobalAlgorithm(width, depth, cuboids, outputFilename);
-//				time = clock() - time;
-//			}
-//			double duration = time / (double) CLOCKS_PER_SEC;
-//			cout << "It took me: " << time << " clicks ("<<duration<< " seconds)" << endl;
-//		}
-//		else
-//			usage();
-//	}
-
-
-//	cout << "Works!" << endl;
 	return 0;
 }
