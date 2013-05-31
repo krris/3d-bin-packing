@@ -13,6 +13,7 @@
 #include <boost/serialization/nvp.hpp>
 #include <boost/archive/xml_oarchive.hpp>
 #include <boost/archive/xml_iarchive.hpp>
+#include <boost/date_time/posix_time/posix_time.hpp>
 
 #include "../include/forward_declarations.hpp"
 #include "../include/cuboid.hpp"
@@ -20,7 +21,11 @@
 #include "../include/guillotine2d.hpp"
 #include "../include/guillotine3d.hpp"
 #include "../include/rect.hpp"
+
 using namespace std;
+
+typedef boost::posix_time::ptime Time;
+typedef boost::posix_time::time_duration TimeDuration;
 
 void saveXml(const std::vector<Cuboid>& cuboids, const Rect& base, const char* filename)
 {
@@ -280,7 +285,8 @@ int main(int argc, char* argv[])
 		else
 			cuboids = loadCuboidsFromXml(inFile.c_str());
 
-		clock_t time = clock();
+//		clock_t time = clock();
+		Time t1(boost::posix_time::microsec_clock::local_time());
 
 		if (algorithm == "-shelf")
 			shelfAlgorithm(width, depth, cuboids, outFile);
@@ -292,9 +298,15 @@ int main(int argc, char* argv[])
 
 		if (timeMeasurement)
 		{
-			time = clock() - time;
-			double duration = time / (double) CLOCKS_PER_SEC;
-			cout << "It took me: " << time << " clicks ("<<duration<< " seconds)" << endl;
+			Time t2(boost::posix_time::microsec_clock::local_time());
+			TimeDuration dt = t2 - t1;
+
+			//number of elapsed miliseconds
+			long msec = dt.total_milliseconds();
+			cout << "It took me: " << msec << endl;
+//			time = clock() - time;
+//			double duration = time / (double) CLOCKS_PER_SEC;
+//			cout << "It took me: " << time << " clicks ("<<duration<< " seconds)" << endl;
 		}
 	}
 
