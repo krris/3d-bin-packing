@@ -16,7 +16,7 @@ Options:" << endl;
     -o : Output file which will store information about placed cuboids.
     -t : Time measurement enabled.
 
-Generating only cuboids is available.
+Generating cuboids only is available.
 Usage: 3dBinPacking -r number_of_cuboids parameter -o out_file
 
 Example:
@@ -32,7 +32,7 @@ Compilation:
 $ scons
 
 Visualization:
-1) To visualize output xml file should be saved in directory: visual/app as
+1) To visualize, output xml file should be saved in directory: visual/app as
    "cuboids_to_render.xml"
 2) $cd visual/app
 3) $ python -m SimpleHTTPServer 8005
