@@ -11,6 +11,8 @@
 #include <boost/serialization/nvp.hpp>
 
 struct Rect{
+	Rect() {}
+	Rect(int w, int h) : width(w), height(h) {}
 	int width = 0;
 	int height = 0;
 	int x = 0;
@@ -28,6 +30,10 @@ struct Rect{
         ar & boost::serialization::make_nvp("y", y);
 
     }
+
+    /* If rectangle is placed, stores an index of free rectangle in which
+     * is included/ */
+    int freeRectIndex = -1;
 };
 
 struct RectSize{

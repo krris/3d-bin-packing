@@ -25,8 +25,7 @@ public:
 
 	enum FreeCuboidChoiceHeuristic
 		{
-			CuboidMinHeight,
-			CuboidMinVolume
+			CuboidMinHeight
 		};
 
 	enum GuillotineSplitHeuristic
@@ -48,11 +47,8 @@ public:
 			FreeCuboidChoiceHeuristic cuboidChoice,
 			GuillotineSplitHeuristic splitMethod);
 
-	void insertBestGlobalVector(std::vector<Cuboid> cuboids,
-			GuillotineSplitHeuristic splitMethod);
-
-	Cuboid insertBestGlobal(std::vector<Cuboid>& cuboids,
-			const Guillotine3d& guilotine,
+	void insertBestGlobal(std::vector<Cuboid> cuboids,
+			FreeCuboidChoiceHeuristic cuboidChoice,
 			GuillotineSplitHeuristic splitMethod);
 
 	std::vector<Cuboid>& getFreeCuboids() { return freeCuboids; }
@@ -80,16 +76,10 @@ private:
 			FreeCuboidChoiceHeuristic cuboidChoice,
 			int *nodeIndex) const;
 
-	/**
-	 * Get all possible placements of cuboid.
-	 */
-	std::vector<Cuboid> movePossibilities(const Cuboid& cuboid,
-			GuillotineSplitHeuristic splitMethod);
-
-	static int scoreByHeuristic(const Cuboid& cuboid, const Cuboid& freeCuboid,
+	static float scoreByHeuristic(const Cuboid& cuboid, const Cuboid& freeCuboid,
 			FreeCuboidChoiceHeuristic cuboidChoice);
 
-	static int scoreMinHeight(const Cuboid& cuboid, const Cuboid& freeCuboid);
+	static float scoreMinHeight(const Cuboid& cuboid, const Cuboid& freeCuboid);
 
 	/* Splits the given L-shaped free rectangle into two new free rectangles
 	 * after placedCuboid has been placed into it. Determines the split axis by
@@ -104,7 +94,5 @@ private:
 			const Cuboid &placedCuboid,
 			bool splitHorizontal);
 };
-
-
 
 #endif /* GUILLOTINE3D_HPP_ */

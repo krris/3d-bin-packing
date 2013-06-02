@@ -1,7 +1,6 @@
 #ifndef SHELF_ALGORITHM_HPP
 #define SHELF_ALGORITHM_HPP
 
-#include "forward_declarations.hpp"
 #include "rect.hpp"
 #include "cuboid.hpp"
 #include "guillotine2d.hpp"
@@ -47,11 +46,7 @@ private:
 	std::vector<Shelf> shelves;
 	std::vector<Cuboid> usedCuboids;
 
-	/**
-	 * Check if cuboid fits on shelf. If it fits, cuboid.isPlaced will be set
-	 * to true.
-	 */
-	Cuboid fitsOnShelf(const Shelf& shelf, Cuboid cuboid) const;
+	Cuboid putOnShelf(Shelf& shelf, const Cuboid& cuboid);
 
 	void addToShelf(Shelf& shelf, Cuboid newCuboid);
 

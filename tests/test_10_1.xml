@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<!DOCTYPE boost_serialization>
+<boost_serialization signature="serialization::archive" version="10">
+<cuboid class_id="0" tracking_level="0" version="0">
+	<width>24</width>
+	<height>51</height>
+	<depth>88</depth>
+	<x>0</x>
+	<y>0</y>
+	<z>0</z>
+</cuboid>
+<cuboid>
+	<width>46</width>
+	<height>57</height>
+	<depth>16</depth>
+	<x>0</x>
+	<y>0</y>
+	<z>0</z>
+</cuboid>
+<cuboid>
+	<width>85</width>
+	<height>43</height>
+	<depth>24</depth>
+	<x>0</x>
+	<y>0</y>
+	<z>0</z>
+</cuboid>
+<cuboid>
+	<width>8</width>
+	<height>46</height>
+	<depth>76</depth>
+	<x>0</x>
+	<y>0</y>
+	<z>0</z>
+</cuboid>
+<cuboid>
+	<width>76</width>
+	<height>39</height>
+	<depth>80</depth>
+	<x>0</x>
+	<y>0</y>
+	<z>0</z>
+</cuboid>
+<cuboid>
+	<width>28</width>
+	<height>65</height>
+	<depth>90</depth>
+	<x>0</x>
+	<y>0</y>
+	<z>0</z>
+</cuboid>
+<cuboid>
+	<width>50</width>
+	<height>43</height>
+	<depth>93</depth>
+	<x>0</x>
+	<y>0</y>
+	<z>0</z>
+</cuboid>
+<cuboid>
+	<width>5</width>
+	<height>26</height>
+	<depth>36</depth>
+	<x>0</x>
+	<y>0</y>
+	<z>0</z>
+</cuboid>
+<cuboid>
+	<width>29</width>
+	<height>84</height>
+	<depth>93</depth>
+	<x>0</x>
+	<y>0</y>
+	<z>0</z>
+</cuboid>
+<cuboid>
+	<width>98</width>
+	<height>11</height>
+	<depth>85</depth>
+	<x>0</x>
+	<y>0</y>
+	<z>0</z>
+</cuboid>
+</boost_serialization>
+

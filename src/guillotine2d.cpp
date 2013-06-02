@@ -35,50 +35,36 @@ void Guillotine2d::init(int width, int height)
 	freeRectangles.push_back(n);
 }
 
-Rect Guillotine2d::insert(int width, int height,
+Rect Guillotine2d::insert(const Rect& rect,
 		FreeRectChoiceHeuristic rectChoice,
 		GuillotineSplitHeuristic splitMethod)
 {
 	// Find where to put the new rectangle
-	int freeNodeIndex = 0;
-	Rect newRect = findPositionForNewNode(width, height, rectChoice, &freeNodeIndex);
+	Rect newRect = findPositionForNewRect(rect, rectChoice);
 
 	// Abort if we didn't have enough space in the bin
 	if (newRect.isPlaced == false)
 		return newRect;
 
-	// Remove the space that was just consumed by the new rectangle.
-	splitFreeRectByHeuristic(freeRectangles[freeNodeIndex], newRect, splitMethod);
-	freeRectangles.erase(freeRectangles.begin() + freeNodeIndex);
-
-	// Remember the new used rectangle
-	usedRectangles.push_back(newRect);
-
 	return newRect;
 }
 
-void Guillotine2d::insert(std::vector<RectSize>& rects,
-		FreeRectChoiceHeuristic rectChoice,
-		GuillotineSplitHeuristic splitMethod)
+void Guillotine2d::insertOnPosition(const Rect& rect, GuillotineSplitHeuristic splitMethod)
 {
+	// Remove the space that was just consumed by the new rectangle.
+	splitFreeRectByHeuristic(freeRectangles[rect.freeRectIndex], rect, splitMethod);
+	freeRectangles.erase(freeRectangles.begin() + rect.freeRectIndex);
+
+	// Remember the new used rectangle
+	usedRectangles.push_back(rect);
 }
 
-Rect Guillotine2d::fits(int width, int height,
+Rect Guillotine2d::findPositionForNewRect(const Rect& rect,
 		FreeRectChoiceHeuristic rectChoice) const
 {
-	int nodeIndex;
-	Rect rect = findPositionForNewNode(width, height, rectChoice, &nodeIndex);
-	if (rect.isPlaced == true)
-		return rect;
-	else
-		return rect;
-}
-
-
-Rect Guillotine2d::findPositionForNewNode(int width, int height,
-		FreeRectChoiceHeuristic rectChoice, int* nodeIndex) const
-{
-	Rect bestNode;
+	int width = rect.width;
+	int height = rect.height;
+	Rect bestRect;
 
 	int bestScore = std::numeric_limits<int>::max();
 
@@ -89,89 +75,87 @@ Rect Guillotine2d::findPositionForNewNode(int width, int height,
 		if (width == freeRectangles[i].width &&
 			height == freeRectangles[i].height)
 		{
-			bestNode.isPlaced = true;
-			bestNode.x = freeRectangles[i].x;
-			bestNode.y = freeRectangles[i].y;
-			bestNode.width = width;
-			bestNode.height = height;
+			bestRect.isPlaced = true;
+			bestRect.x = freeRectangles[i].x;
+			bestRect.y = freeRectangles[i].y;
+			bestRect.width = width;
+			bestRect.height = height;
 			bestScore = std::numeric_limits<int>::min();
-			*nodeIndex = i;
+			bestRect.freeRectIndex = i;
 			break;
 		}
 		// If this is a perfect fit sideways, choose it.
 		else if (height == freeRectangles[i].width &&
 				width == freeRectangles[i].height)
 		{
-			bestNode.isPlaced = true;
-			bestNode.x = freeRectangles[i].x;
-			bestNode.y = freeRectangles[i].y;
-			bestNode.width = height;
-			bestNode.height = width;
+			bestRect.isPlaced = true;
+			bestRect.x = freeRectangles[i].x;
+			bestRect.y = freeRectangles[i].y;
+			bestRect.width = height;
+			bestRect.height = width;
 			bestScore = std::numeric_limits<int>::min();
-			*nodeIndex = i;
+			bestRect.freeRectIndex = i;
 			break;
 		}
 		// Does the rectangle fit upright?
-		else
 		if (width <= freeRectangles[i].width &&
 			height <= freeRectangles[i].height)
 		{
-			int score = scoreByHeuristic(width, height, freeRectangles[i], rectChoice);
+			int score = scoreByHeuristic(rect, freeRectangles[i], rectChoice);
 
 			if (score < bestScore)
 			{
-				bestNode.isPlaced = true;
-				bestNode.x = freeRectangles[i].x;
-				bestNode.y = freeRectangles[i].y;
-				bestNode.width = width;
-				bestNode.height = height;
+				bestRect.isPlaced = true;
+				bestRect.x = freeRectangles[i].x;
+				bestRect.y = freeRectangles[i].y;
+				bestRect.width = width;
+				bestRect.height = height;
 				bestScore = score;
-				*nodeIndex = i;
+				bestRect.freeRectIndex = i;
 			}
 		}
 		// Does the rectangle fit sideways?
-		else if (height <= freeRectangles[i].width &&
+		if (height <= freeRectangles[i].width &&
 				width <= freeRectangles[i].height)
 		{
-			int score = scoreByHeuristic(height, width, freeRectangles[i], rectChoice);
+			int score = scoreByHeuristic(rect, freeRectangles[i], rectChoice);
 
 			if (score < bestScore)
 			{
-				bestNode.isPlaced = true;
-				bestNode.x = freeRectangles[i].x;
-				bestNode.y = freeRectangles[i].y;
-				bestNode.width = height;
-				bestNode.height = width;
+				bestRect.isPlaced = true;
+				bestRect.x = freeRectangles[i].x;
+				bestRect.y = freeRectangles[i].y;
+				bestRect.width = height;
+				bestRect.height = width;
 				bestScore = score;
-				*nodeIndex = i;
+				bestRect.freeRectIndex = i;
 			}
 		}
 	}
-	return bestNode;
+	return bestRect;
 }
 
-int Guillotine2d::scoreByHeuristic(int width, int height, const Rect& freeRect,
+int Guillotine2d::scoreByHeuristic(const Rect& rect, const Rect& freeRect,
 		FreeRectChoiceHeuristic rectChoice)
 {
 	switch(rectChoice)
 	{
-		case RectBestAreaFit: return scoreBestAreaFit(width, height, freeRect);
-		case RectBestShortSideFit: return scoreBestShortSideFit(width, height, freeRect);
+		case RectBestAreaFit: return scoreBestAreaFit(rect, freeRect);
+		case RectBestShortSideFit: return scoreBestShortSideFit(rect, freeRect);
 		default: assert(false); return std::numeric_limits<int>::max();
 	}
 }
 
-int Guillotine2d::scoreBestAreaFit(int width, int height,
-		const Rect& freeRect)
+int Guillotine2d::scoreBestAreaFit(const Rect& rect, const Rect& freeRect)
 {
-	return freeRect.width * freeRect.height - width * height;
+	return freeRect.width * freeRect.height - rect.width * rect.height;
 }
 
-int Guillotine2d::scoreBestShortSideFit(int width, int height,
+int Guillotine2d::scoreBestShortSideFit(const Rect& rect,
 		const Rect& freeRect)
 {
-	int leftoverHoriz = std::abs(freeRect.width - width);
-	int leftoverVert = std::abs(freeRect.height - height);
+	int leftoverHoriz = std::abs(freeRect.width - rect.width);
+	int leftoverVert = std::abs(freeRect.height - rect.height);
 	int leftover = std::min(leftoverHoriz, leftoverVert);
 	return leftover;
 }
@@ -183,8 +167,9 @@ void Guillotine2d::splitFreeRectByHeuristic(const Rect &freeRect,
 	const int w = freeRect.width - placedRect.width;
 	const int h = freeRect.height - placedRect.height;
 
-	// Placing placedRect into freeRect results in an L-shaped free area, which must be split into
-	// two disjoint rectangles. This can be achieved with by splitting the L-shape using a single line.
+	// Placing placedRect into freeRect results in an L-shaped free area, which
+	// must be split into two disjoint rectangles. This can be achieved with by
+	// splitting the L-shape using a single line.
 	// We have two choices: horizontal or vertical.
 
 	// Use the given heuristic to decide which choice to make.
@@ -243,7 +228,8 @@ void Guillotine2d::splitFreeRectAlongAxis(const Rect& freeRect,
 		right.height = freeRect.height;
 	}
 
-	// Add the new rectangles into the free rectangle pool if they weren't degenerate.
+	// Add the new rectangles into the free rectangle pool if they weren't
+	// degenerate.
 	if (bottom.width > 0 && bottom.height > 0)
 		freeRectangles.push_back(bottom);
 	if (right.width > 0 && right.height > 0)
