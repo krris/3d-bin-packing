@@ -30,6 +30,8 @@ struct Rect{
         ar & boost::serialization::make_nvp("y", y);
 
     }
+
+    int freeRectIndex = -1;
 };
 
 struct RectSize{

@@ -35,49 +35,43 @@ void Guillotine2d::init(int width, int height)
 	freeRectangles.push_back(n);
 }
 
-Rect Guillotine2d::insert(int width, int height,
+Rect Guillotine2d::insert(const Rect& rect,
 		FreeRectChoiceHeuristic rectChoice,
 		GuillotineSplitHeuristic splitMethod)
 {
 	// Find where to put the new rectangle
-	int freeNodeIndex = 0;
-	Rect newRect = findPositionForNewNode(width, height, rectChoice, &freeNodeIndex);
+	Rect newRect = findPositionForNewRect(rect, rectChoice);
 
 	// Abort if we didn't have enough space in the bin
 	if (newRect.isPlaced == false)
 		return newRect;
 
-	// Remove the space that was just consumed by the new rectangle.
-	splitFreeRectByHeuristic(freeRectangles[freeNodeIndex], newRect, splitMethod);
-	freeRectangles.erase(freeRectangles.begin() + freeNodeIndex);
-
-	// Remember the new used rectangle
-	usedRectangles.push_back(newRect);
+	insertOnPosition(newRect, splitMethod);
+//	// Remove the space that was just consumed by the new rectangle.
+//	splitFreeRectByHeuristic(freeRectangles[rect.freeRectIndex], newRect, splitMethod);
+//	freeRectangles.erase(freeRectangles.begin() + rect.freeRectIndex);
+//
+//	// Remember the new used rectangle
+//	usedRectangles.push_back(newRect);
 
 	return newRect;
 }
 
-void Guillotine2d::insert(std::vector<RectSize>& rects,
-		FreeRectChoiceHeuristic rectChoice,
-		GuillotineSplitHeuristic splitMethod)
+void Guillotine2d::insertOnPosition(Rect rect, GuillotineSplitHeuristic splitMethod)
 {
+	// Remove the space that was just consumed by the new rectangle.
+	splitFreeRectByHeuristic(freeRectangles[rect.freeRectIndex], rect, splitMethod);
+	freeRectangles.erase(freeRectangles.begin() + rect.freeRectIndex);
+
+	// Remember the new used rectangle
+	usedRectangles.push_back(rect);
 }
 
-Rect Guillotine2d::fits(int width, int height,
+Rect Guillotine2d::findPositionForNewRect(const Rect& rect,
 		FreeRectChoiceHeuristic rectChoice) const
 {
-	int nodeIndex;
-	Rect rect = findPositionForNewNode(width, height, rectChoice, &nodeIndex);
-	if (rect.isPlaced == true)
-		return rect;
-	else
-		return rect;
-}
-
-
-Rect Guillotine2d::findPositionForNewNode(int width, int height,
-		FreeRectChoiceHeuristic rectChoice, int* nodeIndex) const
-{
+	int width = rect.width;
+	int height = rect.height;
 	Rect bestNode;
 
 	int bestScore = std::numeric_limits<int>::max();
@@ -95,7 +89,7 @@ Rect Guillotine2d::findPositionForNewNode(int width, int height,
 			bestNode.width = width;
 			bestNode.height = height;
 			bestScore = std::numeric_limits<int>::min();
-			*nodeIndex = i;
+			bestNode.freeRectIndex = i;
 			break;
 		}
 		// If this is a perfect fit sideways, choose it.
@@ -108,7 +102,7 @@ Rect Guillotine2d::findPositionForNewNode(int width, int height,
 			bestNode.width = height;
 			bestNode.height = width;
 			bestScore = std::numeric_limits<int>::min();
-			*nodeIndex = i;
+			bestNode.freeRectIndex = i;
 			break;
 		}
 		// Does the rectangle fit upright?
@@ -116,7 +110,7 @@ Rect Guillotine2d::findPositionForNewNode(int width, int height,
 		if (width <= freeRectangles[i].width &&
 			height <= freeRectangles[i].height)
 		{
-			int score = scoreByHeuristic(width, height, freeRectangles[i], rectChoice);
+			int score = scoreByHeuristic(rect, freeRectangles[i], rectChoice);
 
 			if (score < bestScore)
 			{
@@ -126,14 +120,14 @@ Rect Guillotine2d::findPositionForNewNode(int width, int height,
 				bestNode.width = width;
 				bestNode.height = height;
 				bestScore = score;
-				*nodeIndex = i;
+				bestNode.freeRectIndex = i;
 			}
 		}
 		// Does the rectangle fit sideways?
 		else if (height <= freeRectangles[i].width &&
 				width <= freeRectangles[i].height)
 		{
-			int score = scoreByHeuristic(height, width, freeRectangles[i], rectChoice);
+			int score = scoreByHeuristic(rect, freeRectangles[i], rectChoice);
 
 			if (score < bestScore)
 			{
@@ -143,35 +137,35 @@ Rect Guillotine2d::findPositionForNewNode(int width, int height,
 				bestNode.width = height;
 				bestNode.height = width;
 				bestScore = score;
-				*nodeIndex = i;
+				bestNode.freeRectIndex = i;
 			}
 		}
 	}
 	return bestNode;
 }
 
-int Guillotine2d::scoreByHeuristic(int width, int height, const Rect& freeRect,
+int Guillotine2d::scoreByHeuristic(const Rect& rect, const Rect& freeRect,
 		FreeRectChoiceHeuristic rectChoice)
 {
 	switch(rectChoice)
 	{
-		case RectBestAreaFit: return scoreBestAreaFit(width, height, freeRect);
-		case RectBestShortSideFit: return scoreBestShortSideFit(width, height, freeRect);
+		case RectBestAreaFit: return scoreBestAreaFit(rect, freeRect);
+		case RectBestShortSideFit: return scoreBestShortSideFit(rect, freeRect);
 		default: assert(false); return std::numeric_limits<int>::max();
 	}
 }
 
-int Guillotine2d::scoreBestAreaFit(int width, int height,
+int Guillotine2d::scoreBestAreaFit(const Rect& rect,
 		const Rect& freeRect)
 {
-	return freeRect.width * freeRect.height - width * height;
+	return freeRect.width * freeRect.height - rect.width * rect.height;
 }
 
-int Guillotine2d::scoreBestShortSideFit(int width, int height,
+int Guillotine2d::scoreBestShortSideFit(const Rect& rect,
 		const Rect& freeRect)
 {
-	int leftoverHoriz = std::abs(freeRect.width - width);
-	int leftoverVert = std::abs(freeRect.height - height);
+	int leftoverHoriz = std::abs(freeRect.width - rect.width);
+	int leftoverVert = std::abs(freeRect.height - rect.height);
 	int leftover = std::min(leftoverHoriz, leftoverVert);
 	return leftover;
 }

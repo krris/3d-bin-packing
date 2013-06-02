@@ -41,13 +41,10 @@ public:
 		SplitLongerAxis
 	};
 
-	Rect insert(int width, int height, FreeRectChoiceHeuristic rectChoice,
+	Rect insert(const Rect& rect, FreeRectChoiceHeuristic rectChoice,
 				GuillotineSplitHeuristic splitMethod);
 
-	void insert(std::vector<RectSize> &rects, FreeRectChoiceHeuristic rectChoice,
-				GuillotineSplitHeuristic splitMethod);
-
-	Rect fits(int width, int heigh, FreeRectChoiceHeuristic rectChoice) const;
+	void insertOnPosition(Rect rect, GuillotineSplitHeuristic splitMethod);
 
 
 	std::vector<Rect>& getFreeRectangles() { return freeRectangles; }
@@ -70,17 +67,16 @@ private:
 	 * Search through all free rectangles to find the best one to place
 	 * a new rectangle.
 	 */
-	Rect findPositionForNewNode(int width, int height,
-								FreeRectChoiceHeuristic rectChoice,
-								int *nodeIndex) const;
+	Rect findPositionForNewRect(const Rect& rect,
+								FreeRectChoiceHeuristic rectChoice) const;
 
 
 
-	static int scoreByHeuristic(int width, int height, const Rect &freeRect,
+	static int scoreByHeuristic(const Rect& rect, const Rect &freeRect,
 								FreeRectChoiceHeuristic rectChoice);
 
-	static int scoreBestAreaFit(int width, int height, const Rect &freeRect);
-	static int scoreBestShortSideFit(int width, int height, const Rect &freeRect);
+	static int scoreBestAreaFit(const Rect& rect, const Rect &freeRect);
+	static int scoreBestShortSideFit(const Rect& rect, const Rect &freeRect);
 
 	/* Splits the given L-shaped free rectangle into two new free rectangles
 	 * after placedRect has been placed into it. Determines the split axis by
