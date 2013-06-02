@@ -5,8 +5,6 @@
 #include <boost/serialization/nvp.hpp>
 #include <boost/archive/xml_oarchive.hpp>
 
-#include "forward_declarations.hpp"
-
 class Cuboid {
 public:
 	Cuboid() {}
@@ -42,6 +40,7 @@ public:
     	float j_max = std::max({j.width, j.height, j.depth});
     	return i_max > j_max;
     }
+
     static bool compareVolume(Cuboid i,Cuboid j)
     {
     	return ((i.width * i.height * i.depth) > (j.width * j.height * j.depth));

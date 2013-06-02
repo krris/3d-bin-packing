@@ -95,6 +95,4 @@ private:
 			bool splitHorizontal);
 };
 
-
-
 #endif /* GUILLOTINE3D_HPP_ */

@@ -89,16 +89,19 @@ Cuboid ShelfAlgorithm::putOnShelf(Shelf& shelf, const Cuboid& cuboid)
 	// Set cuboid's longest egde vertically
 	if (shelf.height > 0 && max > shelf.height)
 	{
-		//return cuboidNotPlaced;
+		// pass
 	}
 	else
 	{
 		Rect maxVerticalRect(middle, min);
-		Rect placement = shelf.guillotine.insert(maxVerticalRect, Guillotine2d::RectBestAreaFit, Guillotine2d::SplitLongerLeftoverAxis);
+		Rect placement = shelf.guillotine.insert(maxVerticalRect,
+				Guillotine2d::RectBestAreaFit,
+				Guillotine2d::SplitLongerLeftoverAxis);
 		if (placement.isPlaced)
 		{
 			Cuboid c(placement.width, max, placement.height);
-			shelf.guillotine.insertOnPosition(placement, Guillotine2d::SplitLongerLeftoverAxis);
+			shelf.guillotine.insertOnPosition(placement,
+					Guillotine2d::SplitLongerLeftoverAxis);
 			c.isPlaced = true;
 			c.x = placement.x;
 			c.z = placement.y;
@@ -111,17 +114,20 @@ Cuboid ShelfAlgorithm::putOnShelf(Shelf& shelf, const Cuboid& cuboid)
 
 	if (shelf.height > 0 && middle > shelf.height)
 	{
-//		return cuboidNotPlaced;
+		// pass
 	}
 	else
 	{
 		Rect middleVerticalRect(min, max);
-		Rect placement = shelf.guillotine.insert(middleVerticalRect, Guillotine2d::RectBestAreaFit, Guillotine2d::SplitLongerLeftoverAxis);
+		Rect placement = shelf.guillotine.insert(middleVerticalRect,
+				Guillotine2d::RectBestAreaFit,
+				Guillotine2d::SplitLongerLeftoverAxis);
 		if (placement.isPlaced)
 		{
 
 			Cuboid c(placement.width, middle, placement.height);
-			shelf.guillotine.insertOnPosition(placement, Guillotine2d::SplitLongerLeftoverAxis);
+			shelf.guillotine.insertOnPosition(placement,
+					Guillotine2d::SplitLongerLeftoverAxis);
 			c.isPlaced = true;
 			c.x = placement.x;
 			c.z = placement.y;
@@ -133,16 +139,19 @@ Cuboid ShelfAlgorithm::putOnShelf(Shelf& shelf, const Cuboid& cuboid)
 
 	if (shelf.height > 0 && min > shelf.height)
 	{
-//		return cuboidNotPlaced;
+		// pass
 	}
 	else
 	{
 		Rect minVerticalRect(middle, max);
-		Rect placement = shelf.guillotine.insert(minVerticalRect, Guillotine2d::RectBestAreaFit, Guillotine2d::SplitLongerLeftoverAxis);
+		Rect placement = shelf.guillotine.insert(minVerticalRect,
+				Guillotine2d::RectBestAreaFit,
+				Guillotine2d::SplitLongerLeftoverAxis);
 		if (placement.isPlaced)
 		{
 			Cuboid c (placement.width, min, placement.height);
-			shelf.guillotine.insertOnPosition(placement, Guillotine2d::SplitLongerLeftoverAxis);
+			shelf.guillotine.insertOnPosition(placement,
+					Guillotine2d::SplitLongerLeftoverAxis);
 			c.isPlaced = true;
 			c.x = placement.x;
 			c.z = placement.y;

@@ -31,6 +31,8 @@ struct Rect{
 
     }
 
+    /* If rectangle is placed, stores an index of free rectangle in which
+     * is included/ */
     int freeRectIndex = -1;
 };
 

@@ -1,7 +1,6 @@
 #ifndef SHELF_ALGORITHM_HPP
 #define SHELF_ALGORITHM_HPP
 
-#include "forward_declarations.hpp"
 #include "rect.hpp"
 #include "cuboid.hpp"
 #include "guillotine2d.hpp"

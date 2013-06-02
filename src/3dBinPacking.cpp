@@ -2,7 +2,6 @@
 // Name        : 3dBinPacking.cpp
 // Author      : 
 // Version     :
-// Copyright   : Your copyright notice
 //============================================================================
 
 #include <iostream>
@@ -15,7 +14,6 @@
 #include <boost/archive/xml_iarchive.hpp>
 #include <boost/date_time/posix_time/posix_time.hpp>
 
-#include "../include/forward_declarations.hpp"
 #include "../include/cuboid.hpp"
 #include "../include/shelf_algorithm.hpp"
 #include "../include/guillotine2d.hpp"
@@ -226,9 +224,14 @@ void usage()
 	cout << "-o \t: Output file which will store information about placed cuboids." << endl;
 	cout << "-t \t: Time measurement enabled." << endl << endl;
 
+	cout << "Generating only cuboids is available." << endl;
+	cout << "Usage: 3dBinPacking -r number_of_cuboids parameter -o out_file" << endl<<endl;
+
 	cout << "Example:" << endl;
 	cout << "./3dBinPacking -shelf 300 250 -f input_file.xml -o output_file.xml -t" << endl;
 	cout << "./3dBinPacking -shelf 300 250 -r 1000 2 -o output_file.xml -t" << endl;
+	cout << "./3dBinPacking -r 1000 2 -o output_file.xml" << endl;
+
 }
 
 int main(int argc, char* argv[])
@@ -314,7 +317,6 @@ int main(int argc, char* argv[])
 
 
 		// Run algorithms
-
 		vector<Cuboid> cuboids;
 		if (random)
 			cuboids = generateRandomCuboids(numberOfRandCuboids, paramRandCuboids);
@@ -328,8 +330,6 @@ int main(int argc, char* argv[])
 			guillotineAlgorithm(width, depth, cuboids, outFile, timeMeasurement);
 		else if (algorithm == "-global_guillotine")
 			guillotineGlobalAlgorithm(width, depth, cuboids, outFile, timeMeasurement);
-
-
 	}
 
 	return 0;
