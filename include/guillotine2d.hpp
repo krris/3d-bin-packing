@@ -41,10 +41,10 @@ public:
 		SplitLongerAxis
 	};
 
-	Rect insert(Rect rect, FreeRectChoiceHeuristic rectChoice,
+	Rect insert(const Rect& rect, FreeRectChoiceHeuristic rectChoice,
 				GuillotineSplitHeuristic splitMethod);
 
-	void insertOnPosition(Rect rect, GuillotineSplitHeuristic splitMethod);
+	void insertOnPosition(const Rect& rect, GuillotineSplitHeuristic splitMethod);
 
 
 	std::vector<Rect>& getFreeRectangles() { return freeRectangles; }
@@ -68,7 +68,7 @@ private:
 	 * a new rectangle.
 	 */
 	Rect findPositionForNewRect(const Rect& rect,
-								FreeRectChoiceHeuristic rectChoice) const;
+			FreeRectChoiceHeuristic rectChoice) const;
 
 
 

@@ -35,7 +35,7 @@ void Guillotine2d::init(int width, int height)
 	freeRectangles.push_back(n);
 }
 
-Rect Guillotine2d::insert(Rect rect,
+Rect Guillotine2d::insert(const Rect& rect,
 		FreeRectChoiceHeuristic rectChoice,
 		GuillotineSplitHeuristic splitMethod)
 {
@@ -46,11 +46,10 @@ Rect Guillotine2d::insert(Rect rect,
 	if (newRect.isPlaced == false)
 		return newRect;
 
-//	insertOnPosition(newRect, splitMethod);
 	return newRect;
 }
 
-void Guillotine2d::insertOnPosition(Rect rect, GuillotineSplitHeuristic splitMethod)
+void Guillotine2d::insertOnPosition(const Rect& rect, GuillotineSplitHeuristic splitMethod)
 {
 	// Remove the space that was just consumed by the new rectangle.
 	splitFreeRectByHeuristic(freeRectangles[rect.freeRectIndex], rect, splitMethod);
@@ -168,8 +167,9 @@ void Guillotine2d::splitFreeRectByHeuristic(const Rect &freeRect,
 	const int w = freeRect.width - placedRect.width;
 	const int h = freeRect.height - placedRect.height;
 
-	// Placing placedRect into freeRect results in an L-shaped free area, which must be split into
-	// two disjoint rectangles. This can be achieved with by splitting the L-shape using a single line.
+	// Placing placedRect into freeRect results in an L-shaped free area, which
+	// must be split into two disjoint rectangles. This can be achieved with by
+	// splitting the L-shape using a single line.
 	// We have two choices: horizontal or vertical.
 
 	// Use the given heuristic to decide which choice to make.
@@ -228,7 +228,8 @@ void Guillotine2d::splitFreeRectAlongAxis(const Rect& freeRect,
 		right.height = freeRect.height;
 	}
 
-	// Add the new rectangles into the free rectangle pool if they weren't degenerate.
+	// Add the new rectangles into the free rectangle pool if they weren't
+	// degenerate.
 	if (bottom.width > 0 && bottom.height > 0)
 		freeRectangles.push_back(bottom);
 	if (right.width > 0 && right.height > 0)

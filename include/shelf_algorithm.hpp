@@ -47,7 +47,7 @@ private:
 	std::vector<Shelf> shelves;
 	std::vector<Cuboid> usedCuboids;
 
-	Cuboid putOnShelf(Shelf& shelf, Cuboid cuboid);
+	Cuboid putOnShelf(Shelf& shelf, const Cuboid& cuboid);
 
 	void addToShelf(Shelf& shelf, Cuboid newCuboid);
 
