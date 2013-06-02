@@ -1,12 +1,13 @@
 3D Bin Packing
 
 
-Usage: 3dBinPacking [-shelf | -guillotine | -global_guillotine] width depth [-f in_file | -r arg arg] -o out_file [-t]
+Usage: 3dBinPacking [-shelf | -guillotine | -global_guillotine] width depth 
+        [-f in_file | -r arg arg] -o out_file [-t]
 Options:" << endl;
-    -shelf \t\t: Shelf algorithm + guillotine algorithm (with initial cuboids sorting)
-    -guillotine \t: Guillotine algorithm (with initial cuboids sorting)
+    -shelf : Shelf algorithm + guillotine algorithm (with initial cuboids sorting)
+    -guillotine : Guillotine algorithm (with initial cuboids sorting)
     -global_guillotine: Global guillotine algorithm (without initial sorting)
-    -width, depth\t: Size of a cuboid base.
+    -width, depth: Size of a cuboid base.
     -f : Input xml file with information about cuboids to put.
     -r : Generate n random cuboids, with parameter:
         1 - every edge has different length (default)
@@ -31,7 +32,8 @@ Compilation:
 $ scons
 
 Visualization:
-1) To visualize output xml file should be saved in directory: visual/app as "cuboids_to_render.xml"
+1) To visualize output xml file should be saved in directory: visual/app as
+   "cuboids_to_render.xml"
 2) $cd visual/app
 3) $ python -m SimpleHTTPServer 8005
 4) Open your web browser: http://localhost:8005/cuboids.html
