@@ -120,9 +120,11 @@ vector<Cuboid> transform(const vector<Cuboid>& cuboids)
 
 }
 
-void shelfAlgorithm(int binWidth, int binDepth, vector<Cuboid> cuboids, string filename)
+void shelfAlgorithm(int binWidth, int binDepth, vector<Cuboid> cuboids, string filename, bool timeMeasurement)
 {
 	ShelfAlgorithm shelfAlg(binWidth, binDepth);
+
+	Time t1(boost::posix_time::microsec_clock::local_time());
 
 	// Sort cuboids
 	sort(cuboids.begin(), cuboids.end(), &Cuboid::compareVolume);
@@ -133,15 +135,27 @@ void shelfAlgorithm(int binWidth, int binDepth, vector<Cuboid> cuboids, string f
 	vector<Cuboid> placedCuboids = shelfAlg.getUsedCuboids();
 	vector<Cuboid> transformedCuboids = transform(placedCuboids);
 
+	if (timeMeasurement)
+	{
+		Time t2(boost::posix_time::microsec_clock::local_time());
+		TimeDuration dt = t2 - t1;
+
+		//number of elapsed miliseconds
+		long msec = dt.total_milliseconds();
+		cout << "It took me: " << msec << endl;
+	}
+
 	// Save the output xml
 	Rect base(binWidth, binDepth);
 	saveXml(transformedCuboids, base, filename.c_str());
 	cout << "Bin height: " << shelfAlg.getFilledBinHeight() << endl;
 }
 
-void guillotineAlgorithm(int binWidth, int binDepth, vector<Cuboid> cuboids, string filename)
+void guillotineAlgorithm(int binWidth, int binDepth, vector<Cuboid> cuboids, string filename, bool timeMeasurement)
 {
 	Guillotine3d guillotineAlg(binWidth, binDepth);
+
+	Time t1(boost::posix_time::microsec_clock::local_time());
 
 	// Sort cuboids
 	sort(cuboids.begin(), cuboids.end(), &Cuboid::compareMaxEdge);
@@ -152,21 +166,43 @@ void guillotineAlgorithm(int binWidth, int binDepth, vector<Cuboid> cuboids, str
 	vector<Cuboid> placedCuboids = guillotineAlg.getUsedCuboids();
 	vector<Cuboid> newCuboids = transform(placedCuboids);
 
+	if (timeMeasurement)
+	{
+		Time t2(boost::posix_time::microsec_clock::local_time());
+		TimeDuration dt = t2 - t1;
+
+		//number of elapsed miliseconds
+		long msec = dt.total_milliseconds();
+		cout << "It took me: " << msec << endl;
+	}
+
 	// Save the output
 	Rect base(binWidth, binDepth);
 	saveXml(newCuboids, base, filename.c_str());
 	cout << "Bin height: " << guillotineAlg.getFilledBinHeight() << endl;
 }
 
-void guillotineGlobalAlgorithm(int binWidth, int binDepth, vector<Cuboid> cuboids, string filename)
+void guillotineGlobalAlgorithm(int binWidth, int binDepth, vector<Cuboid> cuboids, string filename, bool timeMeasurement)
 {
 	Guillotine3d guillotineAlg(binWidth, binDepth);
+
+	Time t1(boost::posix_time::microsec_clock::local_time());
 
 	// Insert cuboids
 	guillotineAlg.insertBestGlobal(cuboids, Guillotine3d::CuboidMinHeight, Guillotine3d::SplitLongerLeftoverAxis);
 
 	vector<Cuboid> placedCuboids = guillotineAlg.getUsedCuboids();
 	vector<Cuboid> newCuboids = transform(placedCuboids);
+
+	if (timeMeasurement)
+	{
+		Time t2(boost::posix_time::microsec_clock::local_time());
+		TimeDuration dt = t2 - t1;
+
+		//number of elapsed miliseconds
+		long msec = dt.total_milliseconds();
+		cout << "It took me: " << msec << endl;
+	}
 
 	// Save the output
 	Rect base(binWidth, binDepth);
@@ -285,29 +321,15 @@ int main(int argc, char* argv[])
 		else
 			cuboids = loadCuboidsFromXml(inFile.c_str());
 
-//		clock_t time = clock();
-		Time t1(boost::posix_time::microsec_clock::local_time());
 
 		if (algorithm == "-shelf")
-			shelfAlgorithm(width, depth, cuboids, outFile);
+			shelfAlgorithm(width, depth, cuboids, outFile, timeMeasurement);
 		else if (algorithm == "-guillotine")
-			guillotineAlgorithm(width, depth, cuboids, outFile);
+			guillotineAlgorithm(width, depth, cuboids, outFile, timeMeasurement);
 		else if (algorithm == "-global_guillotine")
-			guillotineGlobalAlgorithm(width, depth, cuboids, outFile);
+			guillotineGlobalAlgorithm(width, depth, cuboids, outFile, timeMeasurement);
 
 
-		if (timeMeasurement)
-		{
-			Time t2(boost::posix_time::microsec_clock::local_time());
-			TimeDuration dt = t2 - t1;
-
-			//number of elapsed miliseconds
-			long msec = dt.total_milliseconds();
-			cout << "It took me: " << msec << endl;
-//			time = clock() - time;
-//			double duration = time / (double) CLOCKS_PER_SEC;
-//			cout << "It took me: " << time << " clicks ("<<duration<< " seconds)" << endl;
-		}
 	}
 
 	return 0;
