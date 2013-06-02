@@ -41,7 +41,7 @@ public:
 		SplitLongerAxis
 	};
 
-	Rect insert(const Rect& rect, FreeRectChoiceHeuristic rectChoice,
+	Rect insert(Rect rect, FreeRectChoiceHeuristic rectChoice,
 				GuillotineSplitHeuristic splitMethod);
 
 	void insertOnPosition(Rect rect, GuillotineSplitHeuristic splitMethod);

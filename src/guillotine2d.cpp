@@ -35,7 +35,7 @@ void Guillotine2d::init(int width, int height)
 	freeRectangles.push_back(n);
 }
 
-Rect Guillotine2d::insert(const Rect& rect,
+Rect Guillotine2d::insert(Rect rect,
 		FreeRectChoiceHeuristic rectChoice,
 		GuillotineSplitHeuristic splitMethod)
 {
@@ -46,14 +46,7 @@ Rect Guillotine2d::insert(const Rect& rect,
 	if (newRect.isPlaced == false)
 		return newRect;
 
-	insertOnPosition(newRect, splitMethod);
-//	// Remove the space that was just consumed by the new rectangle.
-//	splitFreeRectByHeuristic(freeRectangles[rect.freeRectIndex], newRect, splitMethod);
-//	freeRectangles.erase(freeRectangles.begin() + rect.freeRectIndex);
-//
-//	// Remember the new used rectangle
-//	usedRectangles.push_back(newRect);
-
+//	insertOnPosition(newRect, splitMethod);
 	return newRect;
 }
 
@@ -72,7 +65,7 @@ Rect Guillotine2d::findPositionForNewRect(const Rect& rect,
 {
 	int width = rect.width;
 	int height = rect.height;
-	Rect bestNode;
+	Rect bestRect;
 
 	int bestScore = std::numeric_limits<int>::max();
 
@@ -83,30 +76,29 @@ Rect Guillotine2d::findPositionForNewRect(const Rect& rect,
 		if (width == freeRectangles[i].width &&
 			height == freeRectangles[i].height)
 		{
-			bestNode.isPlaced = true;
-			bestNode.x = freeRectangles[i].x;
-			bestNode.y = freeRectangles[i].y;
-			bestNode.width = width;
-			bestNode.height = height;
+			bestRect.isPlaced = true;
+			bestRect.x = freeRectangles[i].x;
+			bestRect.y = freeRectangles[i].y;
+			bestRect.width = width;
+			bestRect.height = height;
 			bestScore = std::numeric_limits<int>::min();
-			bestNode.freeRectIndex = i;
+			bestRect.freeRectIndex = i;
 			break;
 		}
 		// If this is a perfect fit sideways, choose it.
 		else if (height == freeRectangles[i].width &&
 				width == freeRectangles[i].height)
 		{
-			bestNode.isPlaced = true;
-			bestNode.x = freeRectangles[i].x;
-			bestNode.y = freeRectangles[i].y;
-			bestNode.width = height;
-			bestNode.height = width;
+			bestRect.isPlaced = true;
+			bestRect.x = freeRectangles[i].x;
+			bestRect.y = freeRectangles[i].y;
+			bestRect.width = height;
+			bestRect.height = width;
 			bestScore = std::numeric_limits<int>::min();
-			bestNode.freeRectIndex = i;
+			bestRect.freeRectIndex = i;
 			break;
 		}
 		// Does the rectangle fit upright?
-		else
 		if (width <= freeRectangles[i].width &&
 			height <= freeRectangles[i].height)
 		{
@@ -114,34 +106,34 @@ Rect Guillotine2d::findPositionForNewRect(const Rect& rect,
 
 			if (score < bestScore)
 			{
-				bestNode.isPlaced = true;
-				bestNode.x = freeRectangles[i].x;
-				bestNode.y = freeRectangles[i].y;
-				bestNode.width = width;
-				bestNode.height = height;
+				bestRect.isPlaced = true;
+				bestRect.x = freeRectangles[i].x;
+				bestRect.y = freeRectangles[i].y;
+				bestRect.width = width;
+				bestRect.height = height;
 				bestScore = score;
-				bestNode.freeRectIndex = i;
+				bestRect.freeRectIndex = i;
 			}
 		}
 		// Does the rectangle fit sideways?
-		else if (height <= freeRectangles[i].width &&
+		if (height <= freeRectangles[i].width &&
 				width <= freeRectangles[i].height)
 		{
 			int score = scoreByHeuristic(rect, freeRectangles[i], rectChoice);
 
 			if (score < bestScore)
 			{
-				bestNode.isPlaced = true;
-				bestNode.x = freeRectangles[i].x;
-				bestNode.y = freeRectangles[i].y;
-				bestNode.width = height;
-				bestNode.height = width;
+				bestRect.isPlaced = true;
+				bestRect.x = freeRectangles[i].x;
+				bestRect.y = freeRectangles[i].y;
+				bestRect.width = height;
+				bestRect.height = width;
 				bestScore = score;
-				bestNode.freeRectIndex = i;
+				bestRect.freeRectIndex = i;
 			}
 		}
 	}
-	return bestNode;
+	return bestRect;
 }
 
 int Guillotine2d::scoreByHeuristic(const Rect& rect, const Rect& freeRect,
@@ -155,8 +147,7 @@ int Guillotine2d::scoreByHeuristic(const Rect& rect, const Rect& freeRect,
 	}
 }
 
-int Guillotine2d::scoreBestAreaFit(const Rect& rect,
-		const Rect& freeRect)
+int Guillotine2d::scoreBestAreaFit(const Rect& rect, const Rect& freeRect)
 {
 	return freeRect.width * freeRect.height - rect.width * rect.height;
 }

@@ -47,11 +47,7 @@ private:
 	std::vector<Shelf> shelves;
 	std::vector<Cuboid> usedCuboids;
 
-	/**
-	 * Check if cuboid fits on shelf. If it fits, cuboid.isPlaced will be set
-	 * to true.
-	 */
-	Cuboid fitsOnShelf(const Shelf& shelf, Cuboid cuboid) const;
+	Cuboid putOnShelf(Shelf& shelf, Cuboid cuboid);
 
 	void addToShelf(Shelf& shelf, Cuboid newCuboid);
 

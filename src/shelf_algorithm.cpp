@@ -27,20 +27,20 @@ Cuboid ShelfAlgorithm::insert(const Cuboid& cuboid, ShelfChoiceHeuristic method)
 	switch(method)
 	{
 	case ShelfNextFit:
-		fittingCuboid = fitsOnShelf(shelves.back(), cuboid);
-		if (fittingCuboid.isPlaced == true)
-		{
-			addToShelf(shelves.back(), cuboid);
-			return fittingCuboid;
-		}
-		break;
+//		fittingCuboid = fitsOnShelf(shelves.back(), cuboid);
+//		if (fittingCuboid.isPlaced == true)
+//		{
+//			addToShelf(shelves.back(), cuboid);
+//			return fittingCuboid;
+//		}
+//		break;
 
 	case ShelfFirstFit:
 		for(size_t i = 0; i < shelves.size(); ++i)
 		{
-			fittingCuboid = fitsOnShelf(shelves[i], cuboid);
-			{
+			fittingCuboid = putOnShelf(shelves[i], cuboid);
 			if (fittingCuboid.isPlaced == true)
+			{
 				addToShelf(shelves[i], fittingCuboid);
 				return fittingCuboid;
 			}
@@ -61,7 +61,7 @@ Cuboid ShelfAlgorithm::insert(const Cuboid& cuboid, ShelfChoiceHeuristic method)
 	if (canStartNewShelf(newCuboid.height))
 	{
 		startNewShelf(newCuboid.height);
-		auto fits = fitsOnShelf(shelves.back(), newCuboid);
+		auto fits = putOnShelf(shelves.back(), newCuboid);
 		assert(fits.isPlaced);
 		addToShelf(shelves.back(), fits);
 		return fits;
@@ -71,7 +71,7 @@ Cuboid ShelfAlgorithm::insert(const Cuboid& cuboid, ShelfChoiceHeuristic method)
 	return cuboid;
 }
 
-Cuboid ShelfAlgorithm::fitsOnShelf(const Shelf& shelf, Cuboid cuboid) const
+Cuboid ShelfAlgorithm::putOnShelf(Shelf& shelf, Cuboid cuboid)
 {
 	float width = cuboid.width;
 	float height = cuboid.height;
@@ -85,38 +85,50 @@ Cuboid ShelfAlgorithm::fitsOnShelf(const Shelf& shelf, Cuboid cuboid) const
 	float min = edges[0];
 
 	// Set cuboid's longest egde vertically
-	Rect placement = shelf.guillotine.fits(middle, min, Guillotine2d::RectBestAreaFit);
+	Rect maxVerticalRect(middle, min);
+	Rect placement = shelf.guillotine.insert(maxVerticalRect, Guillotine2d::RectBestAreaFit, Guillotine2d::SplitLongerLeftoverAxis);
 	if (shelf.height > 0)
 		if (max > shelf.height)
 			placement.isPlaced = false;
 	if (placement.isPlaced)
 	{
 		Cuboid c(placement.width, max, placement.height);
+		shelf.guillotine.insertOnPosition(placement, Guillotine2d::SplitLongerLeftoverAxis);
 		c.isPlaced = true;
+		c.x = placement.x;
+		c.z = placement.y;
 		return c;
 	}
 
 	// Set cuboid's second longest egde vertically
-	placement = shelf.guillotine.fits(min, max, Guillotine2d::RectBestAreaFit);
+	Rect middleVerticalRect(min, max);
+	placement = shelf.guillotine.insert(middleVerticalRect, Guillotine2d::RectBestAreaFit, Guillotine2d::SplitLongerLeftoverAxis);
 	if (shelf.height > 0)
 		if (middle > shelf.height)
 			placement.isPlaced = false;
 	if (placement.isPlaced)
 	{
 		Cuboid c(placement.width, middle, placement.height);
+		shelf.guillotine.insertOnPosition(placement, Guillotine2d::SplitLongerLeftoverAxis);
 		c.isPlaced = true;
+		c.x = placement.x;
+		c.z = placement.y;
 		return c;
 	}
 
 	// Set cuboid's smallest egde vertically
-	placement = shelf.guillotine.fits(middle, max, Guillotine2d::RectBestAreaFit);
+	Rect minVerticalRect(middle, max);
+	placement = shelf.guillotine.insert(minVerticalRect, Guillotine2d::RectBestAreaFit, Guillotine2d::SplitLongerLeftoverAxis);
 	if (shelf.height > 0)
 		if (min > shelf.height)
 			placement.isPlaced = false;
 	if (placement.isPlaced)
 	{
 		Cuboid c (placement.width, min, placement.height);
+		shelf.guillotine.insertOnPosition(placement, Guillotine2d::SplitLongerLeftoverAxis);
 		c.isPlaced = true;
+		c.x = placement.x;
+		c.z = placement.y;
 		return c;
 	}
 
@@ -129,16 +141,18 @@ void ShelfAlgorithm::addToShelf(Shelf& shelf, Cuboid newCuboid)
 	// Add the cuboid to the shelf.
 	newCuboid.y = shelf.startY;
 
-	Rect cuboidBase = shelf.guillotine.insert(newCuboid.width, newCuboid.depth,
-			Guillotine2d::RectBestAreaFit, Guillotine2d::SplitLongerLeftoverAxis);
+//	Rect rectToInsert(newCuboid.width, newCuboid.depth);
+//	Rect cuboidBase = shelf.guillotine.insert(rectToInsert,
+//			Guillotine2d::RectBestAreaFit, Guillotine2d::SplitLongerLeftoverAxis);
 
-	newCuboid.x = cuboidBase.x;
-	newCuboid.z = cuboidBase.y;
+//	newCuboid.x = cuboidBase.x;
+//	newCuboid.z = cuboidBase.y;
 
-	newCuboid.isPlaced = cuboidBase.isPlaced;
+//	newCuboid.isPlaced = cuboidBase.isPlaced;
 
-	if (newCuboid.isPlaced == true)
-		usedCuboids.push_back(newCuboid);
+	assert(newCuboid.isPlaced);
+//	if (newCuboid.isPlaced == true)
+	usedCuboids.push_back(newCuboid);
 
 	// Grow the shelf height.
 	shelf.height = max(shelf.height, newCuboid.height);
