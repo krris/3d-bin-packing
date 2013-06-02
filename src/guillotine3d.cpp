@@ -1,9 +1,9 @@
-/*
- * guillotine3d.cpp
- *
- *  Created on: 24-05-2013
- *      Author: krris
- */
+//============================================================================
+// Name        : guillotine3d.cpp
+// Author      : krris 
+// Version     : 1.0
+//============================================================================
+
 
 #include "../include/guillotine3d.hpp"
 

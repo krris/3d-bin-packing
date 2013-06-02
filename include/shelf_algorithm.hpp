@@ -1,3 +1,8 @@
+//============================================================================
+// Name        : ishelf_algorithm.cpp
+// Author      : krris 
+// Version     : 1.0
+//============================================================================
 #ifndef SHELF_ALGORITHM_HPP
 #define SHELF_ALGORITHM_HPP
 

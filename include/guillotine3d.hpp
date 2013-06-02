@@ -1,9 +1,8 @@
-/*
- * guillotine3d.hpp
- *
- *  Created on: 24-05-2013
- *      Author: krris
- */
+//============================================================================
+// Name        : guillotine3d.hpp
+// Author      : krris 
+// Version     : 1.0
+//============================================================================
 
 #ifndef GUILLOTINE3D_HPP_
 #define GUILLOTINE3D_HPP_

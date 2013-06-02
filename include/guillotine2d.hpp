@@ -1,9 +1,8 @@
-/*
- * 2dGuillotine.hpp
- *
- *  Created on: 24-05-2013
- *      Author: krris
- */
+//============================================================================
+// Name        : guillotine2d.hpp
+// Author      : krris 
+// Version     : 1.0
+//============================================================================
 
 #ifndef GUILLOTINE2D_HPP_
 #define GUILLOTINE2D_HPP_

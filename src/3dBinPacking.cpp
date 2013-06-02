@@ -1,7 +1,9 @@
 //============================================================================
 // Name        : 3dBinPacking.cpp
-// Author      : 
-// Version     :
+// Author      : krris 
+// Version     : 1.0
+// Description : Program which tests 3 various algorithms for 3D bin packing
+//               problem.
 //============================================================================
 
 #include <iostream>

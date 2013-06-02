@@ -1,11 +1,8 @@
-/*
- * 2dGuillotine.cpp
- *
- *  Created on: 24-05-2013
- *      Author: krris
- */
-
-//#include <algorithm>
+//============================================================================
+// Name        : guillotine2d.cpp
+// Author      : krris 
+// Version     : 1.0
+//============================================================================
 #include <cassert>
 #include <cmath>
 #include <limits>
