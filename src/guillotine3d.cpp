@@ -174,8 +174,8 @@ Cuboid Guillotine3d::findPositionForNewNode(const Cuboid& cuboid,
 
 		// Height x Depth x Width
 		if (height <= freeCuboids[i].width &&
-			width <= freeCuboids[i].height &&
-			depth <= freeCuboids[i].depth)
+			depth <= freeCuboids[i].height &&
+			width <= freeCuboids[i].depth)
 		{
 			float score = scoreByHeuristic(cuboid, freeCuboids[i], cuboidChoice);
 			if (score < bestScore)
@@ -347,7 +347,7 @@ void Guillotine3d::splitFreeCuboidAlongAxis(const Cuboid& freeCuboid,
 	}
 	else
 	{
-		top.height = freeCuboid.height - top.y;
+		top.height = freeCuboid.height - placedCuboid.height;
 	}
 	top.width = freeCuboid.width;
 	top.depth = freeCuboid.depth;
